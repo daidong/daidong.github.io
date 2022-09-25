@@ -16,12 +16,14 @@ He is currently leading the [Data Intelligence Research (DIR) Lab](http://daidon
 
 <h2 id="News">News!</h2>
  
-- **Spring 2023 Fully Supported Ph.D. RA positions** are available. Send me emails for more details.
-- Congrats to Abdullah Al Raqibul Islam accepted to CS Research Mentorship Program (CSRMP) by Google Research.
-- **ClusterLog** is accepted by [FTXS 2022 Workshop](https://sites.google.com/view/ftxs2022) at SC'22. Congrats to Chris Egersdoerfer and Di Zhang. Chris is an Undergraduate Student, and this is his first paper! In this paper, we propose a new log pre-processing method to improve existing log-based anomaly detection methods' accuracy significantly.
-- **IOPathTune** is accepted by [SC'22 ACM Student Research Competition (SRC)](https://sc22.supercomputing.org/program/posters/acm-student-research-competition/). Congrats to Md. Hasanur Rashid! This poster summarizes our recent progress in building a client-side, dynamic, real-time I/O tuner. Hasanur also serves as Student Volunteer at SC.
-- An extended journal version of the **Optane PMEM Performance** study is accepted by CCF Transactions on High-Performance Computing. Congrats to Abdullah Al Raqibul Islam. In this study, we systematically benchmarked Optane PMEM performance on various indexing data structures and made interesting observations.
-- Congrats Di Zhang and Abdullah Al Raqibul Islam, for their **2022 Summer Intern** jobs in Meta and LLNL, respectively.
+- [Research] **Spring 2023 Fully Supported Ph.D. RA positions** are available. Send me emails for more details.
+- [Award] Congratulate Abdullah Al Raqibul Islam for being accepted to CS Research Mentorship Program (CSRMP) by Google Research.
+- [Research] **ClusterLog** is accepted by [FTXS 2022 Workshop](https://sites.google.com/view/ftxs2022) at SC'22. Congrats to Chris Egersdoerfer and Di Zhang. Chris is an Undergraduate Student, and this is his first paper! In this paper, we propose a new log pre-processing method to improve existing log-based anomaly detection methods' accuracy significantly.
+- [Research] **IOPathTune** is accepted by [SC'22 ACM Student Research Competition (SRC)](https://sc22.supercomputing.org/program/posters/acm-student-research-competition/). Congrats to Md. Hasanur Rashid! This poster summarizes our recent progress in building a client-side, dynamic, real-time I/O tuner. Hasanur also serves as Student Volunteer at SC.
+- [Research] An extended journal version of the **Optane PMEM Performance** study is accepted by CCF Transactions on High-Performance Computing. Congrats to Abdullah Al Raqibul Islam. In this study, we systematically benchmarked Optane PMEM performance on various indexing data structures and made interesting observations.
+- [2022 Summer Intern] Congratulate Di Zhang and Abdullah Al Raqibul Islam, for their jobs in Meta and LLNL, respectively.
+- [Award] Recived [CCI Essam El-Kwae Student-Faculty Research Award (together with Di Zhang)](https://cci.charlotte.edu/news/2022-05-02/cci-facultystaff-awards-luncheon). Thanks!
+- ...
 
 
 <h2 id="Research">Research Projects</h2>
