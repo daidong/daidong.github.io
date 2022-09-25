@@ -1,14 +1,24 @@
 ---
 permalink: /
-title: "academicpages is a ready-to-fork GitHub Pages template for academic personal websites"
-excerpt: "About me"
+title: "Dong Dai's HomePage"
+excerpt: "home"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
 
-This is the front page of a website that is powered by the [academicpages template](https://github.com/academicpages/academicpages.github.io) and hosted on GitHub pages. [GitHub pages](https://pages.github.com) is a free service in which websites are built and hosted from code and data stored in a GitHub repository, automatically updating when a new commit is made to the respository. This template was forked from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/) created by Michael Rose, and then extended to support the kinds of content that academics have: publications, talks, teaching, a portfolio, blog posts, and a dynamically-generated CV. You can fork [this repository](https://github.com/academicpages/academicpages.github.io) right now, modify the configuration and markdown files, add your own PDFs and other content, and have your own site for free, with no ads! An older version of this template powers my own personal website at [stuartgeiger.com](http://stuartgeiger.com), which uses [this Github repository](https://github.com/staeiou/staeiou.github.io).
+Dr. Dong Dai is an Assistant Professor in the [Computer Science Department](https://cci.charlotte.edu/computer-science/45/5) at [University of North Carolina at Charlotte](http://uncc.edu). He is interested in a wide range of topics related to infrastructure for building and utilizing high-performance storage systems, including parallel file systems, metadata management, distributed graph storage, operating systems, and data-intensive machine learning infrastructure.
+
+He is leading the [Data Intelligence Research (DIR) Lab](http://daidong.github.io/lab), a research group that focusing on co-designing data-intensive and inteligent systems. He is co-directing the Parallel and High-Performance Computing Lab in UNC-Charlotte.
+
+<h2 id="News">News</h2>
+* 2023 Spring Ph.D RA positions available. Send email to me for more details.
+====== 
+
+<h2 id="Research">Research</h2>
+
+<h2 id="Publications">Publications</h2>
 
 A data-driven personal website
 ======
