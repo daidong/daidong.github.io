@@ -82,11 +82,11 @@ analytics:
 author:
   name             : "Dong Dai"
   avatar           : "dongdai.jpg"
-  bio              : "I am interested in a wide range of topics related to infrastructure for building and utilizing high-performance storage systems, including parallel file systems, metadata management, distributed graph storage, operating systems, and data-intensive machine learning infrastructure. I received BS and Doctor degrees in Computer Science from University of Science and Technology of China in 2006 and 2013 respectively. From 2013–2015, I became a PostDoc researcher in a joint project between Texas Tech University and Argonne National Lab. The project is about storage metadata and I/O scheduling. From 2015–2018, I was a Research Assistant Professor at Texas Tech University. I worked on distributed graph storage systems, large-scale metadatadata management system, and paralell file system fault tolerance. In 2018, I joined the Department of Computer Science at Univeristy of North Carolina at Charlotte (UNC-Charlotte) as Assistant Professor."
+  bio              : "I am interested in a wide range of topics related to build and optimize high-performance data- intensive systems, such as job and I/O scheduler, parallel file systems, metadata management, graph storage, and machine learning infrastructure."
   location         : "Charlotte, NC"
-  employer         :
+  employer         : "UNC-Charlotte"
   googlescholar    : "https://scholar.google.com/citations?user=wGF_4JsAAAAJ&hl=en"
-  email            : "ddai.uncc.edu"
+  email            : "ddai@uncc.edu"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -95,7 +95,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "https://github.com/DIR-LAB/"
+  github           : "DIR-LAB"
   google_plus      :
   keybase          :
   instagram        :
@@ -108,7 +108,7 @@ author:
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : "https://twitter.com/daidong"
+  twitter          : "daidong"
   vine             :
   weibo            :
   xing             :
