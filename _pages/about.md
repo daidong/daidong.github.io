@@ -13,8 +13,9 @@ Dr. Dong Dai is an Assistant Professor in the [Computer Science Department](http
 He is leading the [Data Intelligence Research (DIR) Lab](http://daidong.github.io/lab), a research group that focusing on co-designing data-intensive and inteligent systems. He is co-directing the Parallel and High-Performance Computing Lab in UNC-Charlotte.
 
 <h2 id="News">News</h2>
-* 2023 Spring Ph.D RA positions available. Send email to me for more details.
-====== 
+- 2023 Spring Ph.D RA positions available. Send email to me for more details.
+- 2023 Spring Ph.D RA positions available. Send email to me for more details.
+
 
 <h2 id="Research">Research</h2>
 
