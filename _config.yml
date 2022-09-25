@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Dong Dai"
   avatar           : "dongdai.jpg"
-  bio              : "I am interested in a wide range of topics related to build and optimize high-performance data- intensive systems, such as job and I/O scheduler, parallel file systems, metadata management, graph storage, and machine learning infrastructure."
+  bio              : "I am interested in a wide range of topics related to build and optimize high-performance data-intensive systems, such as job and I/O scheduler, parallel file systems, metadata management, graph storage, and machine learning infrastructure."
   location         : "Charlotte, NC"
   employer         : "UNC-Charlotte"
   googlescholar    : "https://scholar.google.com/citations?user=wGF_4JsAAAAJ&hl=en"
