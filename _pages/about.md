@@ -17,7 +17,7 @@ He is currently leading the [Data Intelligence Research (DIR) Lab](http://daidon
 <h2 id="News">News!</h2>
  
 - **Spring 2023 Fully Supported Ph.D. RA positions** are available. Send me emails for more details.
-- Congrats to Abdullah Al Raqibul Islam for being accepted to CS Research Mentorship Program (CSRMP) by Google Research.
+- Congrats to Abdullah Al Raqibul Islam accepted to CS Research Mentorship Program (CSRMP) by Google Research.
 - **ClusterLog** is accepted by [FTXS 2022 Workshop](https://sites.google.com/view/ftxs2022) at SC'22. Congrats to Chris Egersdoerfer and Di Zhang. Chris is an Undergraduate Student, and this is his first paper! In this paper, we propose a new log pre-processing method to improve existing log-based anomaly detection methods' accuracy significantly.
 - **IOPathTune** is accepted by [SC'22 ACM Student Research Competition (SRC)](https://sc22.supercomputing.org/program/posters/acm-student-research-competition/). Congrats to Md. Hasanur Rashid! This poster summarizes our recent progress in building a client-side, dynamic, real-time I/O tuner. Hasanur also serves as Student Volunteer at SC.
 - An extended journal version of the **Optane PMEM Performance** study is accepted by CCF Transactions on High-Performance Computing. Congrats to Abdullah Al Raqibul Islam. In this study, we systematically benchmarked Optane PMEM performance on various indexing data structures and made interesting observations.
@@ -62,3 +62,18 @@ Please check a full list at [Google Scholar Page](https://scholar.google.com/cit
 - **[SC'14]** Two-Choice Randomized Dynamic I/O Scheduler for Object Storage Systems. _Dong Dai, Yong Chen, Dries Kimpe, and Robert B. Ross_. In proceedings of the International Conference for High Performance Computing, Networking, Storage and Analysis, 2014. (acceptance rate: 82/394=20.8%). [Paper](http://discl.cs.ttu.edu/lib/exe/fetch.php?media=wiki:papers:pap479submitted.pdf)
 - **[PDSW'14]** Using Property Graphs for Rich Metadata Management in HPC Systems. _Dong Dai, Robert B. Ross, Philip Carns, Dries Kimpe, and Yong Chen_. In 9th Parallel Data Storage Workshop held in Conjunction with SC14, 2014. [Paper](http://discl.cs.ttu.edu/lib/exe/fetch.php?media=wiki:papers:camera-ready-font-ok.pdf), [Slides](http://www.pdsw.org/pdsw14/slides/dai-pdsw14.pdf)
 - ...
+
+<h2 id="Teaching">Teaching</h2>
+
+- [UNCC] ITCS5145 Parallel Computing [Fall 2022, 2021]
+- [UNCC] ITSC3181 Introduction to Computer Architecture [Spring 2022, 2021]
+- [UNCC] ITSC3181 Introduction to Computer Architecture [Fall 2021, 2020]
+
+<h2 id="Students">Students</h2>
+
+- Abdullah Al Raqibul Islam (Ph.D. student since 2019)
+- Di Zhang (Ph.D. student since 2019)
+- Md. Hasanur Rashid (Ph.D. student since 2020)
+- Saisha Kamat (Ph.D. student since 2020)
+- Saeed Zangeneh (perspective Ph.D. student 2023 Spring)
+- Chris Egersdoerfer (Undergraduate student since 2022)
