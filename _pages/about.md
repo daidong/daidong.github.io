@@ -84,5 +84,6 @@ Please check a full list at [Google Scholar Page](https://scholar.google.com/cit
 - Chris Egersdoerfer (Undergraduate student since 2022)
 
 Graduated
+- Tony Li (UNCC Master, Google)
 - Anirudh Narayanan (UNCC Master, Amazon)
 - Christopher York (UNCC Undergraduate, BOA)
