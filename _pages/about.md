@@ -28,11 +28,13 @@ He is currently leading the [Data Intelligence Research (DIR) Lab](http://daidon
 
 <h2 id="Research">Research Projects</h2>
 
-{% include base_path %}
-
-{% for post in site.projects reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+- [NSF](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2008265&HistoricalAwards=false) Moving Machine Learning into the Next-Generation Cloud Flexibly, Agilely and Efficiently
+- [NSF](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1908843&HistoricalAwards=false) Hybrid NVM based Computing Architecture for Machine Learning Applications
+- [NSF](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1910727&HistoricalAwards=false) Parallel Graph-Based Paradigm for HPC Parallel File System Checkers
+- [NSF](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1852815&HistoricalAwards=false) Partitioning Large Graphs in Deep Storage Architecture [CRII, 2018]
+- [NSF](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1817094&HistoricalAwards=false) Tuning Extreme-scale Storage Stack through Deep Reinforcement Learning
+- [NSF](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1718336&HistoricalAwards=false) Uncovering Vulnerabilities in Parallel File Systems
+- [NSF](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1835892&HistoricalAwards=false) Empowering Data-driven Discovery with a Provenance Collection, Management, and Analysis Software Infrastructure
 
 <h2 id="Publications">Recent and Selected Publications</h2>
 
