@@ -2,19 +2,19 @@
 main:
 
   - title: "News"
-    url: /#News/
+    url: /#News
     
   - title: "Projects"
-    url: /#Research/
+    url: /#Research
     
   - title: "Publications"
-    url: /#Publications/
+    url: /#Publications
 
   - title: "Teaching"
-    url: /#Teaching/
+    url: /#Teaching
     
   - title: "Students"
-    url: /#Students/
+    url: /#Students
   
   - title: "DIRLab"
-    url: /lab/
+    url: /lab
