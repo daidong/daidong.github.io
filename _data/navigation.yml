@@ -7,8 +7,14 @@ main:
   - title: "Projects"
     url: /#Research/
     
-   - title: "Publications"
+  - title: "Publications"
     url: /#Publications/
-        
+
+  - title: "Teaching"
+    url: /#Teaching/
+    
+  - title: "Students"
+    url: /#Students/
+  
   - title: "DIRLab"
     url: /lab/
