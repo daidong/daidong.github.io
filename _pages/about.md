@@ -19,6 +19,7 @@ He is currently leading the [Data Intelligence Research (DIR) Lab](http://daidon
 - Spring 2023 Fully Supported Ph.D. RA positions are available. Send emails for more details.
 - **ClusterLog** accepted by [FTXS 2022 Workshop](https://sites.google.com/view/ftxs2022) at SC'22. Congrats to Chris Egersdoerfer and Di Zhang. Chris is a Undergraduate Student. And this is his first paper! In this paper, we propose a new log pre-processing method to improve existing log-based anomaly detection methods.
 - **IOPathTune** accepted by SC'22 ACM Student Research Competition (SRC). Congrats to Md. Hasanur Rashid! Look forward to seeing everyone at SC'22. Hasanur also serves as Student Volunteer at SC.
+- An extended journal version of **Optane PMEM Performance** study is accepted CCF Transactions on High Performance Computing. Congrats to Abdullah Al Raqibul Islam. in this study, we systematically benchmarked Optane PMEM performance on various indexing data structures and made interesting observations. We are now working on a PMEM-based graph store. Feel free to contact us if you are interested.
 
 <h2 id="Research">Research Projects</h2>
 
@@ -32,6 +33,9 @@ He is currently leading the [Data Intelligence Research (DIR) Lab](http://daidon
 
 Please check a full list at [Google Scholar Page](https://scholar.google.com/citations?user=wGF_4JsAAAAJ&hl=en)
 
+- [FTXS-SC'22 Workshop] ClusterLog: Clustering Logs for Effective Log-based Anomaly Detection. _Chris Egersdoerfer, Di Zhang, Dong Dai_. Accepted in Workshop on Fault Tolerance for HPC at eXtreme Scale (with SC'22). [Paper-TBA]
+- [SRC-SC'22 Poster] IOPathTune: Adaptive Online Parameter Tuning for Parallel File System I/O Path. _Md. Hasanur Rashid, Dong Dai_. Accepted in SC'22 ACM Student Research Competition (Poster). [Paper-TBA]
+- [THPC'22] A performance study of optane persistent memory: from storage data structures' perspective. _Abdullah Al Raqibul Islam, Christopher York, Dong Dai_. Accepted in CCF Transactions on High Performance Computing, 2022 [Paper](https://rdcu.be/cWgD4)
 - **[HPDC'22]** SchedInspector: A Batch Job Scheduling Inspector Using Reinforcement Learning. *Di Zhang, Dong Dai, Bing Xie*. In the 31st International ACM Symposium on High-Performance Parallel and Distributed Computing, 2022 [Paper](https://webpages.charlotte.edu/ddai/papers/dong-hpdc-schedinspector-22.pdf), [Slides/PPT](https://webpages.charlotte.edu/ddai/papers/schedinspector-hpdc22-pub.pptx), [Code](https://github.com/DIR-LAB/SchedInspector)
 - **[CCGRID'22]** VCSR: Mutable CSR Graph Format Using Vertex-Centric Packed Memory Array. *Abdullah Al Raqibul Islam, Dong Dai, Dazhao Cheng*. In The 22nd IEEE/ACM International Symposium on Cluster, Cloud and Internet Computing, 2022 [Paper](https://webpages.charlotte.edu/ddai/papers/dong-ccgrid-22.pdf), [Slides/PDF](https://webpages.charlotte.edu/ddai/papers/ccgrid22_vcsr_raqib.pdf), [Code](https://github.com/DIR-LAB/VCSR)
 - **[ASCR-MSSD'22]** Towards Unified Intelligent High Performance Computing Storage Systems. _Dong Dai_. Position paper accepted in DOE ASCR Workshop on the Management and Storage of Scientific Data, 2022 [Paper](https://webpages.charlotte.edu/ddai/papers/ascr-mssd-2022.pdf)
