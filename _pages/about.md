@@ -72,6 +72,7 @@ Please check a full list at [Google Scholar Page](https://scholar.google.com/cit
 - [UNCC] ITCS5145 Parallel Computing [Fall 2022, 2021]
 - [UNCC] ITSC3181 Introduction to Computer Architecture [Spring 2022, 2021]
 - [UNCC] ITSC3181 Introduction to Computer Architecture [Fall 2021, 2020]
+- [UNCC] ITCS6144 Operating System Design [Fall 2018, 2019]
 
 <h2 id="Students">Students</h2>
 
@@ -81,3 +82,7 @@ Please check a full list at [Google Scholar Page](https://scholar.google.com/cit
 - Saisha Kamat (Ph.D. student since 2020)
 - Saeed Zangeneh (prospective Ph.D. student 2023 Spring)
 - Chris Egersdoerfer (Undergraduate student since 2022)
+
+Graduated
+- Anirudh Narayanan (UNCC Master, Amazon)
+- Christopher York (UNCC Undergraduate, BOA)
