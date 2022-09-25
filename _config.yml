@@ -84,7 +84,7 @@ author:
   avatar           : "dongdai.jpg"
   bio              : "I am an Assistant Professor in Computer Science Department at Univeresity of North Carolina at Charlotte, focusing on High-Performance Computing and Storage Systems."
   location         : "Charlotte, NC"
-  employer         : "UNC-Charlotte"
+  employer         : #"UNC-Charlotte"
   googlescholar    : "https://scholar.google.com/citations?user=wGF_4JsAAAAJ&hl=en"
   email            : "ddai@uncc.edu"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
