@@ -7,13 +7,13 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Your Name / Site Title"
+title                    : "Dong Dai's Home Page"
 title_separator          : "-"
-name                     : &name "Your Name"
+name                     : &name "Dong Dai"
 description              : &description "personal description"
-url                      : https://academicpages.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://daidong.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "academicpages/academicpages.github.io"
+repository               : "daidong/daidong.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
@@ -80,14 +80,13 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Sidebar Name"
-  avatar           : "profile.png"
-  bio              : "Your biography for the left-hand sidebar"
-  location         : "Location"
+  name             : "Dong Dai"
+  avatar           : "dongdai.jpg"
+  bio              : "I am interested in a wide range of topics related to infrastructure for building and utilizing high-performance storage systems, including parallel file systems, metadata management, distributed graph storage, operating systems, and data-intensive machine learning infrastructure. I received BS and Doctor degrees in Computer Science from University of Science and Technology of China in 2006 and 2013 respectively. From 2013–2015, I became a PostDoc researcher in a joint project between Texas Tech University and Argonne National Lab. The project is about storage metadata and I/O scheduling. From 2015–2018, I was a Research Assistant Professor at Texas Tech University. I worked on distributed graph storage systems, large-scale metadatadata management system, and paralell file system fault tolerance. In 2018, I joined the Department of Computer Science at Univeristy of North Carolina at Charlotte (UNC-Charlotte) as Assistant Professor."
+  location         : "Charlotte, NC"
   employer         :
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  googlescholar    : "http://yourfullgooglescholarurl.com"
-  email            :
+  googlescholar    : "https://scholar.google.com/citations?user=wGF_4JsAAAAJ&hl=en"
+  email            : "ddai.uncc.edu"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -96,7 +95,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "academicpages"
+  github           : "https://github.com/DIR-LAB/"
   google_plus      :
   keybase          :
   instagram        :
@@ -109,7 +108,7 @@ author:
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : "replacethistwitterhandle"
+  twitter          : "https://twitter.com/daidong"
   vine             :
   weibo            :
   xing             :
