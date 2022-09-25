@@ -14,12 +14,14 @@ Dr. Dong Dai's research interests include a wide range of topics related to inte
 
 He is currently leading the [Data Intelligence Research (DIR) Lab](http://daidong.github.io/lab), a research group that focuses on co-designing data-intensive and intelligent systems. He is co-directing the Parallel and High-Performance Computing Lab at UNC-Charlotte.
 
-<h2 id="News">News</h2>
+<h2 id="News">News!</h2>
  
 - Spring 2023 Fully Supported Ph.D. RA positions are available. Send emails for more details.
-- **ClusterLog** accepted by [FTXS 2022 Workshop](https://sites.google.com/view/ftxs2022) at SC'22. Congrats to Chris Egersdoerfer and Di Zhang. Chris is a Undergraduate Student, and this is his first paper! In this paper, we propose a new log pre-processing method to significantly improve existing log-based anomaly detection methods' accuracy.
-- **IOPathTune** accepted by SC'22 ACM Student Research Competition (SRC). Congrats to Md. Hasanur Rashid! This poster summarizes our recent progress in building a client-side, dynamic, real-time I/O tuner. Hasanur also serves as Student Volunteer at SC.
-- An extended journal version of **Optane PMEM Performance** study is accepted CCF Transactions on High Performance Computing. Congrats to Abdullah Al Raqibul Islam. in this study, we systematically benchmarked Optane PMEM performance on various indexing data structures and made interesting observations. We are now working on a PMEM-based graph store. Feel free to contact us if you are interested.
+- Congrats to Abdullah Al Raqibul Islam for being accepted to CS Research Mentorship Program (CSRMP) by Google Research.
+- **ClusterLog** is accepted by [FTXS 2022 Workshop](https://sites.google.com/view/ftxs2022) at SC'22. Congrats to Chris Egersdoerfer and Di Zhang. Chris is a Undergraduate Student, and this is his first paper! In this paper, we propose a new log pre-processing method to significantly improve existing log-based anomaly detection methods' accuracy.
+- **IOPathTune** is accepted by SC'22 ACM Student Research Competition (SRC). Congrats to Md. Hasanur Rashid! This poster summarizes our recent progress in building a client-side, dynamic, real-time I/O tuner. Hasanur also serves as Student Volunteer at SC.
+- An extended journal version of **Optane PMEM Performance** study is accepted CCF Transactions on High Performance Computing. Congrats to Abdullah Al Raqibul Islam. in this study, we systematically benchmarked Optane PMEM performance on various indexing data structures and made interesting observations.
+- Di Zhang and Abdullah Al Raqibul Islam are working as summer interns in Meta and LLNL respectively.
 
 <h2 id="Research">Research Projects</h2>
 
