@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Dong Dai"
   avatar           : "dongdai.jpg"
-  bio              : "I am interested in a wide range of topics related to build and optimize high-performance data-intensive systems, such as job and I/O scheduler, parallel file systems, metadata management, graph storage, and machine learning infrastructure."
+  bio              : "I am an Assistant Professor in Computer Science Department at Univeresity of North Carolina at Charlotte, focusing on High-Performance Computing and Storage Systems."
   location         : "Charlotte, NC"
   employer         : "UNC-Charlotte"
   googlescholar    : "https://scholar.google.com/citations?user=wGF_4JsAAAAJ&hl=en"
@@ -102,7 +102,7 @@ author:
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
   linkedin         :
-  orcid            : "http://orcid.org/yourorcidurl"
+  orcid            : "http://orcid.org/0000-0003-4078-8149"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
