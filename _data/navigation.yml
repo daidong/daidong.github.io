@@ -1,14 +1,14 @@
 # main links links
 main:
 
-  - title: "Publications"
-    url: /#publications/ 
-
-  - title: "Research Projects"
-    url: /#projects/
+  - title: "News"
+    url: /#News/
     
-  - title: "Teaching"
-    url: /teaching/    
+  - title: "Projects"
+    url: /#Research/
+    
+   - title: "Publications"
+    url: /#Publications/
         
   - title: "DIRLab"
     url: /lab/
