@@ -22,19 +22,20 @@ He is currently leading the [Data Intelligence Research (DIR) Lab](http://daidon
 - [09/22] **IOPathTune** is accepted by [SC'22 ACM Student Research Competition (SRC)](https://sc22.supercomputing.org/program/posters/acm-student-research-competition/). Congrats to Md. Hasanur Rashid! This poster summarizes our recent progress in building a client-side, dynamic, real-time I/O tuner. Hasanur also serves as Student Volunteer at SC.
 - [08/22] An extended journal version of the **Optane PMEM Performance** study is accepted by CCF Transactions on High-Performance Computing. Congrats to Abdullah Al Raqibul Islam. In this study, we systematically benchmarked Optane PMEM performance on various indexing data structures and made interesting observations.
 - [05/22] Congratulate Di Zhang and Abdullah Al Raqibul Islam, for their jobs in Meta and LLNL, respectively.
-- [05/22] Recived [CCI Essam El-Kwae Student-Faculty Research Award (together with Di Zhang)](https://cci.charlotte.edu/news/2022-05-02/cci-facultystaff-awards-luncheon). Thanks!
+- [05/22] Recived [CCI Essam El-Kwae Student-Faculty Research Award (together with Di Zhang)](https://cci.charlotte.edu/news/2022-05-02/cci-facultystaff-awards-luncheon).
 - ...
 
 
-<h2 id="Research">Research Projects</h2>
+<h2 id="Research">Research Projects (Active and Past)</h2>
 
-- [NSF](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2008265&HistoricalAwards=false) Moving Machine Learning into the Next-Generation Cloud Flexibly, Agilely and Efficiently
-- [NSF](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1908843&HistoricalAwards=false) Hybrid NVM based Computing Architecture for Machine Learning Applications
-- [NSF](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1910727&HistoricalAwards=false) Parallel Graph-Based Paradigm for HPC Parallel File System Checkers
-- [NSF](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1852815&HistoricalAwards=false) Partitioning Large Graphs in Deep Storage Architecture [CRII, 2018]
-- [NSF](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1817094&HistoricalAwards=false) Tuning Extreme-scale Storage Stack through Deep Reinforcement Learning
-- [NSF](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1718336&HistoricalAwards=false) Uncovering Vulnerabilities in Parallel File Systems
-- [NSF](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1835892&HistoricalAwards=false) Empowering Data-driven Discovery with a Provenance Collection, Management, and Analysis Software Infrastructure
+- [NSF-Active](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2008265&HistoricalAwards=false) Moving Machine Learning into the Next-Generation Cloud Flexibly, Agilely and Efficiently
+- [NSF-Active](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1908843&HistoricalAwards=false) Hybrid NVM based Computing Architecture for Machine Learning Applications
+- [NSF-Active](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1910727&HistoricalAwards=false) Parallel Graph-Based Paradigm for HPC Parallel File System Checkers
+- [NSF-Active](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1835892&HistoricalAwards=false) Empowering Data-driven Discovery with a Provenance Collection, Management, and Analysis Software Infrastructure
+- [NSF-Past](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1852815&HistoricalAwards=false) Partitioning Large Graphs in Deep Storage Architecture [CRII, 2018]
+- [NSF-Past](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1817094&HistoricalAwards=false) Tuning Extreme-scale Storage Stack through Deep Reinforcement Learning
+- [NSF-Past](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1718336&HistoricalAwards=false) Uncovering Vulnerabilities in Parallel File Systems
+
 
 <h2 id="Publications">Recent and Selected Publications</h2>
 
