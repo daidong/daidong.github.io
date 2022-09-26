@@ -8,21 +8,21 @@ redirect_from:
   - /about.html
 ---
 
-Dr. Dong Dai is an Assistant Professor in the [Computer Science Department](https://cci.charlotte.edu/computer-science/45/5) at [University of North Carolina at Charlotte](http://uncc.edu). Before joining UNCC, Dr. Dai worked as a Research Assistant Professor at Texas Tech University, and previously PostDoc Researcher in a joint project between Texas Tech University and Argonne National Lab. He received his Doctor degree in Computer Science from University of Science and Technology of China (USTC).
+Dr. Dong Dai is an Assistant Professor in the [Computer Science Department](https://cci.charlotte.edu/computer-science/45/5) at [University of North Carolina at Charlotte](http://uncc.edu). Before joining UNCC, Dr. Dai worked as a Research Assistant Professor at Texas Tech University, and previously PostDoc Researcher at Texas Tech University and Argonne National Lab. He received his Doctor degree in Computer Science from University of Science and Technology of China (USTC).
 
-Dr. Dong Dai's research interests are related to building intelligent infrastructure for high-performance data intensive systems, including parallel file systems, metadata management, graph storage, scheduling, and machine learning frameworks.
+Dr. Dong Dai's research interests are related to building intelligent infrastructure for high-performance data-intensive systems, including parallel file systems, metadata management, graph storage, scheduling, and machine learning frameworks.
 
-He is currently leading the [Data Intelligence Research (DIR) Lab](http://daidong.github.io/lab), a research group that focuses on co-designing data-intensive and intelligent systems. He is co-directing the Parallel and High-Performance Computing Lab at UNC-Charlotte.
+He is currently leading the [Data Intelligence Research (DIR) Lab](http://daidong.github.io/lab), a research group that focuses on co-designing data-intensive and intelligent systems. He is also associate director of Parallel and High-Performance Computing (PHPC) Lab at UNC-Charlotte.
 
 <h2 id="News">News!</h2>
  
 - [Research] **Spring 2023 Fully Supported Ph.D. RA positions** are available. Send me emails for more details.
-- [Award] Congratulate Abdullah Al Raqibul Islam for being accepted to [Google CS Research Mentorship Program](https://research.google/outreach/csrmp/).
-- [Research] **ClusterLog** is accepted by [FTXS 2022 Workshop](https://sites.google.com/view/ftxs2022) at SC'22. Congrats to Chris Egersdoerfer and Di Zhang. Chris is an Undergraduate Student, and this is his first paper! In this paper, we propose a new log pre-processing method to improve existing log-based anomaly detection methods' accuracy significantly.
-- [Research] **IOPathTune** is accepted by [SC'22 ACM Student Research Competition (SRC)](https://sc22.supercomputing.org/program/posters/acm-student-research-competition/). Congrats to Md. Hasanur Rashid! This poster summarizes our recent progress in building a client-side, dynamic, real-time I/O tuner. Hasanur also serves as Student Volunteer at SC.
-- [Research] An extended journal version of the **Optane PMEM Performance** study is accepted by CCF Transactions on High-Performance Computing. Congrats to Abdullah Al Raqibul Islam. In this study, we systematically benchmarked Optane PMEM performance on various indexing data structures and made interesting observations.
-- [2022 Summer Intern] Congratulate Di Zhang and Abdullah Al Raqibul Islam, for their jobs in Meta and LLNL, respectively.
-- [Award] Recived [CCI Essam El-Kwae Student-Faculty Research Award (together with Di Zhang)](https://cci.charlotte.edu/news/2022-05-02/cci-facultystaff-awards-luncheon). Thanks!
+- [09/22] Congratulate Abdullah Al Raqibul Islam for being accepted to [Google CS Research Mentorship Program](https://research.google/outreach/csrmp/).
+- [09/22] **ClusterLog** is accepted by [FTXS 2022 Workshop](https://sites.google.com/view/ftxs2022) at SC'22. Congrats to Chris Egersdoerfer and Di Zhang. Chris is an Undergraduate Student, and this is his first paper! In this paper, we propose a new log pre-processing method to improve existing log-based anomaly detection methods' accuracy significantly.
+- [09/22] **IOPathTune** is accepted by [SC'22 ACM Student Research Competition (SRC)](https://sc22.supercomputing.org/program/posters/acm-student-research-competition/). Congrats to Md. Hasanur Rashid! This poster summarizes our recent progress in building a client-side, dynamic, real-time I/O tuner. Hasanur also serves as Student Volunteer at SC.
+- [08/22] An extended journal version of the **Optane PMEM Performance** study is accepted by CCF Transactions on High-Performance Computing. Congrats to Abdullah Al Raqibul Islam. In this study, we systematically benchmarked Optane PMEM performance on various indexing data structures and made interesting observations.
+- [05/22] Congratulate Di Zhang and Abdullah Al Raqibul Islam, for their jobs in Meta and LLNL, respectively.
+- [05/22] Recived [CCI Essam El-Kwae Student-Faculty Research Award (together with Di Zhang)](https://cci.charlotte.edu/news/2022-05-02/cci-facultystaff-awards-luncheon). Thanks!
 - ...
 
 
