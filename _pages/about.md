@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-Dr. Dong Dai is an Assistant Professor in the [Computer Science Department](https://cci.charlotte.edu/computer-science/45/5) at [University of North Carolina at Charlotte](http://uncc.edu). Before joining UNCC, Dr. Dai worked as a Research Assistant Professor at Texas Tech University, and previously PostDoc Researcher at Texas Tech University and Argonne National Lab. He received his Doctor degree in Computer Science from University of Science and Technology of China (USTC).
+Dr. Dong Dai is an Assistant Professor in the [Computer Science Department](https://cci.charlotte.edu/computer-science/45/5) at [University of North Carolina at Charlotte](http://uncc.edu). Before joining UNCC, Dr. Dai worked as a Research Assistant Professor at Texas Tech University, and previously PostDoc Researcher at Texas Tech University and Argonne National Lab. He received his Doctor degree in Computer Science from University of Science and Technology of China (USTC). Check the complete CV at: [CV](https://daidong.github.io/files/dai_cv.pdf)
 
 Dr. Dong Dai's research interests are related to building intelligent infrastructure for high-performance data-intensive systems, including parallel file systems, metadata management, graph storage, scheduling, and machine learning frameworks.
 
