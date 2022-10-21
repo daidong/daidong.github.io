@@ -84,7 +84,6 @@ Current
 - [Di Zhang](https://zhangdistephen.github.io) (Ph.D. student since 2019)
 - Md. Hasanur Rashid (Ph.D. student since 2020)
 - Saisha Kamat (Ph.D. student since 2020)
-- Saeed Zangeneh (prospective Ph.D. student 2023 Spring)
 - Chris Egersdoerfer (Undergraduate student since 2022)
 
 Graduated
