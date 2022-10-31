@@ -1,7 +1,7 @@
 ---
-title: "Teaching experience 1"
+title: "Machine Learning for Efficient Computing Systems"
 collection: teaching
-type: "Undergraduate course"
+type: "Graduated Course"
 permalink: /teaching/2023-spring
 venue: "UNC-Charlotte, Computer Science Department"
 date: 2023-01
