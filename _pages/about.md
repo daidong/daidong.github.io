@@ -85,7 +85,7 @@ Current
 - [Di Zhang](https://zhangdistephen.github.io) (Ph.D. student since 2019)
 - Md. Hasanur Rashid (Ph.D. student since 2020)
 - Saisha Kamat (Ph.D. student since 2020)
-- Chris Egersdoerfer (Undergraduate student since 2022)
+- Chris Egersdoerfer (Master student 2023)
 
 Graduated
 - Tony Li (UNCC Master, Google)
