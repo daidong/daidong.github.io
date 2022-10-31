@@ -11,14 +11,14 @@ location: "Charlotte, US"
 
 ### 1.1 General Info
 
-Welcome to the Topics in Intelligent Systems: Machine Learning for Efficient Computing Systems course. This is a course for “seminar Master students or Ph.D. students”.
+Welcome to the Topics in Intelligent Systems: Machine Learning for Efficient Computing Systems course. This is a course for “senior Master students or Ph.D. students”.
 
 -   Metadata
 	- **Face-to-Face**
 	- **Flexible Attendance Requirements**
 	- **All the materials, including slides and assignments, will be posted online**
 -   **Instructor**: 
-	- **Dong Dai** ([dong.dai@uncc.edu](mailto:dong.dai@uncc.edu)) @ WWH 210B.
+	- **Dong Dai** WWH 210B.
 -   **Lecture Hour and Place:**
 	- **1:00PM - 2:15PM Tuesday and Thursday @ Burson 118**
 -   **Office Hour**:
@@ -30,19 +30,19 @@ If you want to email me regarding this course, please include your 800/801 numbe
 ### 1.2 Course Objectives and Outcomes
 
 At the end of this class, you will be able to
-* Learn key challenges in building various high-performance computing systems
-* Understand how machine learning can be applied to optimizing computing systems
-* Learn to use multiple DNN models from simple to complex in system optimization
-* Learn to use Pytorch for training and building DNN models
+* Learn key challenges in building computing systems
+* Practicing machine learning to optimize computing systems
+* Practicing deep learning frameworks such as Pytorch for training and building models for system optimization
 
 Some extra you will learn
-* Understand the state-of-the-art studies about ML for System
-* Conduct project-based research on relevant topics
+* Understand the state-of-the-art studies on "ML for System"
+* Grasp a sense of what need to be considered in "ML for System"
+* Conduct projects on relevant topics
 
 ### 1.3 Prerequisites
 
 * Working knowledge of Machine Learning
-* Working knowledge of computing systems
+* Working knowledge of Computing Systems
 * Proficiency in Python
 
 ### 1.4 Course Organization
@@ -53,7 +53,7 @@ We will cover the following topics in this course:
 	* Deep Learning, CNN, RNN (Using Pytorch)
 	* Reinforcement Learning (Using Pytorch-based Implementation)
 
-* Computing System
+* Computing Systems
 	* ML for Data Structure Design
 	* ML for Resource Management and Scheduling
 	* ML for Prediction and Decision Making
