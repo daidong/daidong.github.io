@@ -72,7 +72,7 @@ Please check a full list at [Google Scholar Page](https://scholar.google.com/cit
 
 <h2 id="Teaching">Teaching</h2>
 
-- [UNCC] [ITCS-6050/8050 Machine Learning for Efficient Computing Systems](http://daidong.github.io/teaching/) [Spring 2023]
+- [UNCC] [ITCS-6050/8050 Machine Learning for Efficient Computing Systems](http://daidong.github.io/teaching/2023-spring) [Spring 2023]
 - [UNCC] ITCS-5145 Parallel Computing [Fall 2022, 2021]
 - [UNCC] ITSC-3181 Introduction to Computer Architecture [Spring 2022, 2021]
 - [UNCC] ITSC-3181 Introduction to Computer Architecture [Fall 2021, 2020]
