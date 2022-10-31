@@ -4,7 +4,7 @@ collection: teaching
 type: "Graduated Course"
 permalink: /teaching/2023-spring
 venue: "UNC-Charlotte, Computer Science Department"
-date: 2023-01
+date: 2023-01-01
 location: "Charlotte, US"
 ---
 ## Syllabus
