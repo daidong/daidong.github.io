@@ -9,28 +9,30 @@ location: "Charlotte, US"
 ---
 # General Information
 
-## Why are we doing this?
+## 1. Why are we doing this?
 We want to encourage our Undergraudate Students to participate research as early as possible. So, we are looking for **Sophomore** and **Junior** students.
 
-## Who are doing this?
+## 2. Who are doing this?
 Faculty members in the Parallel High-Performance Computing Lab (PHPC) are doing this. 
 
-We are [Tyler Allen](https://webpages.charlotte.edu/~tallen93/), [Dong Dai](http://daidong.github.io), [Erik Saule](https://webpages.charlotte.edu/~esaule/public-website/welcome.html), and [Yonghong Yan](https://passlab.github.io/yanyh/). 
+We are [Tyler Allen](https://webpages.charlotte.edu/~tallen93/), [Dong Dai](http://daidong.github.io), [Erik Saule](https://webpages.charlotte.edu/~esaule/public-website/welcome.html), and [Yonghong Yan](https://passlab.github.io/yanyh/). We and our Ph.D. students will be mentoring your research. 
 
-We and our Ph.D. students will be mentoring your research. In addition, Md. Hasanur Rashid (mrashid2@uncc.edu) will be our TA to interact with you during the semester.
+In addition, Md. Hasanur Rashid (mrashid2@uncc.edu) will be our TA to interact with you during the semester.
 
-## How can I participate?
+## 3. How can I participate?
 1. Spend 2-mins to fill this Google Form to regiester: [Registration Form]().
-2. We will contact you **next week** to know more about your background and interests.
+2. We will contact you **In December** to know more about your background and interests.
 3. We will register you in **Course ITCS 3050** in Spring 2023 for this course.
 
-## How will the class go?
+## 4. How will the class go?
 1. You will be matched to a research project.
 2. You will work with specific faculty and group.
-3. We will host occational seminiar talks.
-4. **Flexible class time and location**.
+3. You will talk with Md. Hasanur Rashid occationally.
+4. We will host occational seminiar talks.
+5. **Flexible class time and location**.
+6. **The class may lead to Summer/Fall RA positions**!
 
-## What are the Research Projects?
+## 5. What are the Research Projects?
 Our mentors are currently working on list of research projects listed below. You will have the choices to pick the projects you are interested and participlate. You can also propose your own projects, as long as your mentors agree. 
 
 ### Project 1: Fast GPU Programming!
@@ -55,3 +57,6 @@ Gephi is an open source tool for interactive graph visualization and analysis. W
 
 ### Project 7: Smart Compilers!
 One kind of redundant instructions are those that do not change the operands of the instruction, for example an instruction that adds or subtracts 0, or an instruction that multiplies or divides 1. In this project, the students will learn how to use tools to perform analysis of compiler internal representation (IR) or binary code of a program to identify those kinds of instructions. Then they will explore how to use tools to rewrite the IR program or binary code to remove those instructions.
+
+
+What are you waiting for? Join us!
