@@ -7,7 +7,7 @@ venue: "UNC-Charlotte, Computer Science Department"
 date: 2023-01-01
 location: "Charlotte, US"
 ---
-# General Info
+# Undergraduate Resarch Intiative (ITCS 3050) - Spring 2023
 
 ## Why are we doing this?
 We want to encoraging Undergraudate students to participate research as early as possible. So, we are looking for **Sophomore** and **Junior** students.
@@ -18,7 +18,7 @@ In Spring 2023, faculty members in the Parallel High-Performance Computing Lab (
 ## How can I participate?
 1. Spend 2-mins to fill this Google Form to regiester: [Registration Form]().
 2. We will contact you to know more about your background and interests.
-3. We will register you in Course ITCS 3050 in Spring 2023 for this course.
+3. We will register you in **Course ITCS 3050** in Spring 2023 for this course.
 
 
 ## What are the Research Projects?
