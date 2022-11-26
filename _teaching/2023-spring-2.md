@@ -17,12 +17,18 @@ Faculty members in the Parallel High-Performance Computing Lab (PHPC) are doing 
 
 We are [Tyler Allen](https://webpages.charlotte.edu/~tallen93/), [Dong Dai](http://daidong.github.io), [Erik Saule](https://webpages.charlotte.edu/~esaule/public-website/welcome.html), and [Yonghong Yan](https://passlab.github.io/yanyh/). 
 
-We and our Ph.D. students will be mentoring your research. In addition, Md. Hasanur Rashid (mrashid2@uncc.edu) will be our TA to interact with you diarly.
+We and our Ph.D. students will be mentoring your research. In addition, Md. Hasanur Rashid (mrashid2@uncc.edu) will be our TA to interact with you during the semester.
 
 ## How can I participate?
 1. Spend 2-mins to fill this Google Form to regiester: [Registration Form]().
 2. We will contact you **next week** to know more about your background and interests.
 3. We will register you in **Course ITCS 3050** in Spring 2023 for this course.
+
+## How will the class go?
+1. You will be matched to a research project.
+2. You will work with specific faculty and group.
+3. We will host occational seminiar talks.
+4. **Flexible class time and location**.
 
 ## What are the Research Projects?
 Our mentors are currently working on list of research projects listed below. You will have the choices to pick the projects you are interested and participlate. You can also propose your own projects, as long as your mentors agree. 
