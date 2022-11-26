@@ -10,7 +10,7 @@ location: "Charlotte, US"
 # General Information
 
 ## Why are we doing this?
-We want to encoraging Undergraudate students to participate research as early as possible. So, we are looking for **Sophomore** and **Junior** students.
+We want to encourage our Undergraudate Students to participate research as early as possible. So, we are looking for **Sophomore** and **Junior** students.
 
 ## Who are doing this?
 Faculty members in the Parallel High-Performance Computing Lab (PHPC) are doing this. 
