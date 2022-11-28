@@ -20,7 +20,7 @@ We are [Tyler Allen](https://webpages.charlotte.edu/~tallen93/), [Dong Dai](http
 In addition, Md. Hasanur Rashid (mrashid2@uncc.edu) will be our TA to interact with you during the semester.
 
 ## 3. How can I participate?
-1. Spend 2-mins to fill this Google Form to regiester: [Registration Form]().
+1. Spend 2-mins to fill this Google Form to regiester: [Registration Form](https://forms.gle/RgGJBwAGFJfnPCFRA).
 2. We will contact you **In December** to know more about your background and interests.
 3. We will register you in **Course ITCS 3050** in Spring 2023 for this course.
 
