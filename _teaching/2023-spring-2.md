@@ -12,7 +12,7 @@ location: "Charlotte, US"
 ## 1. Why are we doing this?
 We want to encourage our Undergraduate Students to participate in research as early as possible. So, we are looking for **Sophomore** and **Junior** students.
 
-To you, this could be your first exposure to research! You can learn technics and what would be your next career/education paths!
+To you, this could be your first exposure to research! You can learn interesting techniques and get to know another career/education path!
 
 ## 2. Who is doing this?
 Faculty members in the Parallel High-Performance Computing Lab (PHPC) are doing this. 
