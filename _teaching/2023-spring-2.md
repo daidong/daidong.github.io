@@ -12,6 +12,8 @@ location: "Charlotte, US"
 ## 1. Why are we doing this?
 We want to encourage our Undergraduate Students to participate in research as early as possible. So, we are looking for **Sophomore** and **Junior** students.
 
+To you, this could be your first exposure to research! You can learn technics and what would be your next career/education paths!
+
 ## 2. Who is doing this?
 Faculty members in the Parallel High-Performance Computing Lab (PHPC) are doing this. 
 
@@ -55,7 +57,7 @@ The goal of this project is to understand how Supercomputers or Cloud run jobs i
 Gephi is an open source tool for interactive graph visualization and analysis. While Gephi is a useful tool, the analysis it provides usually has simple implementations leading to low performance and high response time, in particular for analysis of high complexity. In this project, we will develop a plugin for Gephi to enable users to leverage existing codes and techniques to bring high performance computing to analysts.
 
 
-### Project 7: Smart Compilers!
+### Project 7: Stupid Compilers!
 One kind of redundant instructions are those that do not change the operands of the instruction, for example an instruction that adds or subtracts 0, or an instruction that multiplies or divides 1. In this project, the students will learn how to use tools to perform analysis of compiler internal representation (IR) or binary code of a program to identify those kinds of instructions. Then they will explore how to use tools to rewrite the IR program or binary code to remove those instructions.
 
 
