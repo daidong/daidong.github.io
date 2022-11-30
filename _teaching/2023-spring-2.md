@@ -33,18 +33,25 @@ In addition, Md. Hasanur Rashid (mrashid2@uncc.edu) will be our TA to interact w
 4. We will host occasional seminar talks.
 5. **Flexible class time and location**.
 6. **The class may lead to Summer/Fall RA positions**!
+7. Outcome of these projects include software artifacts and potential publications, which can be listed in your CV.
 
 ## 5. What are the Research Projects?
 Our mentors are currently working on the list of research projects listed below. You will have the choice to pick the projects you are interested in and participate in. You can also propose your projects as long as your mentors agree. 
 
 ### Project 1: Fast GPU Programming!
-GPU Applications using out-of-the-box computational libraries, such as BLAS, often expose inefficiencies due to loss of locality between kernels (i.e., functions). Applications have available data reuse that is lost due to the “synchronization barrier” between kernels. If we can unfold these kernels, we can use techniques (analytical evolving into compiler) to combine kernels, and then leverage locality.
+Applications requiring large amounts of computational resources, such as climate modeling or deep learning, often turn to General-Purpose Graphics Processing Units (GPUs) to accelerate their algorithms. These applications frequently use out-of-the-box computational libraries, such as Basic Linear Algebra Subprograms (BLAS), often lose efficiency due to the loss of information between calls to library routines. The long-term goal of this project is to develop automated techniques to “unfold” these library calls and merge them, automatically applying significant optimization and performance gains. This has the potential benefit of speeding up scientific and deep learning applications across the world automatically!
+
+Students working on this project will learn about performance benchmarking and optimization, GPU programming, GPU architecture, and compiler optimization. 
 
 ### Project 2: Accelerate Key Algorithms!
-Iteratively Reweighted Least Squares (IRLS) method for matrix factorization can be benifited by the parallel and distributed nature of the High-performance Computing (HPC) environment. We hope to integrate, test, and benchmark the implementation of MatrixIRLS into HPC environment.
+Low Rank Matrix Factorization is an important technique in Data Science and Machine learning topics, such as building Recommender Systems. Several methods for this technique exist, but a common roadblock for large-scale and highly accurate systems is computation performance of these Matrix Factorizations. Iteratively Reweighted Least Squares (IRLS) method for matrix factorization can be improved by highly efficient computation accelerators, such as General-Purpose Graphics Processing Units (GPUs). In this project, we will take steps towards creating broadly-reaching accelerated Matrix Factorization implementations; perhaps the fastest in the world!  
+
+Students working on this project will learn about performance benchmarking and optimization, computational techniques in data science, GPU programming, and GPU architecture.
 
 ### Project 3: Visualize Memory Accesses!
-Systems and architectural processes are often very difficult to comprehend and understand. They also do not lend themselves easily to visualization. This project involves developing visualizations that can help us create graphical representations of data access and memory migration over time for heterogeneous systems. These visualizations could improve the understandability of data flow, data migration, remote data access, and overall application access patterns for arbitrary applications.
+The fastest supercomputers in the world are only able to achieve as much as 3% of their maximum performance on many important applications. This is due to memory requirements and communication. These systems and architectural processes are often very difficult to comprehend and understand. This project involves developing visualization tools and techniques that can help us create graphical representations of data access and memory migration over time for heterogeneous systems. These visualizations could improve the understandability of data flow, data migration, remote data access, and overall application access patterns for arbitrary applications. Systems programmers and architecture designers would greatly benefit from novel ways to explore the behavior of their own systems, and help design solutions that put the “Super” back in “Supercomputer!”
+
+Students working on this project will learn about computing and memory architecture, visualization, and high-performance computing. 
 
 ### Project 4: Machine Learning-based Parameter Tuning!
 This project aims to understand the general High-Performance Computing (HPC) environment and the CAPES framework. The student will learn the basics of the High-performance Computing (HPC) environment and Parallel File System (PFS), specifically Lustre. The student will attain proficiency in how to create and maintain an HPC cluster. The student will get to explore how parameter tuning works and acquire knowledge on how to conduct structured and in-depth evaluations.
