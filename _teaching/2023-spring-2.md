@@ -29,7 +29,7 @@ In addition, Md. Hasanur Rashid (mrashid2@uncc.edu) will be our TA to interact w
 ## 4. How will the class go?
 1. You will be matched to a research project.
 2. You will work with specific faculty and group.
-3. You will talk with Md. Hasanur Rashid occasionally.
+3. You will talk with Md. Hasanur Rashid (TA) biweekly to sync and complain.
 4. We will host occasional seminar talks.
 5. **Flexible class time and location**.
 6. **The class may lead to Summer/Fall RA positions**!
@@ -89,7 +89,7 @@ It depends on the project. In most of the cases, we will provide computing resou
 
 ### 4. How the workload looks on per weekly basis for the project?
 
-The workload should be similar to a normal UG course with the flexibility that you can move really fast at your pace.
+The workload should be similar to a normal 3-credit UG course with the flexibility that you can move really fast at your pace.
 
 ### 5. Whether the student will need to deliver a final presentation?
 
@@ -100,4 +100,4 @@ Yes, there will be a poster/presentation session at the end of the semester.
 Yes, doing the project itself includes learning phase at beginining. 
 
 
-What are you waiting for? Join us by filling this [Registration Form](https://forms.gle/RgGJBwAGFJfnPCFRA)!
+# What are you waiting for? Join us by filling this [Registration Form](https://forms.gle/RgGJBwAGFJfnPCFRA)!
