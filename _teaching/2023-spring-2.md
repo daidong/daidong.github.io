@@ -67,5 +67,37 @@ Gephi is an open source tool for interactive graph visualization and analysis. W
 ### Project 7: Stupid Compilers!
 One kind of redundant instructions are those that do not change the operands of the instruction, for example an instruction that adds or subtracts 0, or an instruction that multiplies or divides 1. In this project, the students will learn how to use tools to perform analysis of compiler internal representation (IR) or binary code of a program to identify those kinds of instructions. Then they will explore how to use tools to rewrite the IR program or binary code to remove those instructions.
 
+## Frequent Questions
+
+### 0. Do I need to do a lot pre-studying for this course?
+
+No, we will try to match your project to your skill background. You will mostly learn while working in the project.
+
+### 1. Whether will multiple students be collaborating on the same project?
+
+In most of the case, students will work with their mentors individually. It is OK to build a team though. 
+
+### 2. Whether the students need to set up their own machines to work on the research project?
+
+It depends on the project. In most of the cases, we will provide computing resources. PHPC lab hosts local clusters and also leverages [UNCC Research Computing facility](https://oneit.charlotte.edu/urc) to conduct research.
+
+### 3. How will the course be structured?
+
+* First 1-2 Weeks: Faculty members and Ph.D students introduce the projects. Students match with projects.
+* During Semesters: Students work with their mentors during the semester via Weekly Meeting. There will be occational sessions to talk about specific topics, such as _How to use terminal_; _How to read a paper_; _How to prepare a poster_.
+* Last 1-2 Weeks: There will be a poster/presentation session at the end of the semester.
+
+### 4. How the workload looks on per weekly basis for the project?
+
+The workload should be similar to a normal UG course with the flexibility that you can move really fast at your pace.
+
+### 5. Whether the student will need to deliver a final presentation?
+
+Yes, there will be a poster/presentation session at the end of the semester.
+
+### 6. Will the students get the chance to learn about relevant concepts before starting the project?
+
+Yes, doing the project itself includes learning phase at beginining. 
+
 
 What are you waiting for? Join us by filling this [Registration Form](https://forms.gle/RgGJBwAGFJfnPCFRA)!
