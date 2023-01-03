@@ -18,7 +18,7 @@ He is currently leading the [Data Intelligence Research (DIR) Lab](http://daidon
 
 <h2 id="News">News!</h2>
  
-- [Research] **Spring 2023 Fully Supported Ph.D. RA positions** are available. Send me emails for more details.
+- [Research] **Fall 2023 Ph.D. RA positions** are available. Send me emails for more details.
 - [09/22] Congratulate Abdullah Al Raqibul Islam for being accepted to [Google CS Research Mentorship Program](https://research.google/outreach/csrmp/).
 - [09/22] **ClusterLog** is accepted by [FTXS 2022 Workshop](https://sites.google.com/view/ftxs2022) at SC'22. Congrats to Chris Egersdoerfer and Di Zhang. Chris is an Undergraduate Student, and this is his first paper! In this paper, we propose a new log pre-processing method to improve existing log-based anomaly detection methods' accuracy significantly.
 - [09/22] **IOPathTune** is accepted by [SC'22 ACM Student Research Competition (SRC)](https://sc22.supercomputing.org/program/posters/acm-student-research-competition/). Congrats to Md. Hasanur Rashid! This poster summarizes our recent progress in building a client-side, dynamic, real-time I/O tuner. Hasanur also serves as Student Volunteer at SC.
