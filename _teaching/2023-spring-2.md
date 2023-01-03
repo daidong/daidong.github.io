@@ -67,6 +67,9 @@ Gephi is an open source tool for interactive graph visualization and analysis. W
 ### Project 7: Stupid Compilers!
 One kind of redundant instructions are those that do not change the operands of the instruction, for example an instruction that adds or subtracts 0, or an instruction that multiplies or divides 1. In this project, the students will learn how to use tools to perform analysis of compiler internal representation (IR) or binary code of a program to identify those kinds of instructions. Then they will explore how to use tools to rewrite the IR program or binary code to remove those instructions.
 
+### Project 8: Learned Data Structure!
+Recent advancement in "learned indexes" has changed how we look at the decades-old indexing data structures (e.g., B+-tree) we have been taught in the Data structure courses. The key idea is that indexes can be thought of as "machine learning models" that predict the position of a key in the data structure. However, all the known "learned index" studies are tested on limited workloads (e.g., key-value) and missing some important workloads such as graph-structured datasets. In this study, we want to investigate how existing "learned indexes" perform on graph workload and compare it with state-of-the-art heuristic-based data structures for dynamic graphs.
+
 ## Frequent Questions
 
 ### 0. Do I need to do a lot pre-studying for this course?
