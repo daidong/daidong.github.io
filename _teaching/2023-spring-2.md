@@ -1,5 +1,5 @@
 ---
-title: "Undergraduate Resarch Intiative (ITCS 3050) - Spring 2023"
+title: "Undergraduate Research Initiative (ITCS 3050) - Spring 2023"
 collection: teaching
 type: "Undergraduate Course"
 permalink: /teaching/2023-spring-2
