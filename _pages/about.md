@@ -89,7 +89,7 @@ Please check a full list at [Google Scholar Page](https://scholar.google.com/cit
 <h2 id="Students">Students</h2>
 
 Current
-- Abdullah Al Raqibul Islam (Ph.D. student since 2019)
+- [Abdullah Al Raqibul Islam](https://biqar.github.io) (Ph.D. student since 2019)
 - [Di Zhang](https://zhangdistephen.github.io) (Ph.D. student since 2019)
 - Md. Hasanur Rashid (Ph.D. student since 2020)
 - Saisha Kamat (Ph.D. student since 2020)
