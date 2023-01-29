@@ -18,9 +18,9 @@ He is currently leading the [Data Intelligence Research (DIR) Lab](http://daidon
 
 <h2 id="News">News!</h2>
  
-- [Research] **Fall 2023 Ph.D. RA positions** are available. Please send me an email for more details.
+- **Fall 2023 Ph.D. RA positions** are available. Please send me an email for more details.
 - [01/23] **FaultyRank** is accepted by [IPDPS'23](https://www.ipdps.org). Congrats to Saisha Kamat and Abdullah Al Raqibul Islam! Saisha Kamat's first paper! This paper proposes a new graph-based method to check and repair inconsistencies in parallel file systems.
-- [01/23] **Drill** is accepted by [IPDPS'23](https://www.ipdps.org). Congrats to Di Zhang and Chris Egersdoerfer! Also, Chris's second paper in a row! In this paper, we propose leveraging content-based and context-based features to better understand file system logs for accurate anomaly detection. 
+- [01/23] **Drill** is accepted by [IPDPS'23](https://www.ipdps.org). Congrats to Di Zhang and Chris Egersdoerfer! In this paper, we propose leveraging content-based and context-based features to better understand file system logs for accurate anomaly detection. 
 - [01/23] **DGAP** is accepted by [FAST'23 WiP](https://www.usenix.org/conference/fast23). Congrats to Abdullah Al Raqibul Islam! This Work-in-Progress paper introduces our latest progress in building an efficient dynamic graph processing framework based on persistent memory devices.
 - [09/22] Congratulate Abdullah Al Raqibul Islam for being accepted to [Google CS Research Mentorship Program](https://research.google/outreach/csrmp/).
 - [09/22] **ClusterLog** is accepted by [FTXS 2022 Workshop](https://sites.google.com/view/ftxs2022) at SC'22. Congrats to Chris Egersdoerfer and Di Zhang. Chris is an Undergraduate Student, and this is his first paper! In this paper, we propose a new log pre-processing method to improve existing log-based anomaly detection methods' accuracy significantly.
