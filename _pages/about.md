@@ -31,17 +31,6 @@ He is currently leading the [Data Intelligence Research (DIR) Lab](http://daidon
 - ...
 
 
-<h2 id="Research">Research Projects (Active and Past)</h2>
-
-- [NSF-Active](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2008265&HistoricalAwards=false) Moving Machine Learning into the Next-Generation Cloud Flexibly, Agilely and Efficiently
-- [NSF-Active](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1908843&HistoricalAwards=false) Hybrid NVM based Computing Architecture for Machine Learning Applications
-- [NSF-Active](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1910727&HistoricalAwards=false) Parallel Graph-Based Paradigm for HPC Parallel File System Checkers
-- [NSF-Active](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1835892&HistoricalAwards=false) Empowering Data-driven Discovery with a Provenance Collection, Management, and Analysis Software Infrastructure
-- [NSF-Past](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1852815&HistoricalAwards=false) Partitioning Large Graphs in Deep Storage Architecture [CRII, 2018]
-- [NSF-Past](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1817094&HistoricalAwards=false) Tuning Extreme-scale Storage Stack through Deep Reinforcement Learning
-- [NSF-Past](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1718336&HistoricalAwards=false) Uncovering Vulnerabilities in Parallel File Systems
-
-
 <h2 id="Publications">Recent and Selected Publications</h2>
 
 Please check a full list at [Google Scholar Page](https://scholar.google.com/citations?user=wGF_4JsAAAAJ&hl=en)
@@ -99,3 +88,13 @@ Graduated
 - Tony Li (UNCC Master, Google)
 - Anirudh Narayanan (UNCC Master, Amazon)
 - Christopher York (UNCC Undergraduate, BOA)
+
+<h2 id="Research">Research Projects (Active and Past)</h2>
+
+- [NSF-Active](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2008265&HistoricalAwards=false) Moving Machine Learning into the Next-Generation Cloud Flexibly, Agilely and Efficiently
+- [NSF-Active](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1908843&HistoricalAwards=false) Hybrid NVM based Computing Architecture for Machine Learning Applications
+- [NSF-Active](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1910727&HistoricalAwards=false) Parallel Graph-Based Paradigm for HPC Parallel File System Checkers
+- [NSF-Active](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1835892&HistoricalAwards=false) Empowering Data-driven Discovery with a Provenance Collection, Management, and Analysis Software Infrastructure
+- [NSF-Past](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1852815&HistoricalAwards=false) Partitioning Large Graphs in Deep Storage Architecture [CRII, 2018]
+- [NSF-Past](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1817094&HistoricalAwards=false) Tuning Extreme-scale Storage Stack through Deep Reinforcement Learning
+- [NSF-Past](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1718336&HistoricalAwards=false) Uncovering Vulnerabilities in Parallel File Systems
