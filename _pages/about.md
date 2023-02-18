@@ -7,14 +7,13 @@ redirect_from:
   - /about/
   - /about.html
 ---
-
-Dr. Dong Dai is an Assistant Professor in the [Computer Science Department](https://cci.charlotte.edu/computer-science/45/5) at [University of North Carolina at Charlotte](http://uncc.edu). Before joining UNCC, Dr. Dai worked as a Research Assistant Professor at Texas Tech University, and previously PostDoc Researcher at Texas Tech University and Argonne National Lab. He received his Doctor degree in Computer Science from University of Science and Technology of China (USTC). 
+Dr. Dong Dai is an Assistant Professor at the Computer Science Department of the University of North Carolina at Charlotte. He has previously worked as a Research Assistant Professor at Texas Tech University and as a PostDoc Researcher at Texas Tech University and Argonne National Lab. Dr. Dai earned his Doctoral degree in Computer Science from the University of Science and Technology of China (USTC). 
 
 For more information, please click here for the [Curriculum Vitae](https://daidong.github.io/files/dai_cv.pdf)
 
-Dr. Dong Dai's research interests are related to building intelligent infrastructure for high-performance data-intensive systems, including parallel file systems, metadata management, graph storage, scheduling, and machine learning frameworks.
+Dr. Dong Dai's research interests revolve around developing intelligent infrastructure for high-performance data-intensive systems. Specifically, his research areas include parallel file systems, metadata management, graph storage, scheduling, and machine learning frameworks.
 
-He is currently leading the [Data Intelligence Research (DIR) Lab](http://daidong.github.io/lab), a research group that focuses on co-designing data-intensive and intelligent systems. He is also associate director of Parallel and High-Performance Computing (PHPC) Lab at UNC-Charlotte.
+Dr. Dong Dai leads the Data Intelligence Research (DIR) Lab, a research group that specializes in the co-design of data-intensive and intelligent systems. You can learn more about the DIR Lab by visiting their website at http://daidong.github.io/lab. Additionally, Dr. Dai is an associate director of the Parallel and High-Performance Computing (PHPC) Lab at UNC-Charlotte.
 
 <h2 id="News">News!</h2>
  
