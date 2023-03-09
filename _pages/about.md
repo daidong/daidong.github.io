@@ -18,7 +18,7 @@ Dr. Dong Dai leads the Data Intelligence Research (DIR) Lab, a research group th
 <h2 id="News">News!</h2>
  
 - **Fall 2023 Ph.D. RA positions** are available. Please send me an email for more details.
-- [Mar. 2023] **Summer Intern** Abdullah Al Raqibul Islam and Md. Hasanur Rashid will be intern at Lawrence Berkeley National Laboratory; Di Zhang will be intern at Meta.
+- [Mar. 2023] **Summer Intern** Abdullah Al Raqibul Islam and Md. Hasanur Rashid will be intern at Lawrence Berkeley National Laboratory; Di Zhang will be intern at Meta. Congrats!
 - [Jan. 2023] **FaultyRank** is accepted by [IPDPS'23](https://www.ipdps.org). Congrats to Saisha Kamat and Abdullah Al Raqibul Islam! Saisha Kamat's first paper! This paper proposes a new graph-based method to check and repair inconsistencies in parallel file systems.
 - [Jan. 2023] **Drill** is accepted by [IPDPS'23](https://www.ipdps.org). Congrats to Di Zhang and Chris Egersdoerfer! In this paper, we propose leveraging content-based and context-based features to better understand file system logs for accurate anomaly detection. 
 - [Jan. 2023] **DGAP** is accepted by [FAST'23 WiP](https://www.usenix.org/conference/fast23). Congrats to Abdullah Al Raqibul Islam! This Work-in-Progress paper introduces our latest progress in building an efficient dynamic graph processing framework based on persistent memory devices.
