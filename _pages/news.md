@@ -1,12 +1,10 @@
 ---
 permalink: /news/
-title: "News"
+title: "Archived News"
 author_profile: true
 modified: 2023-03-25
 ---
 
-<h2 id="News">News!</h2>
- 
 - **Fall 2023 Ph.D. RA positions** are available. Please send me an email for more details.
 - [Mar. 2023] Congrats to Md. Hasanur Rashid for being selected as the Lead Student Volunteer at [SC'23](http://sc23.supercomputing.org).
 - [Mar. 2023] Congratulations to Abdullah Al Raqibul Islam and Di Zhang on their acceptances to the [IPDPS'23 Ph.D. forum](http://www.ipdps.org/ipdps2023/2023-phd-forum.html).
