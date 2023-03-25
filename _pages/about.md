@@ -13,7 +13,7 @@ For more information, please click here for the [Curriculum Vitae](https://daido
 
 Dr. Dong Dai's research interests revolve around developing intelligent infrastructure for high-performance data-intensive systems. Specifically, his research areas include parallel file systems, metadata management, graph storage, scheduling, and machine learning frameworks.
 
-Dr. Dong Dai leads the Data Intelligence Research (DIR) Lab, a research group that specializes in the co-design of data-intensive and intelligent systems. You can learn more about the DIR Lab by visiting their website at http://daidong.github.io/lab. Additionally, Dr. Dai is an associate director of the Parallel and High-Performance Computing (PHPC) Lab at UNC-Charlotte.
+Dr. Dong Dai leads the Data Intelligence Research (DIR) Lab, a research group that specializes in the co-design of data-intensive and intelligent systems. Additionally, Dr. Dai is an associate director of the Parallel and High-Performance Computing (PHPC) Lab at UNC-Charlotte.
 
 <h2 id="News">News!</h2>
  
@@ -26,11 +26,8 @@ Dr. Dong Dai leads the Data Intelligence Research (DIR) Lab, a research group th
 - [Jan. 2023] **DGAP** is accepted by [FAST'23 WiP](https://www.usenix.org/conference/fast23). Congrats to Abdullah Al Raqibul Islam! This Work-in-Progress paper introduces our latest progress in building an efficient dynamic graph processing framework based on persistent memory devices.
 - [Sep. 2022] Congratulate Abdullah Al Raqibul Islam for being accepted to [Google CS Research Mentorship Program](https://research.google/outreach/csrmp/).
 - [Sep. 2022] **ClusterLog** is accepted by [FTXS 2022 Workshop](https://sites.google.com/view/ftxs2022) at SC'22. Congrats to Chris Egersdoerfer and Di Zhang. Chris is an Undergraduate Student, and this is his first paper! In this paper, we propose a new log pre-processing method to improve existing log-based anomaly detection methods' accuracy significantly.
-- [Sep. 2022] **IOPathTune** is accepted by [SC'22 ACM Student Research Competition (SRC)](https://sc22.supercomputing.org/program/posters/acm-student-research-competition/). Congrats to Md. Hasanur Rashid! This poster summarizes our recent progress in building a client-side, dynamic, real-time I/O tuner. 
-- [Sep. 2022] An extended journal version of the **Optane PMEM Benchmark** study is accepted by CCF Transactions on High-Performance Computing. Congrats to Abdullah Al Raqibul Islam. 
-- [May 2022] Congratulate Di Zhang and Abdullah Al Raqibul Islam, for their Summer Interns at Meta and LLNL, respectively.
 - [May 2022] Recived [CCI Essam El-Kwae Student-Faculty Research Award](https://cci.charlotte.edu/news/2022-05-02/cci-facultystaff-awards-luncheon) together with Di Zhang. Thanks to the students, collaborators, and the college.
-- ...
+- [...](https://daidong.github.io/news/)
 
 
 <h2 id="Publications">Recent and Selected Publications</h2>
