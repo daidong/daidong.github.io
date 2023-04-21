@@ -22,7 +22,7 @@ We are [Harini Ramaprasad](http://webpages.uncc.edu/hramapra/index.html), [Qion
 In addition, Md. Hasanur Rashid (mrashid2@uncc.edu) will be our TA to interact with you during the semester.
 
 ## 3. How can I participate?
-1. Spend 2-mins to fill this Google Form to **Register**: [Registration Form](https://forms.gle/RgGJBwAGFJfnPCFRA) (Deadline **May. 2nd**).
+1. Spend 2-mins to fill this Google Form to **Register**: [Registration Form](https://forms.gle/mAtjeu8s2yAq8qsDA) (Deadline **May. 2nd**).
 2. Attend in-person info session on **May 3** from 11:00am-12:00pm or 2:00pm-3:00pm.
 3. We will contact you **In May** to learn more about your background and interests.
 4. We will register you in **Course ITCS 3050** in Fall 2023 for this course. 
