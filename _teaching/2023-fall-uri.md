@@ -4,7 +4,7 @@ collection: teaching
 type: "Undergraduate Course"
 permalink: /teaching/2023-fall-uri
 venue: "UNC-Charlotte, Computer Science Department."
-date: 2023-01-01
+date: 2023-05-01
 location: "Charlotte, US"
 ---
 # General Information
@@ -12,20 +12,23 @@ location: "Charlotte, US"
 ## 1. Why are we doing this?
 We want to encourage our Undergraduate Students to participate in research as early as possible. So, we are looking for **Sophomore** and **Junior** students.
 
-To you, this could be your first exposure to research! You can learn interesting techniques and get to know another career/education path!
+To you, this may be your first exposure to research! You can learn interesting techniques and get to know another career/education path!
 
 ## 2. Who is doing this?
-Faculty members in the Parallel High-Performance Computing Lab (PHPC) are doing this. 
+Faculty members in the Computer Science Department, particularly Parallel High-Performance Computing Lab, are doing this. 
 
 We are [Harini Ramaprasad](http://webpages.uncc.edu/hramapra/index.html), [Qiong Chen](go.charlotte.edu/qcheng1), [Tyler Allen](https://webpages.charlotte.edu/~tallen93/), [Dong Dai](http://daidong.github.io), [Erik Saule](https://webpages.charlotte.edu/~esaule/public-website/welcome.html), and [Yonghong Yan](https://passlab.github.io/yanyh/). Our Ph.D. students and we will be mentoring your research. 
 
 In addition, Md. Hasanur Rashid (mrashid2@uncc.edu) will be our TA to interact with you during the semester.
 
 ## 3. How can I participate?
-1. Spend 2-mins to fill this Google Form to **Register**: [Registration Form](https://forms.gle/mAtjeu8s2yAq8qsDA) (Deadline **May. 2nd**).
-2. Attend in-person info session on **May 3** from 11:00am-12:00pm or 2:00pm-3:00pm.
-3. We will contact you **In May** to learn more about your background and interests.
-4. We will register you in **Course ITCS 3050** in Fall 2023 for this course. 
+1. Spend 5-mins to fill this **[Google Form](https://forms.gle/mAtjeu8s2yAq8qsDA)** to Apply:  (Deadline **May. 2nd**).
+2. Attend one of the in-person info sessions on **May 3** from 11:00am-12:00pm or 2:00pm-3:00pm.
+
+**That is all!**
+
+* We will contact you in later **May** via Zoom to learn more about your background and interests.
+* We will register you in **Course ITCS 3050** in Fall 2023 for the program. 
 
 ## 4. How will the class go?
 1. You will be matched to a research project.
@@ -42,7 +45,7 @@ Our mentors are currently working on the list of research projects listed below 
 ### Project 1: Transforming Large-Scale Data Processing!
 The large-scale programs run by supercomputers or dedicated corporate data centers, such as Google or Meta, are often bottlenecked not by computation, but by waiting for data to move between devices. At a small, single-computer scale, this problem is often solved prefetching data before it is required, such that the data is ready for processing before the computation requires it. These techniques are often too fine-grained and do not have sufficient foresight to predict coarser-grain data movement on large-scale devices. While there are many challenges to this problem at scale, we are interested in performing an exploratory investigation into using a transformer network, a deep learning technology featured in systems such as ChatGPT, to predict data requirements in advance and offset these huge data movement costs. This work has the long-term potential to improve the efficiency of large-scale data processing and save a tremendous amount of time and energy computing huge problems. Students working on this project will require a fluent understanding of Python, and have a basic understanding of how data moves through a computer architecture. Students would help with data collection, training, and evaluation of machine learning models.  
 
-### Scheduling Highly-Parallel Data Accesses!
+### Project 2: Scheduling Highly-Parallel Data Accesses!
 Highly-Parallel processors, such as Graphics Processing Units (GPUs), are used to compute many of the world’s largest problems on modern computing systems. These problems range from climate simulation to artificial intelligence problems. The technology in these devices is advancing rapidly, now allowing first-class access to network and storage technologies. However, the software schedulers backing these devices are largely tuned towards much faster, sequential devices. By improving storage scheduling, we can reclaim large amounts of lost performance and make this technology viable for wider-scale use-cases. Students applying for this project will need to have an intermediate understanding of the C programming language and a basic understanding of storage devices and file systems. Students will help with analyzing scheduling bottlenecks, choosing new alternative strategies, and possibly implementing new scheduling algorithms.
 
 
@@ -101,4 +104,4 @@ Yes, there will be a poster/presentation session at the end of the semester.
 Yes, doing the project itself includes learning phase at beginining. 
 
 
-# What are you waiting for? Join us!
+# What are you waiting for? Fill this Google Form: [Link](https://forms.gle/mAtjeu8s2yAq8qsDA) (Deadline **May. 2nd**)
