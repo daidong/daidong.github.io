@@ -7,6 +7,9 @@ venue: "UNC-Charlotte, Computer Science Department"
 date: 2023-01-01
 location: "Charlotte, US"
 ---
+## Course Schedule and Organization
+
+
 ## Syllabus
 
 ### 1.1 General Info
@@ -22,7 +25,7 @@ Welcome to the Topics in Intelligent Systems: Machine Learning for Efficient Com
 -   **Lecture Hour and Place:**
 	- **1:00PM - 2:15PM Tuesday and Thursday @ Burson 118**
 -   **Office Hour**:
-	- **2:30PM - 3:30PM Tuesday @ WWH 212**
+	- **2:30PM - 3:30PM Tuesday @ WWH 210B**
 -   Textbook: No required textbook
 
 If you want to email me regarding this course, please include your 800/801 number and the course number (ITCS 6050/8050) in the email subject.

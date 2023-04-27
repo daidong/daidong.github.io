@@ -71,6 +71,15 @@ Designing new and evaluating job scheduling policies requires a large amount of 
 ### Project 8: Graph processing on a hierarchical memory system!
 An enormous amount of unstructured data is being generated through different systems that the existing data pipelines cannot handle, especially within a limited timeline. For such a reason, graph processing has gained much attention in recent years due to its ability to model unstructured data. However, it is limited by the DRAM capacity of a single computing node. The emerging storage technologies, e.g., Persistent Memory (also known as PMEM), brings the potential features to overcome this limited memory challenge. PMEM can sit side by side with traditional memory (e.g., DRAM) and increase the overall memory capacity of computing systems. Specifically, with PMEM, we can now achieve up to 24TB of memory in a single computing node. With this large amount of memory, it is now possible to store and run analytics on large graphs in a single machine. However, this inclusion of PMEM makes the memory stack deeper than ever and brings us new opportunities. For example, data placement in this deep storage stack would be more challenging due to this new inclusion and vital for the application's performance. In this study, we want to investigate this problem for in-memory graph processing systems.
 
+### Project 9: Large scale entity matching for theAdvisor
+theAdvisor is a tool to help scholars find more papers relevant to their research. The system is built atop a complex dataset. The data come from various sources, DBLP, Microsoft Academic Graph, Citeseer, etc. The challenge is to take different datasets that fundamentally all describe the same papers and authors and match them together. Because of inaccuracies in the data, we need to use inexact matching algorithms based on hashing techniques. And because of the size of the data, we will need to deploy the methods atop a large scale data processing engine such as Map Reduce.
+Ideal Knowledge: Python and C++
+
+### Project 10: Visualizing real time performance of high performance applications
+High performance applications are naturally hard for people to understand. The purpose of this project is to instrument a few existing high performance applications and prototypes so that the benefits of high performance computing become more apparent. We will add performance measurements in existing high performance codes, and stream these measurements to a web application for display.
+Ideal Knowledge: Some C++, Some Python, Some Javascript, Some Linux.
+
+
 ## Frequent Questions
 
 ### 0. Do I need to do a lot pre-studying for this course?
