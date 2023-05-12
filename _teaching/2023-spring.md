@@ -11,7 +11,6 @@ location: "Charlotte, US"
 
 | Main Paper | Relevant paper | Presenters | Slides|
 | --- | --- | --- | --- |
-
 |The Case for a Learned Sorting Algorithm|Optimizing sorting with machine learning algorithms|Pranitha Kotla|[Link](../files/ml4sys-talks/01.pdf)|
 |Automatic Database Management System Tuning Through Large-scale Machine Learning | A Demonstration of the OtterTune Automatic Database Management System Tuning Service| Wesley Wotring | [Link](../files/ml4sys-talks/02.pdf)|
 |Instance-Optimized Data Layouts for Cloud Analytics Workloads|Self-Organizing Data Containers|Soumen Sahoo|[Link](../files/ml4sys-talks/03.pdf)|
