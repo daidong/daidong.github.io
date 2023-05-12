@@ -8,22 +8,23 @@ date: 2023-01-01
 location: "Charlotte, US"
 ---
 ## Course Schedule and Organization
+
 | Main Paper | Relevant paper | Presenters | Slides|
-| -------- | -------- | -------- |-------- |
-|The Case for a Learned Sorting Algorithm|Optimizing sorting with machine learning algorithms|Pranitha Kotla|[Link](./files/ml4sys-talks/01.pdf)|
-|Automatic Database Management System Tuning Through Large-scale Machine Learning | A Demonstration of the OtterTune Automatic Database Management System Tuning Service| Wesley Wotring | [Link](./files/ml4sys-talks/02.pdf)|
-|Instance-Optimized Data Layouts for Cloud Analytics Workloads|Self-Organizing Data Containers|Soumen Sahoo|[Link](./files/ml4sys-talks/03.pdf)|
-|Learning Scheduling Algorithms for Data Processing Clusters|Resource Management with Deep Reinforcement Learning|Atharva Bapat|[Link](./files/ml4sys-talks/04.pdf)|
-|A Machine Learning Approach to Mapping Streaming Workloads to Dynamic Multicore Processors|End-to-end Deep Learning of Optimization Heuristics|Wangjiaxuan Xin|[Link](./files/ml4sys-talks/05.pdf)|
-|SchedInspector: A Batch Job Scheduling Inspector Using Reinforcement Learning|RLScheduler: an automated HPC batch job scheduler using reinforcement learning|Yihe Wang|[Link](./files/ml4sys-talks/06.pdf)|
-|Accelerating Serverless Computing by Harvesting Idle Resources|Scheduling of Time-Varying Workloads Using Reinforcement Learning|Xiangcheng Wu|[Link](./files/ml4sys-talks/07.pdf)|
-|Carver: Finding Important Parameters for Storage System Tuning|Towards Better Understanding of Black-box Auto-Tuning: A Comparative Analysis for Storage Systems|Shreya Biswas|[Link](./files/ml4sys-talks/08.pdf)|
-|AIOC: A deep Q-learning approach to autonomic I/O congestion control in Lustre|CAPES: Unsupervised Storage Performance Tuning Using Neural Network-Based Deep Reinforcement Learning|Chris Egersdoerfer|[Link](./files/ml4sys-talks/09.pdf)|
-|Doomsday: predicting which node will fail when on supercomputers|Desh: Deep Learning for System Health Prediction of Lead Times to Failure in HPC|Uzochi Dimkpa|[Link](./files/ml4sys-talks/10.pdf)|
-|Bliss: Auto-tuning Complex Applications using a Pool of Diverse Lightweight Learning Models|Bootstrapping Parameter Space Exploration for Fast Tuning|Jonathan Lorray|[Link](./files/ml4sys-talks/11.pdf)|
-|Cache Miss Rate Predictability via Neural Networks|Learning Memory Access Patterns|Tanusri Bhowmick|[Link](./files/ml4sys-talks/12.pdf)|
-|AuTO: Scaling Deep Reinforcement Learning for Datacenter-Scale Automatic Traffic Optimization|Reinforcement Learning for Datacenter Congestion Control|Trevon Williams|[Link](./files/ml4sys-talks/13.pdf)|
-|The Case for Automatic Database Administration using Deep Reinforcement Learning|Too Many Knobs to Tune? Towards Faster Database Tuning by Pre-selecting Important Knobs|Hrushikesh Pappuri|[Link](./files/ml4sys-talks/14.pdf)|
+| --- | --- | --- | --- |
+|The Case for a Learned Sorting Algorithm|Optimizing sorting with machine learning algorithms|Pranitha Kotla|[Link](../files/ml4sys-talks/01.pdf)|
+|Automatic Database Management System Tuning Through Large-scale Machine Learning | A Demonstration of the OtterTune Automatic Database Management System Tuning Service| Wesley Wotring | [Link](../files/ml4sys-talks/02.pdf)|
+|Instance-Optimized Data Layouts for Cloud Analytics Workloads|Self-Organizing Data Containers|Soumen Sahoo|[Link](../files/ml4sys-talks/03.pdf)|
+|Learning Scheduling Algorithms for Data Processing Clusters|Resource Management with Deep Reinforcement Learning|Atharva Bapat|[Link](../files/ml4sys-talks/04.pdf)|
+|A Machine Learning Approach to Mapping Streaming Workloads to Dynamic Multicore Processors|End-to-end Deep Learning of Optimization Heuristics|Wangjiaxuan Xin|[Link](../files/ml4sys-talks/05.pdf)|
+|SchedInspector: A Batch Job Scheduling Inspector Using Reinforcement Learning|RLScheduler: an automated HPC batch job scheduler using reinforcement learning|Yihe Wang|[Link](../files/ml4sys-talks/06.pdf)|
+|Accelerating Serverless Computing by Harvesting Idle Resources|Scheduling of Time-Varying Workloads Using Reinforcement Learning|Xiangcheng Wu|[Link](../files/ml4sys-talks/07.pdf)|
+|Carver: Finding Important Parameters for Storage System Tuning|Towards Better Understanding of Black-box Auto-Tuning: A Comparative Analysis for Storage Systems|Shreya Biswas|[Link](../files/ml4sys-talks/08.pdf)|
+|AIOC: A deep Q-learning approach to autonomic I/O congestion control in Lustre|CAPES: Unsupervised Storage Performance Tuning Using Neural Network-Based Deep Reinforcement Learning|Chris Egersdoerfer|[Link](../files/ml4sys-talks/09.pdf)|
+|Doomsday: predicting which node will fail when on supercomputers|Desh: Deep Learning for System Health Prediction of Lead Times to Failure in HPC|Uzochi Dimkpa|[Link](../files/ml4sys-talks/10.pdf)|
+|Bliss: Auto-tuning Complex Applications using a Pool of Diverse Lightweight Learning Models|Bootstrapping Parameter Space Exploration for Fast Tuning|Jonathan Lorray|[Link](../files/ml4sys-talks/11.pdf)|
+|Cache Miss Rate Predictability via Neural Networks|Learning Memory Access Patterns|Tanusri Bhowmick|[Link](../files/ml4sys-talks/12.pdf)|
+|AuTO: Scaling Deep Reinforcement Learning for Datacenter-Scale Automatic Traffic Optimization|Reinforcement Learning for Datacenter Congestion Control|Trevon Williams|[Link](../files/ml4sys-talks/13.pdf)|
+|The Case for Automatic Database Administration using Deep Reinforcement Learning|Too Many Knobs to Tune? Towards Faster Database Tuning by Pre-selecting Important Knobs|Hrushikesh Pappuri|[Link](../files/ml4sys-talks/14.pdf)|
 |
 ## Syllabus
 
