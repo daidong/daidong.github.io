@@ -25,7 +25,7 @@ location: "Charlotte, US"
 |Cache Miss Rate Predictability via Neural Networks|Learning Memory Access Patterns|Tanusri Bhowmick|[Link](../files/ml4sys-talks/12.pdf)|
 |AuTO: Scaling Deep Reinforcement Learning for Datacenter-Scale Automatic Traffic Optimization|Reinforcement Learning for Datacenter Congestion Control|Trevon Williams|[Link](../files/ml4sys-talks/13.pdf)|
 |The Case for Automatic Database Administration using Deep Reinforcement Learning|Too Many Knobs to Tune? Towards Faster Database Tuning by Pre-selecting Important Knobs|Hrushikesh Pappuri|[Link](../files/ml4sys-talks/14.pdf)|
-|
+
 ## Syllabus
 
 ### 1.1 General Info
