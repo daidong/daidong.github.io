@@ -9,6 +9,8 @@ location: "Charlotte, US"
 ---
 ## Course Schedule and Organization
 
+### Paper Study
+
 | Main Paper | Relevant paper | Presenters | Slides|
 | --- | --- | --- | --- |
 |The Case for a Learned Sorting Algorithm|Optimizing sorting with machine learning algorithms|Pranitha Kotla|[Link](../files/ml4sys-talks/01.pdf)|
