@@ -18,6 +18,7 @@ Dr. Dong Dai leads the Data Intelligence Research (DIR) Lab, a research group th
 <h2 id="News">News!</h2>
  
 - **Fall 2023 Ph.D. RA positions** are available. Please send me an email for more details.
+- [May. 2023] Congrats to Di Zhang for winning IPDPS 2023 PhD Forum Outstanding Poster Award!
 - [Mar. 2023] Congrats to Md. Hasanur Rashid for being selected as the Lead Student Volunteer at [SC'23](http://sc23.supercomputing.org).
 - [Mar. 2023] Congratulations to Abdullah Al Raqibul Islam and Di Zhang on their acceptances to the [IPDPS'23 Ph.D. forum](http://www.ipdps.org/ipdps2023/2023-phd-forum.html).
 - [Mar. 2023] **Interns** Abdullah Al Raqibul Islam and Md. Hasanur Rashid will be intern at [Lawrence Berkeley National Laboratory](https://www.lbl.gov); Di Zhang will be intern at [Meta](https://www.meta.com). Congrats!
