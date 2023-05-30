@@ -35,6 +35,8 @@ Dr. Dong Dai leads the Data Intelligence Research (DIR) Lab, a research group th
 
 Please check a full list at [Google Scholar Page](https://scholar.google.com/citations?user=wGF_4JsAAAAJ&hl=en)
 
+- **[HPDC'23 Poster]** Early Exploration of Using ChatGPT for Log-based Anomaly Detection on Parallel File Systems Logs. _Chris Egersdoerfer, Di Zhang, Dong Dai_. In Proceedings of the 32nd International
+Symposium on High-Performance Parallel and Distributed Computing (HPDC ’23 Poster), 2023. [Paper](https://daidong.github.io/files/hpdc23_logchain.pdf)
 - **[IPDPS'23]** Drill: Log-based Anomaly Detection for Large-scale Storage Systems Using Source Code Analysis. _Di Zhang, Chris Egersdoerfer, Tabassum Mahmud, Mai Zheng, Dong Dai_. Accepted to appear in 37th IEEE International Parallel & Distributed Processing Symposium (IPDPS'23), 2023. [Paper](https://daidong.github.io/files/drill_ipdps23.pdf), [Code](https://github.com/DIR-LAB/DRILL) 
 - **[IPDPS'23]** FaultyRank: A Graph-based Parallel File System Checker. _Saisha Kamat, Abdullah Al Raqibul Islam, Mai Zheng, Dong Dai_. Accepted to appear in 37th IEEE International Parallel & Distributed Processing Symposium (IPDPS'23), 2023. [Paper](https://daidong.github.io/files/faultyrank_ipdps23.pdf), [Code](https://github.com/DIR-LAB/FaultyRank) 
 - **[FAST'23 WiP]** A Framework for Large Dynamic Graph Analysis on Persistent  Memory, _Abdullah Al Raqibul Islam, Dong Dai_, Accepted to appear in 21st USENIX Conference on File and Storage Technologies (FAST'23 Work-in-Progress), 2023. [Paper](https://daidong.github.io/files/FAST23_wip_DGAP.pdf)
