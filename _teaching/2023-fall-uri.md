@@ -79,6 +79,8 @@ Ideal Knowledge: Python and C++
 High performance applications are naturally hard for people to understand. The purpose of this project is to instrument a few existing high performance applications and prototypes so that the benefits of high performance computing become more apparent. We will add performance measurements in existing high performance codes, and stream these measurements to a web application for display.
 Ideal Knowledge: Some C++, Some Python, Some Javascript, Some Linux.
 
+### Project 11: Toolkit for educational knowledge graphs
+An educational knowledge graph (EKG) is a type of knowledge graph that represents various educational entities, participants, resources, and their semantic relationships in a visual and interactive format. In AI-driven education, EKGs play a critical role in supporting teaching and learning by providing an integrative, dynamic, interconnected view of educational multifaceted information. However, the dynamic nature in education knowledge graph as well as the fact of its growing larger pose issues in its scalability and reliability, especially during its evolution.  In this undergraduate research project, we are going to measure the efficacy of different approaches in storing and inquiring educational knowledge graphs for reasoning and work toward designing a framework and developing a toolkit to construct and fuse knowledge graphs.
 
 ## Frequent Questions
 
