@@ -88,7 +88,7 @@ author:
   googlescholar    : "https://scholar.google.com/citations?user=wGF_4JsAAAAJ&hl=en"
   email            : "ddai@uncc.edu"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
-  uri              :
+  uri              : "https://dirlab.mywikis.wiki/wiki/Main_Page"
   bitbucket        :
   codepen          :
   dribbble         :
@@ -113,7 +113,7 @@ author:
   weibo            :
   xing             :
   youtube          :
-  wikipedia        : "https://dirlab.mywikis.wiki/wiki/Main_Page"
+  wikipedia        :
 
 
 # Reading Files
