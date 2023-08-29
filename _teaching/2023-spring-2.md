@@ -9,6 +9,18 @@ location: "Charlotte, US"
 ---
 # General Information
 
+## 0. Lastest Status of 2023-Spring Cohort
+We have achieved a lot!
+* We got over **60** applicants and accepted **14** students.
+* **5** of our students are selected into OUR Summer Research Scholar Program during 2023 Summer.
+* One student is selected as **SC23 student volunteer**.
+* One student is accepted into **SC23 immersion program**.
+* One student submitted one **poster** to SC’23 Student Research Competition (SRC) and a SC'23 workshop **paper** (PMBS’23).
+* Four students were hired as Research Assistant (**RA**) during 2023 Summer.
+* Three students will be returned as Research Assistant (**RA**) in 2023 Fall.
+* Two students continue their research vis ITCS4990 independent study or capstone course.
+
+
 ## 1. Why are we doing this?
 We want to encourage our Undergraduate Students to participate in research as early as possible. So, we are looking for **Sophomore** and **Junior** students.
 
