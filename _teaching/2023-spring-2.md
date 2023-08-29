@@ -10,8 +10,7 @@ location: "Charlotte, US"
 # General Information
 
 ## 0. Lastest Status of 2023-Spring Cohort
-We have achieved a lot!
-* We got over **60** applicants and accepted **14** students.
+In 2023 Spring, we received over **60** applicants and accepted **14** students. After a semester's work, we have achieved a lot:
 * **5** of our students are selected into OUR Summer Research Scholar Program during 2023 Summer.
 * One student is selected as **SC23 student volunteer**.
 * One student is accepted into **SC23 immersion program**.
