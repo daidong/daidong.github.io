@@ -18,6 +18,7 @@ Dr. Dong Dai leads the Data Intelligence Research (DIR) Lab, a research group th
 <h2 id="News">News!</h2>
  
 - **Fall 2023 Ph.D. RA positions** are available. Please send me an email for more details.
+- [Sept. 2023] **RLBackfilling** is accepted by [PMBS'23](https://www.dcs.warwick.ac.uk/pmbs/pmbs/PMBS/Welcome.html). Big Congrats to Elliot Kolker-Hicks! Elliot is an Undergraduate Student and a member of our URI 2023 Spring Cohort. This is also their first paper!
 - [Jun. 2023] **DGAP** is accepted by [SC'23](http://sc23.supercomputing.org). Big Congrats to Abdullah Al Raqibul Islam! This paper introduces our efforts in building an efficient dynamic graph processing farmework on persistent memory devices.
 - [May. 2023] Congrats to Di Zhang for winning [IPDPS'23 Ph.D. forum](http://www.ipdps.org/ipdps2023/2023-phd-forum.html) **Outstanding Poster Award**!
 - [Mar. 2023] Congrats to Md. Hasanur Rashid for being selected as the Lead Student Volunteer at [SC'23](http://sc23.supercomputing.org).
