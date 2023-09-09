@@ -36,6 +36,7 @@ Dr. Dong Dai leads the Data Intelligence Research (DIR) Lab, a research group th
 
 Please check a full list at [Google Scholar Page](https://scholar.google.com/citations?user=wGF_4JsAAAAJ&hl=en)
 
+- **[PMBS'23]** A Reinforcement Learning Based Backfilling Strategy for HPC Batch Jobs. _Elliot Kolker-Hicks, Di Zhang, Dong Dai_. Accepted to appear in the 14th IEEE International Workshop on Performance Modeling, Benchmarking and Simulation of High Performance Computer Systems (PMBS'23), 2023. TBA
 - **[SC'23]** DGAP: Efficient Dynamic Graph Analysis on Persistent Memory. _Abdullah Al Raqibul Islam, Dong Dai_. Accepted to appear in the International Conference for High Performance Computing, Networking, Storage and Analysis (SC'23), 2023. TBA.
 - **[HPDC'23 Poster]** Early Exploration of Using ChatGPT for Log-based Anomaly Detection on Parallel File Systems Logs. _Chris Egersdoerfer, Di Zhang, Dong Dai_. In Proceedings of the 32nd International
 Symposium on High-Performance Parallel and Distributed Computing (HPDC ’23 Poster), 2023. [Paper](https://daidong.github.io/files/hpdc23_logchain.pdf)
