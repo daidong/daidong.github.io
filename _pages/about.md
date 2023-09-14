@@ -17,7 +17,6 @@ Dr. Dong Dai leads the Data Intelligence Research (DIR) Lab, a research group th
 
 <h2 id="News">News!</h2>
  
-- **Fall 2023 Ph.D. RA positions** are available. Please send me an email for more details.
 - [Sept. 2023] **RLBackfilling** is accepted by [PMBS'23](https://www.dcs.warwick.ac.uk/pmbs/pmbs/PMBS/Welcome.html) at [SC'23](http://sc23.supercomputing.org). Big Congrats to Elliot Kolker-Hicks! Elliot is an Undergraduate Student and a member of our [URI 2023 Spring Cohort](https://daidong.github.io/teaching/2023-spring-2). This is also their first paper!
 - [Jun. 2023] **DGAP** is accepted by [SC'23](http://sc23.supercomputing.org). Big Congrats to Abdullah Al Raqibul Islam! This paper introduces our efforts in building an efficient dynamic graph processing farmework on persistent memory devices.
 - [May. 2023] Congrats to Di Zhang for winning [IPDPS'23 Ph.D. forum](http://www.ipdps.org/ipdps2023/2023-phd-forum.html) **Outstanding Poster Award**!
@@ -28,7 +27,7 @@ Dr. Dong Dai leads the Data Intelligence Research (DIR) Lab, a research group th
 - [Jan. 2023] **Drill** is accepted by [IPDPS'23](https://www.ipdps.org). Congrats to Di Zhang and Chris Egersdoerfer! In this paper, we propose leveraging content-based and context-based features to better understand file system logs for accurate anomaly detection. 
 - [Sep. 2022] Congratulate Abdullah Al Raqibul Islam for being accepted to [Google CS Research Mentorship Program](https://research.google/outreach/csrmp/).
 - [Sep. 2022] **ClusterLog** is accepted by [FTXS 2022 Workshop](https://sites.google.com/view/ftxs2022) at SC'22. Congrats to Chris Egersdoerfer and Di Zhang. Chris is an Undergraduate Student, and this is his first paper! In this paper, we propose a new log pre-processing method to improve existing log-based anomaly detection methods' accuracy significantly.
-- [May 2022] Recived [CCI Essam El-Kwae Student-Faculty Research Award](https://cci.charlotte.edu/news/2022-05-02/cci-facultystaff-awards-luncheon) together with Di Zhang. Thanks to the students, collaborators, and the college.
+- [May 2022] Received [CCI Essam El-Kwae Student-Faculty Research Award](https://cci.charlotte.edu/news/2022-05-02/cci-facultystaff-awards-luncheon) together with Di Zhang. Thanks to the students, collaborators, and the college.
 - [...](https://daidong.github.io/news/)
 
 
@@ -36,8 +35,8 @@ Dr. Dong Dai leads the Data Intelligence Research (DIR) Lab, a research group th
 
 Please check a full list at [Google Scholar Page](https://scholar.google.com/citations?user=wGF_4JsAAAAJ&hl=en)
 
-- **[PMBS'23]** A Reinforcement Learning Based Backfilling Strategy for HPC Batch Jobs. _Elliot Kolker-Hicks, Di Zhang, Dong Dai_. Accepted to appear in the 14th IEEE International Workshop on Performance Modeling, Benchmarking and Simulation of High Performance Computer Systems (PMBS'23), 2023. TBA
-- **[SC'23]** DGAP: Efficient Dynamic Graph Analysis on Persistent Memory. _Abdullah Al Raqibul Islam, Dong Dai_. Accepted to appear in the International Conference for High Performance Computing, Networking, Storage and Analysis (SC'23), 2023. TBA.
+- **[PMBS'23]** A Reinforcement Learning Based Backfilling Strategy for HPC Batch Jobs. _Elliot Kolker-Hicks, Di Zhang, Dong Dai_. Accepted to appear in the 14th IEEE International Workshop on Performance Modeling, Benchmarking and Simulation of High Performance Computer Systems (PMBS'23), 2023. TBA.
+- **[SC'23]** DGAP: Efficient Dynamic Graph Analysis on Persistent Memory. _Abdullah Al Raqibul Islam, Dong Dai_. Accepted to appear in the International Conference for High Performance Computing, Networking, Storage and Analysis (SC'23), 2023. [Paper](https://daidong.github.io/files/dgap_sc23.pdf)
 - **[HPDC'23 Poster]** Early Exploration of Using ChatGPT for Log-based Anomaly Detection on Parallel File Systems Logs. _Chris Egersdoerfer, Di Zhang, Dong Dai_. In Proceedings of the 32nd International
 Symposium on High-Performance Parallel and Distributed Computing (HPDC ’23 Poster), 2023. [Paper](https://daidong.github.io/files/hpdc23_logchain.pdf)
 - **[IPDPS'23]** Drill: Log-based Anomaly Detection for Large-scale Storage Systems Using Source Code Analysis. _Di Zhang, Chris Egersdoerfer, Tabassum Mahmud, Mai Zheng, Dong Dai_. Accepted to appear in 37th IEEE International Parallel & Distributed Processing Symposium (IPDPS'23), 2023. [Paper](https://daidong.github.io/files/drill_ipdps23.pdf), [Slides](https://daidong.github.io/files/drill_ipdps23_talk.pdf), [Code](https://github.com/DIR-LAB/DRILL) 
