@@ -17,7 +17,7 @@ To you, this may be your first exposure to research! You can learn interesting t
 ## 2. Who is doing this?
 Faculty members in the Computer Science Department, particularly Parallel High-Performance Computing Lab, are doing this. 
 
-We are [Harini Ramaprasad](http://webpages.uncc.edu/hramapra/index.html), [Qiong Chen](go.charlotte.edu/qcheng1), [Tyler Allen](https://webpages.charlotte.edu/~tallen93/), [Dong Dai](http://daidong.github.io), [Erik Saule](https://webpages.charlotte.edu/~esaule/public-website/welcome.html), and [Yonghong Yan](https://passlab.github.io/yanyh/). Our Ph.D. students and we will be mentoring your research. 
+We are [Harini Ramaprasad](http://webpages.uncc.edu/hramapra/index.html), [Qiong Chen](go.charlotte.edu/qcheng1), [Meera Sridhar](https://webpages.charlotte.edu/msridhar/), [Tyler Allen](https://webpages.charlotte.edu/~tallen93/), [Dong Dai](http://daidong.github.io), [Erik Saule](https://webpages.charlotte.edu/~esaule/public-website/welcome.html), and [Yonghong Yan](https://passlab.github.io/yanyh/). Our Ph.D. students and we will be mentoring your research. 
 
 In addition, Md. Hasanur Rashid (mrashid2@uncc.edu) will be our TA to interact with you during the semester.
 
