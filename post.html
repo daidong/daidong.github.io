@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Post — Dong Dai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    @font-face { font-family: 'Atkinson'; src: url('fonts/atkinson-regular.woff') format('woff'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Atkinson'; src: url('fonts/atkinson-bold.woff') format('woff'); font-weight: 700; font-style: normal; font-display: swap; }
+
+    :root, [data-theme="light"] {
+      --sys-surface-canvas: #ffffff;
+      --sys-surface-panel: #f8f8f8;
+      --sys-surface-raised: #f0f0f0;
+      --sys-surface-hover: rgba(0,0,0,0.03);
+      --sys-text-primary: #1a1a1a;
+      --sys-text-secondary: #4a4a4a;
+      --sys-text-muted: #8a8a8a;
+      --sys-border-default: #e2e2e2;
+      --sys-border-subtle: #ebebeb;
+      --sys-border-strong: #c0c0c0;
+      --sys-accent-primary: #0d9488;
+      --sys-accent-primary-hover: #0f766e;
+      --sys-accent-soft-bg: rgba(13,148,136,0.06);
+      --sys-accent-soft-border: rgba(13,148,136,0.18);
+      --nav-bg: rgba(255,255,255,0.85);
+      --max-w: 720px;
+      --space-xs: 0.25rem; --space-sm: 0.5rem; --space-md: 0.75rem;
+      --space-lg: 1rem; --space-xl: 1.5rem; --space-2xl: 2rem;
+    }
+    [data-theme="dark"] {
+      --sys-surface-canvas: #0a0a0a;
+      --sys-surface-panel: #141414;
+      --sys-surface-raised: #1c1c1e;
+      --sys-surface-hover: rgba(255,255,255,0.04);
+      --sys-text-primary: #f0f0f0;
+      --sys-text-secondary: #b0b0b0;
+      --sys-text-muted: #707070;
+      --sys-border-default: #252525;
+      --sys-border-subtle: #1e1e1e;
+      --sys-border-strong: #3a3a3a;
+      --sys-accent-primary: #14b8a6;
+      --sys-accent-primary-hover: #0d9488;
+      --sys-accent-soft-bg: rgba(20,184,166,0.08);
+      --sys-accent-soft-border: rgba(20,184,166,0.20);
+      --nav-bg: rgba(10,10,10,0.85);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: 'Atkinson', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 14px; line-height: 1.65;
+      color: var(--sys-text-primary);
+      background: var(--sys-surface-canvas);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    /* Nav */
+    nav { position: sticky; top: 0; z-index: 100; background: var(--nav-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--sys-border-subtle); }
+    nav .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--space-lg); display: flex; align-items: center; justify-content: space-between; height: 44px; }
+    nav .nav-name { font-weight: 600; font-size: 14px; color: var(--sys-text-primary); letter-spacing: -0.01em; text-decoration: none; }
+    .nav-right { display: flex; align-items: center; gap: var(--space-md); }
+    nav .nav-links { display: flex; gap: var(--space-md); list-style: none; }
+    nav .nav-links a { font-size: 13px; font-weight: 500; color: var(--sys-text-muted); text-decoration: none; transition: color 0.15s; }
+    nav .nav-links a:hover, nav .nav-links a.active { color: var(--sys-text-primary); }
+    .theme-toggle { background: none; border: 1px solid var(--sys-border-default); border-radius: 6px; width: 32px; height: 28px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--sys-text-muted); transition: all 0.15s; flex-shrink: 0; }
+    .theme-toggle:hover { color: var(--sys-text-primary); border-color: var(--sys-border-strong); }
+    .theme-toggle .icon-sun, .theme-toggle .icon-moon { display: none; }
+    [data-theme="light"] .theme-toggle .icon-moon { display: block; }
+    [data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+
+    /* Main */
+    main { max-width: var(--max-w); margin: 0 auto; padding: var(--space-2xl) var(--space-lg); }
+
+    /* Post header */
+    .post-header { margin-bottom: var(--space-xl); padding-bottom: var(--space-lg); border-bottom: 1px solid var(--sys-border-subtle); }
+    .post-header h1 { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.3; margin-bottom: var(--space-sm); }
+    .post-header .post-meta { font-size: 13px; color: var(--sys-text-muted); }
+    .post-back { display: inline-block; font-size: 13px; color: var(--sys-text-muted); text-decoration: none; margin-bottom: var(--space-lg); transition: color 0.15s; }
+    .post-back:hover { color: var(--sys-accent-primary); }
+
+    /* Markdown content */
+    .prose h1 { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; margin: var(--space-xl) 0 var(--space-md); }
+    .prose h2 { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; margin: var(--space-xl) 0 var(--space-md); color: var(--sys-text-primary); text-transform: none; border-bottom: none; padding-bottom: 0; }
+    .prose h3 { font-size: 15px; font-weight: 600; margin: var(--space-lg) 0 var(--space-sm); }
+    .prose p { margin-bottom: var(--space-md); color: var(--sys-text-secondary); line-height: 1.75; font-size: 14.5px; }
+    .prose ul, .prose ol { margin-bottom: var(--space-md); padding-left: var(--space-xl); color: var(--sys-text-secondary); }
+    .prose li { margin-bottom: var(--space-xs); line-height: 1.7; font-size: 14.5px; }
+    .prose strong { color: var(--sys-text-primary); font-weight: 500; }
+    .prose a { color: var(--sys-accent-primary); text-decoration: none; border-bottom: 1px solid var(--sys-accent-soft-border); transition: border-color 0.15s; }
+    .prose a:hover { border-color: var(--sys-accent-primary); }
+    .prose blockquote { border-left: 3px solid var(--sys-accent-primary); padding-left: var(--space-lg); margin: var(--space-lg) 0; color: var(--sys-text-muted); font-style: italic; }
+    .prose code { font-family: 'JetBrains Mono', monospace; font-size: 13px; background: var(--sys-surface-raised); padding: 1px 5px; border-radius: 3px; }
+    .prose pre { background: var(--sys-surface-raised); border: 1px solid var(--sys-border-default); border-radius: 6px; padding: var(--space-lg); overflow-x: auto; margin-bottom: var(--space-lg); }
+    .prose pre code { background: none; padding: 0; font-size: 13px; line-height: 1.6; }
+    .prose img { max-width: 100%; height: auto; border-radius: 6px; margin: var(--space-lg) 0; border: 1px solid var(--sys-border-subtle); }
+    .prose hr { border: none; border-top: 1px solid var(--sys-border-default); margin: var(--space-xl) 0; }
+
+    /* Loading / error */
+    .empty { text-align: center; padding: var(--space-2xl) 0; color: var(--sys-text-muted); font-size: 13px; }
+
+    /* Footer */
+    footer { max-width: var(--max-w); margin: 0 auto; padding: var(--space-md) var(--space-lg); border-top: 1px solid var(--sys-border-subtle); text-align: center; font-size: 11px; color: var(--sys-text-muted); }
+
+    @media (max-width: 600px) {
+      nav .nav-links { gap: var(--space-sm); }
+      nav .nav-links a { font-size: 12px; }
+      .post-header h1 { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-name" href="index.html">Dong Dai</a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html">About</a></li>
+        <li><a href="index.html#publications">Papers</a></li>
+        <li><a href="index.html#teaching">Teaching</a></li>
+        <li><a href="index.html#students">Students</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+      </ul>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <a class="post-back" href="blog.html">&larr; All posts</a>
+  <div id="post-content">
+    <p class="empty">Loading...</p>
+  </div>
+</main>
+
+<footer>&copy; 2025 Dong Dai. University of Delaware.</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+function toggleTheme() {
+  var html = document.documentElement;
+  var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+}
+(function() {
+  var saved = localStorage.getItem('theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+})();
+
+function formatDate(dateStr) {
+  var d = new Date(dateStr + 'T00:00:00');
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return d.getDate() + ' ' + months[d.getMonth()] + ', ' + d.getFullYear();
+}
+
+function estimateReadTime(text) {
+  var words = text.trim().split(/\s+/).length;
+  var mins = Math.max(1, Math.round(words / 200));
+  return mins + ' min read';
+}
+
+var params = new URLSearchParams(window.location.search);
+var slug = params.get('slug');
+
+if (!slug) {
+  document.getElementById('post-content').innerHTML = '<p class="empty">Post not found. <a href="blog.html">Back to blog</a></p>';
+} else {
+  // Load post metadata from posts.json for title/date, then load markdown
+  Promise.all([
+    fetch('blog/posts.json').then(function(r) { return r.json(); }),
+    fetch('blog/' + slug + '.md').then(function(r) {
+      if (!r.ok) throw new Error('Not found');
+      return r.text();
+    })
+  ]).then(function(results) {
+    var posts = results[0];
+    var md = results[1];
+    var meta = null;
+
+    for (var i = 0; i < posts.length; i++) {
+      if (posts[i].slug === slug) { meta = posts[i]; break; }
+    }
+
+    // Update page title
+    if (meta) {
+      document.title = meta.title + ' — Dong Dai';
+    }
+
+    // Render
+    var container = document.getElementById('post-content');
+    var html = '';
+
+    if (meta) {
+      html += '<div class="post-header">';
+      html += '<h1>' + meta.title + '</h1>';
+      html += '<div class="post-meta">' + formatDate(meta.date) + ' &middot; ' + estimateReadTime(md) + '</div>';
+      html += '</div>';
+    }
+
+    // Remove the first H1 from markdown if it matches the title (avoid duplication)
+    var mdBody = md;
+    if (meta) {
+      mdBody = md.replace(/^#\s+.*\n+/, '');
+    }
+
+    html += '<div class="prose">' + marked.parse(mdBody) + '</div>';
+    container.innerHTML = html;
+
+  }).catch(function() {
+    document.getElementById('post-content').innerHTML = '<p class="empty">Post not found. <a href="blog.html">Back to blog</a></p>';
+  });
+}
+</script>
+
+</body>
+</html>

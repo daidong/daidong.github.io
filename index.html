@@ -1,5 +1,788 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<title>Redirecting to Dong Dai's Hompage</title>
-<meta http-equiv="refresh" content="0; URL=https://sites.google.com/udel.edu/dirlab/people/dong-dai">
-<link rel="canonical" href="https://sites.google.com/udel.edu/dirlab/people/dong-dai">
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dong Dai — Associate Professor, University of Delaware</title>
+  <meta name="description" content="Dong Dai's academic homepage. Associate Professor at University of Delaware, Department of Computer and Information Sciences.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    @font-face { font-family: 'Atkinson'; src: url('fonts/atkinson-regular.woff') format('woff'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Atkinson'; src: url('fonts/atkinson-bold.woff') format('woff'); font-weight: 700; font-style: normal; font-display: swap; }
+
+    /* ── Token Layer ── */
+
+    /* Light theme (default) */
+    :root, [data-theme="light"] {
+      --sys-surface-canvas: #ffffff;
+      --sys-surface-panel: #f8f8f8;
+      --sys-surface-raised: #f0f0f0;
+      --sys-surface-hover: rgba(0,0,0,0.03);
+      --sys-surface-selected: rgba(0,0,0,0.06);
+
+      --sys-text-primary: #1a1a1a;
+      --sys-text-secondary: #4a4a4a;
+      --sys-text-muted: #8a8a8a;
+      --sys-text-inverse: #ffffff;
+
+      --sys-border-default: #e2e2e2;
+      --sys-border-subtle: #ebebeb;
+      --sys-border-strong: #c0c0c0;
+
+      --sys-accent-primary: #0d9488;
+      --sys-accent-primary-hover: #0f766e;
+      --sys-accent-soft-bg: rgba(13,148,136,0.06);
+      --sys-accent-soft-border: rgba(13,148,136,0.18);
+
+      --nav-bg: rgba(255,255,255,0.85);
+
+      /* Layout */
+      --max-w: 720px;
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 0.75rem;
+      --space-lg: 1rem;
+      --space-xl: 1.5rem;
+      --space-2xl: 2rem;
+    }
+
+    /* Dark theme */
+    [data-theme="dark"] {
+      --sys-surface-canvas: #0a0a0a;
+      --sys-surface-panel: #141414;
+      --sys-surface-raised: #1c1c1e;
+      --sys-surface-hover: rgba(255,255,255,0.04);
+      --sys-surface-selected: rgba(255,255,255,0.08);
+
+      --sys-text-primary: #f0f0f0;
+      --sys-text-secondary: #b0b0b0;
+      --sys-text-muted: #707070;
+      --sys-text-inverse: #0a0a0a;
+
+      --sys-border-default: #252525;
+      --sys-border-subtle: #1e1e1e;
+      --sys-border-strong: #3a3a3a;
+
+      --sys-accent-primary: #14b8a6;
+      --sys-accent-primary-hover: #0d9488;
+      --sys-accent-soft-bg: rgba(20,184,166,0.08);
+      --sys-accent-soft-border: rgba(20,184,166,0.20);
+
+      --nav-bg: rgba(10,10,10,0.85);
+    }
+
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Base ── */
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'Atkinson', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--sys-text-primary);
+      background: var(--sys-surface-canvas);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--sys-border-subtle);
+    }
+
+    nav .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 44px;
+    }
+
+    nav .nav-name {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--sys-text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    nav .nav-links {
+      display: flex;
+      gap: var(--space-md);
+      list-style: none;
+    }
+
+    nav .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--sys-text-muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    nav .nav-links a:hover {
+      color: var(--sys-text-primary);
+    }
+
+    /* Theme toggle */
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--sys-border-default);
+      border-radius: 6px;
+      width: 32px;
+      height: 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--sys-text-muted);
+      font-size: 14px;
+      transition: all 0.15s;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle:hover {
+      color: var(--sys-text-primary);
+      border-color: var(--sys-border-strong);
+    }
+
+    .theme-toggle .icon-sun,
+    .theme-toggle .icon-moon { display: none; }
+
+    [data-theme="light"] .theme-toggle .icon-moon { display: block; }
+    [data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+
+    /* ── Main layout ── */
+    main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: var(--space-2xl) var(--space-lg);
+    }
+
+    section {
+      margin-bottom: var(--space-2xl);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      display: flex;
+      gap: var(--space-xl);
+      align-items: center;
+      margin-bottom: var(--space-lg);
+    }
+
+    .hero-photo {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--sys-border-default);
+      flex-shrink: 0;
+    }
+
+    .hero-text h1 {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 2px;
+    }
+
+    .hero-text h1 span.cn {
+      font-weight: 400;
+      color: var(--sys-text-muted);
+      font-size: 15px;
+      margin-left: 6px;
+    }
+
+    .hero-title {
+      font-size: 13px;
+      color: var(--sys-text-secondary);
+      margin-bottom: var(--space-sm);
+      line-height: 1.45;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .hero-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--sys-text-muted);
+      text-decoration: none;
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--sys-border-default);
+      transition: all 0.15s;
+    }
+
+    .hero-links a:hover {
+      color: var(--sys-accent-primary);
+      border-color: var(--sys-accent-soft-border);
+      background: var(--sys-accent-soft-bg);
+    }
+
+    /* ── About text ── */
+    .about-text {
+      color: var(--sys-text-secondary);
+      font-size: 13.5px;
+      line-height: 1.7;
+      margin-bottom: var(--space-2xl);
+    }
+
+    .about-text strong {
+      color: var(--sys-text-primary);
+      font-weight: 500;
+    }
+
+    /* ── Section headings ── */
+    h2 {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--sys-text-muted);
+      margin-bottom: var(--space-md);
+      padding-bottom: var(--space-xs);
+      border-bottom: 1px solid var(--sys-border-subtle);
+    }
+
+    /* ── Publication list ── */
+    .pub-list {
+      list-style: none;
+    }
+
+    .pub-list li {
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--sys-border-subtle);
+    }
+
+    .pub-list li:last-child {
+      border-bottom: none;
+    }
+
+    .pub-venue {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--sys-accent-primary);
+      background: var(--sys-accent-soft-bg);
+      border: 1px solid var(--sys-accent-soft-border);
+      padding: 0px 6px;
+      border-radius: 3px;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    .pub-title {
+      font-weight: 500;
+      color: var(--sys-text-primary);
+      font-size: 13px;
+    }
+
+    .pub-authors {
+      display: block;
+      font-size: 12px;
+      color: var(--sys-text-muted);
+      margin-top: 1px;
+      line-height: 1.4;
+    }
+
+    .pub-links {
+      margin-top: 2px;
+    }
+
+    .pub-links a {
+      font-size: 11px;
+      color: var(--sys-text-muted);
+      text-decoration: none;
+      margin-right: 6px;
+      transition: color 0.15s;
+    }
+
+    .pub-links a:hover {
+      color: var(--sys-accent-primary);
+    }
+
+    .pub-more {
+      text-align: center;
+      margin-top: var(--space-lg);
+    }
+
+    .pub-more a {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--sys-accent-primary);
+      text-decoration: none;
+      padding: 5px 14px;
+      border: 1px solid var(--sys-accent-soft-border);
+      border-radius: 5px;
+      transition: all 0.15s;
+    }
+
+    .pub-more a:hover {
+      background: var(--sys-accent-soft-bg);
+    }
+
+    /* ── Teaching ── */
+    .teaching-list {
+      list-style: none;
+    }
+
+    .teaching-list li {
+      padding: 3px 0;
+      font-size: 13px;
+      color: var(--sys-text-secondary);
+      display: flex;
+      gap: var(--space-sm);
+      align-items: baseline;
+    }
+
+    .teaching-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--sys-text-muted);
+      flex-shrink: 0;
+      min-width: 52px;
+    }
+
+    .teaching-list a {
+      color: var(--sys-text-secondary);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .teaching-list a:hover {
+      color: var(--sys-accent-primary);
+    }
+
+    /* ── Students ── */
+    .students-group {
+      margin-bottom: var(--space-md);
+    }
+
+    .students-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .students-group h3 {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--sys-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .students-list {
+      list-style: none;
+    }
+
+    .students-list li {
+      padding: 2px 0;
+      font-size: 13px;
+      color: var(--sys-text-secondary);
+    }
+
+    .students-list a {
+      color: var(--sys-text-secondary);
+      text-decoration: none;
+      border-bottom: 1px solid var(--sys-border-default);
+      transition: all 0.15s;
+    }
+
+    .students-list a:hover {
+      color: var(--sys-accent-primary);
+      border-color: var(--sys-accent-primary);
+    }
+
+    .student-note {
+      color: var(--sys-text-muted);
+      font-size: 12px;
+    }
+
+    /* ── Projects ── */
+    .project-list {
+      list-style: none;
+    }
+
+    .project-list li {
+      padding: 4px 0;
+      font-size: 13px;
+      color: var(--sys-text-secondary);
+      line-height: 1.5;
+    }
+
+    .project-status {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      padding: 0px 5px;
+      border-radius: 3px;
+      margin-right: 4px;
+    }
+
+    .project-status.active {
+      color: var(--sys-accent-primary);
+      background: var(--sys-accent-soft-bg);
+      border: 1px solid var(--sys-accent-soft-border);
+    }
+
+    .project-status.past {
+      color: var(--sys-text-muted);
+      background: var(--sys-surface-raised);
+      border: 1px solid var(--sys-border-default);
+    }
+
+    .project-list a {
+      color: var(--sys-text-secondary);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .project-list a:hover {
+      color: var(--sys-accent-primary);
+    }
+
+    /* ── Footer ── */
+    footer {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: var(--space-md) var(--space-lg);
+      border-top: 1px solid var(--sys-border-subtle);
+      text-align: center;
+      font-size: 11px;
+      color: var(--sys-text-muted);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .hero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .hero-links {
+        justify-content: center;
+      }
+
+      nav .nav-links {
+        gap: var(--space-sm);
+      }
+
+      nav .nav-links a {
+        font-size: 12px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-xs);
+      }
+
+      .contact-label {
+        margin-top: var(--space-sm);
+      }
+
+      .teaching-list li {
+        flex-direction: column;
+        gap: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-name">Dong Dai</span>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#">About</a></li>
+        <li><a href="#publications">Papers</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#students">Students</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- Hero -->
+  <div class="hero" id="about">
+    <img class="hero-photo" src="images/dongdai.jpg" alt="Dong Dai">
+    <div class="hero-text">
+      <h1>Dong Dai <span class="cn">代栋</span></h1>
+      <p class="hero-title">
+        Associate Professor<br>
+        Department of Computer &amp; Information Sciences<br>
+        University of Delaware
+      </p>
+      <div class="hero-links">
+        <a href="https://scholar.google.com/citations?user=wGF_4JsAAAAJ&hl=en">Google Scholar</a>
+        <a href="https://github.com/DIR-LAB/">GitHub</a>
+        <a href="https://www.linkedin.com/in/dong-dai-9684092a/">LinkedIn</a>
+        <a href="https://drive.google.com/file/d/1nN9x9hj9zsfwfYL7wmYkAWIU-8QG182U/view">CV</a>
+        <a href="https://sites.google.com/udel.edu/dirlab">DIRLab</a>
+      </div>
+    </div>
+  </div>
+
+  <p class="about-text">
+    I am an Associate Professor at the <strong>University of Delaware</strong> in the Department of Computer and Information Sciences,
+    where I lead the <strong>Data Intelligence Research Lab (DIRLab)</strong>.
+    My research focuses on <strong>data-intensive and high-performance systems</strong>, spanning parallel file systems,
+    metadata management, graph storage, resource scheduling, and machine learning for systems.
+    Previously, I was an Assistant Professor at UNC Charlotte and held postdoctoral positions at Texas Tech University and Argonne National Lab.
+    I received my Ph.D. in Computer Science from the University of Science and Technology of China (USTC).
+  </p>
+
+  <!-- Publications -->
+  <section id="publications">
+    <h2>Publications</h2>
+    <p style="font-size:12px;color:var(--sys-text-muted);margin-bottom:var(--space-md)">* Ph.D. student mentored &nbsp; &dagger; Master/undergraduate student mentored</p>
+    <ul class="pub-list">
+
+      <li>
+        <span class="pub-venue">IPDPS'26</span>
+        <span class="pub-title">QoSFlow: Ensuring QoS of Distributed Workflows Using Interpretable Sensitivity Models</span>
+        <span class="pub-authors">Md. Hasanur Rashid*, Jesun Firoz, Nathan R. Tallent, Luanzheng Guo, Meng Tang, Dong Dai</span>
+      </li>
+      <li>
+        <span class="pub-venue">IPDPS'26</span>
+        <span class="pub-title">CARAT: Client-Side Adaptive RPC and Cache Co-Tuning for Parallel File Systems</span>
+        <span class="pub-authors">Md. Hasanur Rashid*, Nathan R. Tallent, Forrest Sheng Bao, Dong Dai</span>
+      </li>
+      <li>
+        <span class="pub-venue">npj Comp. Mat.</span>
+        <span class="pub-title">AI-assisted Rapid Crystal Structure Generation towards a Target Local Environment</span>
+        <span class="pub-authors">O. G. Ridwan, S. Piti&eacute;, M. Soundar Raj, Dong Dai, G. Frapper, H. Xue, Q. Zhu. (IF=11.09)</span>
+      </li>
+      <li>
+        <span class="pub-venue">SC'25</span>
+        <span class="pub-title">STELLAR: Storage Tuning Engine Leveraging LLM Autonomous Reasoning for HPC Parallel File Systems</span>
+        <span class="pub-authors">Chris Egersdoerfer*, Philip Carns, Shane Snyder, Robert Ross, Dong Dai</span>
+      </li>
+      <li>
+        <span class="pub-venue">SC'25</span>
+        <span class="pub-title">Improving SpGEMM Performance Through Matrix-Reordering and Cluster-wise Computation</span>
+        <span class="pub-authors">Abdullah Al Raqibul Islam*, Helen Xu, Dong Dai, Aydin Bulu&ccedil;</span>
+      </li>
+      <li>
+        <span class="pub-venue">HPDC'25</span>
+        <span class="pub-title">TSUE: A Two-Stage Data Update Method for an Erasure Coded Cluster File System</span>
+        <span class="pub-authors">Zheng Wei, Jing Xing, Yida Gu, Wenjing Huang, Dong Dai, Guangming Tan, Dingwen Tao</span>
+      </li>
+      <li>
+        <span class="pub-venue">CUG'25</span>
+        <span class="pub-title">Towards Empirical Roofline Modeling of Distributed Data Services: Mapping the Boundaries of RPC Throughput</span>
+        <span class="pub-authors">Philip Carns, Matthieu Dorier, Rob Latham, Shane Snyder, A. Gueroudji, S. Ockerman, J. Soumagne, Dong Dai, Robert Ross</span>
+      </li>
+      <li>
+        <span class="pub-venue">CCGrid'25</span>
+        <span class="pub-title">DIAL: Decentralized I/O AutoTuning via Learned Client-side Local Metrics for Parallel File System</span>
+        <span class="pub-authors">Md Hasanur Rashid*, Xinyi Li, Youbiao He, Forrest Sheng Bao, Dong Dai</span>
+      </li>
+      <li>
+        <span class="pub-venue">IPDPS'25</span>
+        <span class="pub-title">IOAgent: Democratizing Trustworthy HPC I/O Performance Diagnosis Capability via LLMs</span>
+        <span class="pub-authors">Chris Egersdoerfer*, Arnav Sareen&dagger;, Jean Luca Bez, Suren Byna, Dongkuan Xu, Dong Dai</span>
+      </li>
+      <li>
+        <span class="pub-venue">IPDPS'25</span>
+        <span class="pub-title">Be Aware of Metadata Corruption in Parallel File Systems: It Can Be Silent and Catastrophic</span>
+        <span class="pub-authors">Saisha Kamat*, Mai Zheng, Bo Fang, Dong Dai</span>
+      </li>
+      <li>
+        <span class="pub-venue">IPDPS'25</span>
+        <span class="pub-title">AdapTBF: Decentralized Bandwidth Control via Adaptive Token Borrowing for HPC Storage</span>
+        <span class="pub-authors">Md. Hasanur Rashid*, Dong Dai</span>
+      </li>
+      <li>
+        <span class="pub-venue">PDSW'25</span>
+        <span class="pub-title">LLMTailor: A Layer-wise Tailoring Tool for Efficient Checkpointing of Large Language Models</span>
+        <span class="pub-authors">Minqiu Sun*, Xin Huang, Luanzheng Guo, Nathan R. Tallent, Kento Sato, Dong Dai</span>
+      </li>
+      <li>
+        <span class="pub-venue">PDSW'25</span>
+        <span class="pub-title">RL4Sys: A Lightweight System-driven RL Framework for Drop-in Integration in System Optimization</span>
+        <span class="pub-authors">Jiaxin Dong*, Md. Hasanur Rashid*, Helen Xu, Dong Dai</span>
+      </li>
+      <li>
+        <span class="pub-venue">IEEE TC'24</span>
+        <span class="pub-title">Hardware Accelerated Vision Transformer via Heterogeneous Architecture Design and Adaptive Dataflow Mapping</span>
+        <span class="pub-authors">Y. Gao, T. Wang, L. Gong, C. Wang, Dong Dai, Y. Yang, X. Chen, X. Li, X. Zhou</span>
+      </li>
+      <li>
+        <span class="pub-venue">BigData'24</span>
+        <span class="pub-title">QualityNet: Error-bounded Lossy Compression Quality Prediction via Deep Surrogate</span>
+        <span class="pub-authors">Khondoker Mirazul Mumenin*, Dong Dai, Jinzhen Wang, Sheng Di (acceptance rate: 18.8%)</span>
+      </li>
+      <li>
+        <span class="pub-venue">PDSW'24</span>
+        <span class="pub-title">Understanding and Predicting Cross-Application I/O Interference in HPC Storage Systems</span>
+        <span class="pub-authors">Chris Egersdoerfer*, Md. Hasanur Rashid*, Dong Dai, Bo Fang, Nathan Tallent</span>
+      </li>
+      <li>
+        <span class="pub-venue">HotStorage'24</span>
+        <span class="pub-title">ION: Navigating HPC I/O Optimization Journey using Large Language Models</span>
+        <span class="pub-authors">Chris Egersdoerfer&dagger;, Arnav Sareen&dagger;, Jean Luca Bez, Suren Byna, Dong Dai</span>
+      </li>
+      <li>
+        <span class="pub-venue">JSSPP'24</span>
+        <span class="pub-title">An Empirical Study of Machine Learning-based Synthetic Job Trace Generation Methods</span>
+        <span class="pub-authors">Monish Soundar Raj&dagger;, Thomas MacDougall&dagger;, Di Zhang*, Dong Dai</span>
+      </li>
+      <li>
+        <span class="pub-venue">IPDPS'24</span>
+        <span class="pub-title">Cross-System Analysis of Job Characterization and Scheduling in Large-Scale Computing Clusters</span>
+        <span class="pub-authors">Di Zhang*, Monish Soundar Raj&dagger;, Bing Xie, Sheng Di, Dong Dai (acceptance rate: 24%)</span>
+      </li>
+
+    </ul>
+    <div class="pub-more">
+      <a href="https://scholar.google.com/citations?user=wGF_4JsAAAAJ&hl=en">View full list on Google Scholar &rarr;</a>
+    </div>
+  </section>
+
+  <!-- Teaching -->
+  <section id="teaching">
+    <h2>Teaching</h2>
+    <div class="students-group">
+      <h3>University of Delaware</h3>
+      <ul class="teaching-list">
+        <li><span class="teaching-tag">F 2025</span> CISC 361 Operating System</li>
+        <li><span class="teaching-tag">S 2025</span> CISC 360 Computer Architecture</li>
+        <li><span class="teaching-tag">F 2024</span> CISC 361 Operating System</li>
+      </ul>
+    </div>
+    <div class="students-group">
+      <h3>UNC Charlotte</h3>
+      <ul class="teaching-list">
+        <li><span class="teaching-tag">S 2023</span> ITCS-6050/8050 ML for Efficient Computing Systems</li>
+        <li><span class="teaching-tag">S 2023</span> Undergraduate Research Initiative</li>
+        <li><span class="teaching-tag">F 2023</span> Undergraduate Research Initiative</li>
+        <li><span class="teaching-tag">19–22</span> ITCS-5145 Parallel Computing</li>
+        <li><span class="teaching-tag">20–22</span> ITSC-3181 Intro to Computer Architecture</li>
+        <li><span class="teaching-tag">18–19</span> ITCS-6144/8144 Operating Systems Design</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Students -->
+  <section id="students">
+    <h2>Doctoral Students</h2>
+    <div class="students-group">
+      <h3>Current</h3>
+      <ul class="students-list">
+        <li>Md Hasanur Rashid <span class="student-note">— 2024&ndash;present, passed proposal defense</span></li>
+        <li>Chris Egersdoerfer <span class="student-note">— 2024&ndash;present, passed preliminary exam</span></li>
+        <li>Jiaxin Dong <span class="student-note">— 2024&ndash;present</span></li>
+        <li>Minqiu Sun <span class="student-note">— 2024&ndash;present</span></li>
+        <li>Yuan Liang <span class="student-note">— 2025&ndash;present</span></li>
+      </ul>
+    </div>
+    <div class="students-group">
+      <h3>Graduated</h3>
+      <ul class="students-list">
+        <li><a href="https://biqar.github.io">Abdullah Al Raqibul Islam</a> <span class="student-note">— Ph.D. 2019&ndash;2025 &rarr; Research Associate @ OSU</span></li>
+        <li><a href="https://zhangdistephen.github.io">Di Zhang</a> <span class="student-note">— Ph.D. 2019&ndash;2024 &rarr; Research Scientist @ Meta</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Research Projects -->
+  <section id="projects">
+    <h2>Research Projects</h2>
+    <ul class="project-list">
+      <li>
+        <span class="project-status active">Active</span>
+        <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2008265">Moving Machine Learning into the Next-Generation Cloud Flexibly, Agilely and Efficiently</a>
+      </li>
+      <li>
+        <span class="project-status active">Active</span>
+        <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1908843">Hybrid NVM based Computing Architecture for Machine Learning Applications</a>
+      </li>
+      <li>
+        <span class="project-status active">Active</span>
+        <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1910727">Parallel Graph-Based Paradigm for HPC Parallel File System Checkers</a>
+      </li>
+      <li>
+        <span class="project-status active">Active</span>
+        <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1835892">Empowering Data-driven Discovery with Provenance Infrastructure</a>
+      </li>
+      <li>
+        <span class="project-status past">Past</span>
+        <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1852815">Partitioning Large Graphs in Deep Storage Architecture</a>
+      </li>
+      <li>
+        <span class="project-status past">Past</span>
+        <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1817094">Tuning Extreme-scale Storage Stack through Deep Reinforcement Learning</a>
+      </li>
+      <li>
+        <span class="project-status past">Past</span>
+        <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1718336">Uncovering Vulnerabilities in Parallel File Systems</a>
+      </li>
+    </ul>
+  </section>
+
+
+</main>
+
+<footer>
+  &copy; 2025 Dong Dai. University of Delaware.
+</footer>
+
+<script>
+  function toggleTheme() {
+    var html = document.documentElement;
+    var current = html.getAttribute('data-theme');
+    var next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  }
+
+  // Restore saved preference, default to light
+  (function() {
+    var saved = localStorage.getItem('theme');
+    if (saved) {
+      document.documentElement.setAttribute('data-theme', saved);
+    }
+  })();
+</script>
+
+</body>
+</html>
