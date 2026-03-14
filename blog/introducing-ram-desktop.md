@@ -2,6 +2,15 @@
 
 **Download:** [RAM Desktop (Google Drive)](https://drive.google.com/file/d/1Q3GdAlYBgr0EWdjQlzXT3FZz6nd_dH4g/view?usp=sharing)
 
+<span style="color:#1e3a5f;font-size:13px;">If macOS says the app <em>"is damaged and can't be opened"</em>, open Terminal and run these two commands:</span>
+
+```
+xattr -dr com.apple.quarantine "/Applications/RAM Desktop.app"
+codesign --force --deep --sign - "/Applications/RAM Desktop.app"
+```
+
+<span style="color:#1e3a5f;font-size:13px;">如果 macOS 提示应用<em>"已损坏，无法打开"</em>，打开 Terminal，依次运行以上两条命令，可以临时解决这个问题。</span>
+
 ---
 
 RAM Desktop is a research assistant application I built for macOS. You give it a research question, and it breaks the work into tasks, searches for information, reads files, organizes evidence, and advances the project round by round — pausing at key checkpoints to ask for your review and approval before moving forward. Unlike a fully autonomous pipeline, RAM is designed to keep you in the loop: important results don't silently become "final." They wait for your decision in the Review Inbox, and each round ends with a summary that lets you choose whether to continue or stop.
