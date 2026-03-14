@@ -1,6 +1,8 @@
 # Introducing RAM Desktop — A Research Assistant That Works With You
 
-**Download:** [RAM Desktop (Google Drive)](https://drive.google.com/file/d/1Q3GdAlYBgr0EWdjQlzXT3FZz6nd_dH4g/view?usp=sharing)
+**Download:** [RAM Desktop (Google Drive)](https://drive.google.com/file/d/19k_km2ybBlEPJZlDBgNZUlk9VxBf-U2H/view?usp=sharing)
+
+If you've tried the app, feel free to leave your thoughts in the comments below — feedback is very welcome. / 如果你试用了，欢迎在下方评论区留下你的想法和意见。
 
 <span style="color:#1e3a5f;font-size:13px;">If macOS says the app <em>"is damaged and can't be opened"</em>, open Terminal and run these two commands:</span>
 
