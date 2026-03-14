@@ -1,6 +1,6 @@
 # Introducing RAM Desktop — A Research Assistant That Works With You
 
-**Download:** [RAM Desktop (Google Drive)](https://drive.google.com/file/d/1Y3SyI-s_PPLGovijCcncDWn37msLEcUG/view?usp=sharing)
+**Download:** [RAM Desktop (Google Drive)](https://drive.google.com/file/d/1Y3SyI-s_PPLGovijCcncDWn37msLEcUG/view?usp=sharing) [03/14/2026-v1]
 
 If you've tried the app, feel free to leave your thoughts in the comments below — feedback is very welcome. / 如果你试用了，欢迎在下方评论区留下你的想法和意见。
 
