@@ -107,6 +107,9 @@
     /* Loading / error */
     .empty { text-align: center; padding: var(--space-2xl) 0; color: var(--sys-text-muted); font-size: 13px; }
 
+    /* Comments */
+    .giscus-section { max-width: var(--max-w); margin: 0 auto; padding: var(--space-2xl) var(--space-lg) var(--space-lg); border-top: 1px solid var(--sys-border-subtle); }
+
     /* Footer */
     footer { max-width: var(--max-w); margin: 0 auto; padding: var(--space-md) var(--space-lg); border-top: 1px solid var(--sys-border-subtle); text-align: center; font-size: 11px; color: var(--sys-text-muted); }
 
@@ -146,6 +149,10 @@
   </div>
 </main>
 
+<div class="giscus-section">
+  <div id="giscus-container"></div>
+</div>
+
 <footer>&copy; 2025 Dong Dai. University of Delaware.</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -155,6 +162,10 @@ function toggleTheme() {
   var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
   html.setAttribute('data-theme', next);
   localStorage.setItem('theme', next);
+  var iframe = document.querySelector('iframe.giscus-frame');
+  if (iframe) {
+    iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: next } } }, 'https://giscus.app');
+  }
 }
 (function() {
   var saved = localStorage.getItem('theme');
@@ -172,6 +183,27 @@ function estimateReadTime(text) {
   var mins = Math.max(1, Math.round(words / 200));
   return mins + ' min read';
 }
+
+function loadGiscus() {
+  var theme = document.documentElement.getAttribute('data-theme') || 'light';
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.setAttribute('data-repo', 'daidong/daidong.github.io');
+  s.setAttribute('data-repo-id', 'R_kgDOID--JQ');
+  s.setAttribute('data-category', 'General');
+  s.setAttribute('data-category-id', 'DIC_kwDOID--Jc4C4ZAc');
+  s.setAttribute('data-mapping', 'pathname');
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'bottom');
+  s.setAttribute('data-theme', theme);
+  s.setAttribute('data-lang', 'en');
+  s.setAttribute('crossorigin', 'anonymous');
+  s.async = true;
+  document.getElementById('giscus-container').appendChild(s);
+}
+loadGiscus();
 
 var params = new URLSearchParams(window.location.search);
 var slug = params.get('slug');
