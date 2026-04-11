@@ -12,15 +12,13 @@ Systems like **[The AI Scientist](https://arxiv.org/abs/2408.06292)**, **[Agent 
 
 In practice, though, moving through the steps of research is not the same thing as doing reliable science.
 
-The phrase that still feels most accurate to me is **workflow-capable, execution-fragile**. These systems can often produce paper-shaped output. Much less reliably, they produce science you would want to trust. A nice figure may come from a broken pipeline. A polished summary may miss the one paper that ruins the whole premise. A result section can sound perfectly confident while resting on an experiment that never actually ran.
+The phrase that still feels most accurate to me is **workflow-capable, execution-fragile**. These systems can often produce paper-shaped output. Much less reliably, they produce science you would want to trust. A nice figure may come from a broken pipeline. A polished summary may miss the one paper that ruins the whole writing. A result section can sound perfectly confident while resting on an experiment that never actually ran.
 
-I don't think this is some rare failure mode. It seems closer to the default way these systems go wrong when the task rewards plausible narration more than grounded execution.
+I don't think this is some rare failure mode. It seems closer to the default way these systems go wrong when the task rewards plausible narration more than grounded truth and execution.
 
 The recent benchmarks point in the same direction. **[CORE-Bench](https://arxiv.org/abs/2409.11363)** asks whether agents can support computational reproducibility. **[EXP-Bench](https://arxiv.org/abs/2505.24785)** asks a more uncomfortable question: can AI actually conduct AI research experiments, rather than merely describe them? **[ResearchEnvBench](https://arxiv.org/abs/2603.06739)** highlights an especially underappreciated failure mode: many agents fail before the first experiment even begins because they cannot build the software environment needed to run it.
 
-This issue sounds technical and minor until you actually try to do this work. Then it becomes obvious that some of the hardest parts of "auto research" are also the least photogenic: dependencies, CUDA versions, broken builds, hidden assumptions in old codebases, mismatched hardware, and missing documentation.
-
-I've seen similar stories from other people building these systems. One example I found online involved setting up Karpathy's autoresearch workflow on a rented RTX Pro 6000, which uses Nvidia's Blackwell architecture. The original workflow had been run on H100s, which are Hopper-generation GPUs. That turned out to matter because only the newly released FlashAttention v4 supported Blackwell, and getting it to work required compiling from source with very little documentation. In the write-up, when the agent failed to install `flash-attn`, it did not really solve the compatibility problem; it quietly reduced the batch size and carried on as if nothing important had happened. The human operator had to push it back toward the real issue, add web search, and eventually step in to compile with the right architecture flags. Once the system got back to writing and editing code, it was fine. The weak point was the infrastructure around it.
+I've seen stories from other people building auto-researchers. One example I found online involved setting up Karpathy's autoresearch workflow on a rented RTX Pro 6000, which uses Nvidia's Blackwell architecture. The original workflow had been run on H100s, which are Hopper-generation GPUs. That turned out to matter because only the newly released FlashAttention v4 supported Blackwell, and getting it to work required compiling from source with very little documentation. In the write-up, when the agent failed to install `flash-attn`, it did not really solve the compatibility problem; it quietly reduced the batch size and carried on as if nothing important had happened. The human operator had to push it back toward the real issue, add web search, and eventually step in to compile with the right architecture flags. Once the system got back to writing and editing code, it was fine. The weak point was the infrastructure around it.
 
 ## The real bottleneck is verification
 
@@ -32,13 +30,11 @@ That is a big part of why these systems often look better in demos than in the w
 
 You can see the literature adjusting to this reality. **[DeepResearchGym](https://arxiv.org/abs/2505.19253)** matters because it tries to create a transparent evaluation sandbox instead of another glossy end-to-end claim. **[Curie](https://arxiv.org/abs/2502.16069)** is interesting for the same reason: it pushes toward more rigorous and automated experimentation, not just free-form agent chatter. Critique papers such as **[Risks of AI Scientists](https://arxiv.org/abs/2402.04247)** and **[The More You Automate, the Less You See](https://arxiv.org/abs/2509.08713)** are worth taking seriously because they capture something practitioners run into very quickly. Smoother automation can make failure harder to notice.
 
-And that has consequences beyond tooling.
+Although these systems still have issues being an 'autonomous' researcher, the consequences are already playing out quickly based on what they can do now.
 
 ## Research labor is being reshaped
 
-It also means **research labor is being reshaped very quickly**.
-
-A traditional lab does two things at once. It produces papers, and it trains future researchers. Junior students clean data, reproduce baselines, debug code, inspect metrics, and draft sections. That work has always been tedious, but it has also been formative. It is where people develop debugging instincts, experimental judgment, and the nose for when a result smells wrong.
+A traditional lab does two things at once. It produces papers (or more generally, knowledge and research artifacts), and it trains future researchers. Junior students clean data, reproduce baselines, debug code, inspect metrics, and draft sections. That work has always been tedious, but it has also been formative. It is where people develop debugging instincts, experimental judgment, and the nose for when a result smells wrong.
 
 Agents can now do a surprising amount of that work. They can analyze data distributions, summarize training curves, scaffold baselines, and write serviceable prose. Systems like **[The AI Scientist](https://arxiv.org/abs/2408.06292)** made this legible to a wider audience, and systems like **[EvoScientist](https://arxiv.org/abs/2603.08127)** and **[Agent Laboratory](https://arxiv.org/abs/2501.04227)** have kept pushing in the same direction. The result is that the lower layers of the research stack — routine coding, baseline-running, draft-writing, much of the mechanical experimentation — are getting cheaper very quickly. Then how do junior students get trained, or are these lower layers of research work still valuable?
 
@@ -100,15 +96,13 @@ AI Scientist、Agent Laboratory、EvoScientist 这些系统已经展示了 LLM a
 
 但实际上，走完研究的步骤和做出可靠的科学是两回事。
 
-我觉得最准确的描述仍然是**流程跑得通，执行靠不住**。这些系统经常能产出论文形状的东西，但远不能可靠地产出你愿意信赖的科学。一张漂亮的图可能来自一个有 bug 的 pipeline；一份精致的综述可能漏掉了那篇推翻整个前提的论文；一个结果章节可以写得信心满满，底下的实验其实根本没跑过。
+我觉得最准确的描述仍然是**流程跑得通，执行靠不住**。这些系统经常能产出论文形状的东西，但远不能可靠地产出你愿意信赖的科学。一张漂亮的图可能来自一个有 bug 的 pipeline；一份精致的综述可能漏掉了那篇毁掉整篇文章的论文；一个结果章节可以写得信心满满，底下的实验其实根本没跑过。
 
-我不认为这是什么罕见的失败模式。当任务奖励"看起来合理的叙述"胜过"有根据的执行"时，这更像是这些系统出错的默认方式。
+我不认为这是什么罕见的失败模式。当任务奖励"看起来合理的叙述"胜过"有根据的事实和执行"时，这更像是这些系统出错的默认方式。
 
 最近的 benchmark 也指向同一个方向。CORE-Bench 考察 agent 能否支持计算可复现性。EXP-Bench 问了一个更让人不舒服的问题：AI 能不能真正做 AI 研究实验，而不仅仅是描述实验？ResearchEnvBench 则揭示了一个特别被低估的失败模式：很多 agent 在第一个实验开始之前就失败了，因为它们搭不出运行实验所需的软件环境。
 
-最后这个问题听起来又技术又不起眼，直到你真的去做这件事。然后你会发现，"自动科研"里最难的一些部分恰恰也是最不上相的：依赖关系、CUDA 版本、编译失败、旧代码库里的隐含假设、硬件不匹配、文档缺失。
-
-我见过其他做这类系统的人遇到类似的故事。一个在线案例是在租的 RTX Pro 6000（Nvidia Blackwell 架构）上跑 Karpathy 的 autoresearch 工作流。原始工作流是在 H100（Hopper 架构）上跑的。这个差异很关键，因为只有刚发布的 FlashAttention v4 才支持 Blackwell，而且必须从源码编译，文档几乎没有。在那篇记录里，agent 装不上 `flash-attn` 之后并没有真正解决兼容性问题——它悄悄把 batch size 改小，然后若无其事地继续跑了。人类操作者不得不把它拉回正题，加上网页搜索，最后还是自己下场用正确的架构参数编译的。回到写代码和改代码的环节后，agent 就没问题了。薄弱点在于周围的基础设施。
+我见过其他做自动科研系统的人遇到类似的故事。一个在线案例是在租的 RTX Pro 6000（Nvidia Blackwell 架构）上跑 Karpathy 的 autoresearch 工作流。原始工作流是在 H100（Hopper 架构）上跑的。这个差异很关键，因为只有刚发布的 FlashAttention v4 才支持 Blackwell，而且必须从源码编译，文档几乎没有。在那篇记录里，agent 装不上 `flash-attn` 之后并没有真正解决兼容性问题——它悄悄把 batch size 改小，然后若无其事地继续跑了。人类操作者不得不把它拉回正题，加上网页搜索，最后还是自己下场用正确的架构参数编译的。回到写代码和改代码的环节后，agent 就没问题了。薄弱点在于周围的基础设施。
 
 ## 真正的瓶颈是验证
 
@@ -120,13 +114,11 @@ AI Scientist、Agent Laboratory、EvoScientist 这些系统已经展示了 LLM a
 
 文献也在适应这个现实。DeepResearchGym 之所以重要，是因为它试图创建一个透明的评估沙盒，而不是又一个光鲜的端到端声明。Curie 有意思也是同样的原因：它推动的是更严谨的自动化实验，而不只是 agent 自由发挥。Risks of AI Scientists 和 The More You Automate, the Less You See 这类批评性论文值得认真对待，因为它们捕捉到了实践者很快就会撞上的东西：更丝滑的自动化可以让失败更难被察觉。
 
-而这带来的后果远不止工具层面。
+尽管这些系统在成为"自主"研究者这件事上仍有很多问题，但基于它们现在已经能做的，后果已经在快速显现了。
 
 ## 科研劳动正在被快速重塑
 
-这也意味着**科研劳动正在被快速重塑**。
-
-一个传统实验室同时在做两件事：产出论文，培养未来的研究者。低年级的学生洗数据、复现 baseline、debug 代码、检查指标、起草段落。这些工作一直很枯燥，但也一直有塑造性。正是在这里，人们培养出了 debug 直觉、实验判断力、以及对"结果不对劲"的嗅觉。
+一个传统实验室同时在做两件事：产出论文（或者更广义地说，知识和研究产出），培养未来的研究者。低年级的学生洗数据、复现 baseline、debug 代码、检查指标、起草段落。这些工作一直很枯燥，但也一直有塑造性。正是在这里，人们培养出了 debug 直觉、实验判断力、以及对"结果不对劲"的嗅觉。
 
 Agent 现在能做其中惊人比例的工作。它们能分析数据分布、总结训练曲线、搭建 baseline、写出过得去的文字。AI Scientist 让更多人看到了这一点，EvoScientist 和 Agent Laboratory 继续推进着同一个方向。结果就是研究栈的下层——常规编码、跑 baseline、起草文稿、大量机械性的实验——正在迅速变得廉价。那么低年级学生怎么得到训练？这些底层的研究工作还有价值吗？
 
