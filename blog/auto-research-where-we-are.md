@@ -12,7 +12,7 @@ The short version is simple. Auto research is real, and it is getting better fas
 
 ## Workflow-capable, execution-fragile
 
-That can be hard to see because the surface now looks so polished. Systems like **The AI Scientist**, **Agent Laboratory**, and **EvoScientist** have shown that LLM-based agents can move through the whole outer shape of a research project: read papers, propose ideas, write code, run experiments, analyze results, and draft a manuscript. If you judge by the workflow diagram alone, the future can look almost settled.
+That can be hard to see because the surface now looks so polished. Systems like **[The AI Scientist](https://arxiv.org/abs/2408.06292)**, **[Agent Laboratory](https://arxiv.org/abs/2501.04227)**, and **[EvoScientist](https://arxiv.org/abs/2603.08127)** have shown that LLM-based agents can move through the whole outer shape of a research project: read papers, propose ideas, write code, run experiments, analyze results, and draft a manuscript. If you judge by the workflow diagram alone, the future can look almost settled.
 
 这一点有时不容易察觉，因为表面现在看起来已经很光鲜了。AI Scientist、Agent Laboratory、EvoScientist 这些系统已经展示了 LLM agent 能走完一个研究项目的完整外壳：读论文、提 idea、写代码、跑实验、分析结果、起草手稿。如果只看流程图，未来似乎已经板上钉钉。
 
@@ -28,7 +28,7 @@ I don't think this is some rare failure mode. It seems closer to the default way
 
 我不认为这是什么罕见的失败模式。当任务奖励"看起来合理的叙述"胜过"有根据的执行"时，这更像是这些系统出错的默认方式。
 
-The recent benchmarks point in the same direction. **CORE-Bench** asks whether agents can support computational reproducibility. **EXP-Bench** asks a more uncomfortable question: can AI actually conduct AI research experiments, rather than merely describe them? **ResearchEnvBench** highlights an especially underappreciated failure mode: many agents fail before the first experiment even begins because they cannot build the software environment needed to run it.
+The recent benchmarks point in the same direction. **[CORE-Bench](https://arxiv.org/abs/2409.11363)** asks whether agents can support computational reproducibility. **[EXP-Bench](https://arxiv.org/abs/2505.24785)** asks a more uncomfortable question: can AI actually conduct AI research experiments, rather than merely describe them? **[ResearchEnvBench](https://arxiv.org/abs/2603.06739)** highlights an especially underappreciated failure mode: many agents fail before the first experiment even begins because they cannot build the software environment needed to run it.
 
 最近的 benchmark 也指向同一个方向。CORE-Bench 考察 agent 能否支持计算可复现性。EXP-Bench 问了一个更让人不舒服的问题：AI 能不能真正做 AI 研究实验，而不仅仅是描述实验？ResearchEnvBench 则揭示了一个特别被低估的失败模式：很多 agent 在第一个实验开始之前就失败了，因为它们搭不出运行实验所需的软件环境。
 
@@ -58,7 +58,7 @@ That is a big part of why these systems often look better in demos than in the w
 
 这在很大程度上解释了为什么这些系统在 demo 里比在实战中好看得多。它们运行在"做出漂亮的输出"比"拿出有根据的证据"更容易的环境里。
 
-You can see the literature adjusting to this reality. **DeepResearchGym** matters because it tries to create a transparent evaluation sandbox instead of another glossy end-to-end claim. **Curie** is interesting for the same reason: it pushes toward more rigorous and automated experimentation, not just free-form agent chatter. Critique papers such as **Risks of AI Scientists** and **The More You Automate, the Less You See** are worth taking seriously because they capture something practitioners run into very quickly. Smoother automation can make failure harder to notice.
+You can see the literature adjusting to this reality. **[DeepResearchGym](https://arxiv.org/abs/2505.19253)** matters because it tries to create a transparent evaluation sandbox instead of another glossy end-to-end claim. **[Curie](https://arxiv.org/abs/2502.16069)** is interesting for the same reason: it pushes toward more rigorous and automated experimentation, not just free-form agent chatter. Critique papers such as **[Risks of AI Scientists](https://arxiv.org/abs/2402.04247)** and **[The More You Automate, the Less You See](https://arxiv.org/abs/2509.08713)** are worth taking seriously because they capture something practitioners run into very quickly. Smoother automation can make failure harder to notice.
 
 文献也在适应这个现实。DeepResearchGym 之所以重要，是因为它试图创建一个透明的评估沙盒，而不是又一个光鲜的端到端声明。Curie 有意思也是同样的原因：它推动的是更严谨的自动化实验，而不只是 agent 自由发挥。Risks of AI Scientists 和 The More You Automate, the Less You See 这类批评性论文值得认真对待，因为它们捕捉到了实践者很快就会撞上的东西：更丝滑的自动化可以让失败更难被察觉。
 
@@ -76,7 +76,7 @@ A traditional lab does two things at once. It produces papers, and it trains fut
 
 一个传统实验室同时在做两件事：产出论文，培养未来的研究者。低年级的学生洗数据、复现 baseline、debug 代码、检查指标、起草段落。这些工作一直很枯燥，但也一直有塑造性。正是在这里，人们培养出了 debug 直觉、实验判断力、以及对"结果不对劲"的嗅觉。
 
-Agents can now do a surprising amount of that work. They can analyze data distributions, summarize training curves, scaffold baselines, and write serviceable prose. Systems like **The AI Scientist** made this legible to a wider audience, and systems like **EvoScientist** and **Agent Laboratory** have kept pushing in the same direction. The result is that the lower layers of the research stack — routine coding, baseline-running, draft-writing, much of the mechanical experimentation — are getting cheaper very quickly.
+Agents can now do a surprising amount of that work. They can analyze data distributions, summarize training curves, scaffold baselines, and write serviceable prose. Systems like **[The AI Scientist](https://arxiv.org/abs/2408.06292)** made this legible to a wider audience, and systems like **[EvoScientist](https://arxiv.org/abs/2603.08127)** and **[Agent Laboratory](https://arxiv.org/abs/2501.04227)** have kept pushing in the same direction. The result is that the lower layers of the research stack — routine coding, baseline-running, draft-writing, much of the mechanical experimentation — are getting cheaper very quickly.
 
 Agent 现在能做其中惊人比例的工作。它们能分析数据分布、总结训练曲线、搭建 baseline、写出过得去的文字。AI Scientist 让更多人看到了这一点，EvoScientist 和 Agent Laboratory 继续推进着同一个方向。结果就是研究栈的下层——常规编码、跑 baseline、起草文稿、大量机械性的实验——正在迅速变得廉价。
 
