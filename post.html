@@ -10,10 +10,8 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..800;1,8..60,300..800&display=swap" rel="stylesheet">
   <style>
-    @font-face { font-family: 'Atkinson'; src: url('fonts/atkinson-regular.woff') format('woff'); font-weight: 400; font-style: normal; font-display: swap; }
-    @font-face { font-family: 'Atkinson'; src: url('fonts/atkinson-bold.woff') format('woff'); font-weight: 700; font-style: normal; font-display: swap; }
 
     :root, [data-theme="light"] {
       --sys-surface-canvas: #ffffff;
@@ -58,10 +56,13 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
     body {
-      font-family: 'Atkinson', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Source Serif 4', Charter, 'Iowan Old Style', Georgia, 'Times New Roman', serif;
       font-size: 14px; line-height: 1.65;
       color: var(--sys-text-primary);
       background: var(--sys-surface-canvas);
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-optical-sizing: auto;
       transition: background 0.2s, color 0.2s;
     }
 
@@ -181,8 +182,15 @@ function formatDate(dateStr) {
 }
 
 function estimateReadTime(text) {
-  var words = text.trim().split(/\s+/).length;
-  var mins = Math.max(1, Math.round(words / 200));
+  var plain = text.replace(/```[\s\S]*?```/g, '')
+                  .replace(/`[^`]*`/g, '')
+                  .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+                  .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+                  .replace(/[#>*_~]/g, '');
+  var cjk = (plain.match(/[\u4e00-\u9fff]/g) || []).length;
+  var noCjk = plain.replace(/[\u4e00-\u9fff]/g, ' ');
+  var words = (noCjk.match(/\b[\w']+\b/g) || []).length;
+  var mins = Math.max(1, Math.round(Math.max(words / 200, cjk / 400)));
   return mins + ' min read';
 }
 
