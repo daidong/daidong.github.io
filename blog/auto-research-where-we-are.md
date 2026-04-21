@@ -1,6 +1,6 @@
 # Auto Research Is Real. It's Just Not What People Think.
 
-*Slides from my recent talk at the ASB East conference: **[auto-research-slides.pdf](files/auto-research-slides.pdf)**.*
+*Slides from my recent talk at the ASB East conference: **[auto-research-slides.pdf](blog/files/auto-research-slides.pdf)**.*
 
 Over the past few months, I've spent most of my time building and using autonomous research agents: systems that search the literature, write code, run experiments, and draft papers with surprisingly little human help. I've read a lot of the recent work in this area, and I've also spent enough API money to learn, firsthand, **where the demos end and the real problems begin**. BTW, two systems we built: **[Research Copilot](https://daidong.github.io/post.html?slug=introducing-research-copilot)** and **[Research Assistant Mode](https://daidong.github.io/post.html?slug=introducing-ram-desktop)**
 
@@ -86,7 +86,7 @@ What matters then is not whether you can produce another experiment faster than 
 
 # 自动科研是真的，只是和人们想的不一样
 
-*我最近在 ASB East 会议上的演讲幻灯片：**[auto-research-slides.pdf](files/auto-research-slides.pdf)**。*
+*我最近在 ASB East 会议上的演讲幻灯片：**[auto-research-slides.pdf](blog/files/auto-research-slides.pdf)**。*
 
 过去几个月，我大部分时间都在构建和使用自动科研 agent：能检索文献、写代码、跑实验、写论文，而且需要的人工干预少得惊人。这个方向的最新工作我读了不少，API 费用也烧了不少。足够让我亲身体会到: demo 止步的地方，真正的问题才刚开始。我们构建的两个测试系统：**[Research Copilot](https://daidong.github.io/post.html?slug=introducing-research-copilot)** and **[Research Assistant Mode](https://daidong.github.io/post.html?slug=introducing-ram-desktop)**
 
