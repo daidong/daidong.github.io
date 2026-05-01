@@ -8,9 +8,7 @@ For a long time, this worked fine. Most students used ten dollars here, twenty d
 
 Then I opened the billing page.
 
-![OpenAI usage dashboard showing $3,338.56 in total spend and nearly 3 billion tokens in April](blog/images/ai-lab-april-usage.png)
-
-*The moment the abstract "token budget" problem became very concrete.*
+![1.00](./images/ai-lab-april-usage.png)
 
 The account that had still had a few thousand dollars in credit was suddenly below zero. After digging through the usage logs, I found that two students had spent more than $2,000 in about a week. In April, the lab burned through more than $3,000 in API credits.
 
@@ -22,17 +20,17 @@ At first, I assumed something had gone wrong. Maybe an API key had leaked. Maybe
 
 The main reason turned out to be something much more ordinary: **coding agents**. Students had connected the lab API key to tools like Cursor or Codex-style coding agents and let them work, especially when their subscription runs out. The agents helped them write code, debug, and restructure projects. They just did not realize what the price tag can be.
 
-This is the strange part of the story. It was not careless in the old sense. They were using AI to work (sometimes eager to finish the work and can not wait for the limits to reset). And that may be the problem.
+This is the strange part of the story. The students are using AI to work (sometimes eager to finish the work and can not wait for the limits to reset).
 
 ## Tokens are becoming research infrastructure
 
-A few months ago, I told a colleague that in the future, one of the things separating productive labs from less productive ones, especially in computer science, might simply be token budget.
+A few months ago, I told a colleague that in the future, one of the things separating productive labs from less productive ones, especially in computer science, might simply be **token budget**.
 
 A lab that can afford to let every student use strong models all day may move faster than a lab that cannot. Students with generous access can ask agents to inspect codebases, generate tests, try implementations, clean data, summarize papers, draft analysis scripts, and explain unfamiliar libraries. Even when the outputs are imperfect, the iteration speed changes.
 
 The question is what happens when it becomes normal. If the next generation of research workflows depends on having continuous access to frontier models, then tokens start to look less like optional software spending and more like lab infrastructure. They become the new cluster queue, the new GPU allocation, the new invisible resource behind productivity.
 
-And then a very uncomfortable question appears: **can my lab afford to compete in that world**?
+And then a very uncomfortable question appears: *can my lab afford to compete in that world*?
 
 ## The current pricing may be an illusion
 
