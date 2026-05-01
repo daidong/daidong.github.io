@@ -60,7 +60,7 @@ On the other hand, a shared API key with no budget and no norms is clearly not s
 
 ## A token budget may become part of hiring
 
-There is a brutal way to think about this. When I support a student, I already think about salary, tuition, travel, equipment, and sometimes GPU time. Maybe now I also need to think about an AI budget attached to that person.
+There is a brutal way to think about this. When I support a student, I already think about salary, tuition, travel, equipment, and sometimes computers. Maybe now I also need to think about an AI budget attached to that person.
 
 Not as a perk. As part of the cost of doing modern research. If one researcher needs a laptop, a server account, conference travel, and $200 or $500 or $1,000 a month in model access, then the real cost of supporting that researcher is higher than the salary line alone.
 
