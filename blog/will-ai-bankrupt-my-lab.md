@@ -8,6 +8,10 @@ For a long time, this worked fine. Most students used ten dollars here, twenty d
 
 Then I opened the billing page.
 
+![OpenAI usage dashboard showing $3,338.56 in total spend and nearly 3 billion tokens in April](blog/images/ai-lab-april-usage.png)
+
+*The moment the abstract "token budget" problem became very concrete.*
+
 The account that had still had a few thousand dollars in credit was suddenly below zero. After digging through the usage logs, I found that two students had spent more than $2,000 in about a week. In April, the lab burned through more than $3,000 in API credits.
 
 To put that in perspective, $3,000 is roughly a month of RA support in many settings. It is not a small software bill. It is a person-month.
@@ -16,7 +20,7 @@ To put that in perspective, $3,000 is roughly a month of RA support in many sett
 
 At first, I assumed something had gone wrong. Maybe an API key had leaked. Maybe somebody had accidentally left a script running. Maybe there was some runaway job in the background.
 
-The main culprit turned out to be something much more ordinary: **coding agents**. Students had connected the lab API key to tools like Cursor or Codex-style coding agents, turned reasoning up to the highest setting, and let them work, especially when their subscription runs out. The agents helped them write code, debug, and restructure projects. They just did not realize what the price tag can be.
+The main reason turned out to be something much more ordinary: **coding agents**. Students had connected the lab API key to tools like Cursor or Codex-style coding agents and let them work, especially when their subscription runs out. The agents helped them write code, debug, and restructure projects. They just did not realize what the price tag can be.
 
 This is the strange part of the story. It was not careless in the old sense. They were using AI to work (sometimes eager to finish the work and can not wait for the limits to reset). And that may be the problem.
 
