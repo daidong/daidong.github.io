@@ -1,5 +1,11 @@
 [
   {
+    "slug": "black-box-llm-serving-caches",
+    "title": "Black-box Characterization of LLM Serving Caches: Contracts, Asymmetries, and Prompt Design",
+    "date": "2026-06-06",
+    "excerpt": "A black-box measurement of DeepSeek, OpenAI, and Anthropic prompt caches: why prefix identity matters, where provider contracts differ, and how prompt layout becomes a systems interface."
+  },
+  {
     "slug": "will-ai-bankrupt-my-lab",
     "title": "Will AI bankrupt my lab?",
     "date": "2026-05-01",
