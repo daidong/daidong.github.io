@@ -1,5 +1,17 @@
 # Black-box characterization of LLM serving caches: contracts, asymmetries, and prompt design
 
+<div class="tool-callout" role="note" aria-label="Research Copilot announcement">
+  <div class="tool-callout-text">
+    <span class="tool-callout-label">New tool</span>
+    This blog is created with the help of <strong>Research Copilot / PiPilot</strong> for Idea Brainstorm, Coding, Executing, Analyzing, and Writing. You can check the open-source tool
+  </div>
+  <div class="tool-callout-actions">
+    <a class="primary" href="https://daidong.github.io/PiPilot/">Visit site</a>
+    <a href="https://github.com/daidong/PiPilot">GitHub</a>
+    <a href="post.html?slug=introducing-research-copilot">Read note</a>
+  </div>
+</div>
+
 Production LLM APIs now expose some form of prompt or context caching. The promise is attractive: if a request repeats a long prefix, the provider can reuse server-side state, lower input cost, and reduce prefill latency. For a RAG system, a coding agent, or a long-document QA product, that sounds like free performance.
 
 The practical question is not whether a provider has a cache. It is what contract the cache exposes to the client. Does it match repeated text anywhere in the prompt, or only the serialized prefix? Does changing the system prompt invalidate the document? Can one long warm request make shorter later prefixes reusable? How long does the cached state survive without reuse? Do explicit cache breakpoints behave differently from automatic provider caches?

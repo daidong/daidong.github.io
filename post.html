@@ -101,6 +101,15 @@
     .prose a { color: var(--sys-accent-primary); text-decoration: none; border-bottom: 1px solid var(--sys-accent-soft-border); transition: border-color 0.15s; }
     .prose a:hover { border-color: var(--sys-accent-primary); }
     .prose blockquote { border-left: 3px solid var(--sys-accent-primary); padding-left: var(--space-lg); margin: var(--space-lg) 0; color: var(--sys-text-muted); font-style: italic; }
+    .prose .tool-callout { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); margin: 0 0 var(--space-xl); padding: var(--space-md) var(--space-lg); border: 1px solid var(--sys-accent-soft-border); border-radius: 10px; background: linear-gradient(135deg, var(--sys-accent-soft-bg), var(--sys-surface-panel)); box-shadow: 0 8px 24px rgba(0,0,0,0.04); }
+    .prose .tool-callout-label { display: block; margin-bottom: 2px; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sys-accent-primary); }
+    .prose .tool-callout-text { color: var(--sys-text-secondary); font-size: 16px; line-height: 1.45; }
+    .prose .tool-callout-text strong { color: var(--sys-text-primary); font-weight: 700; }
+    .prose .tool-callout-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; flex-shrink: 0; }
+    .prose .tool-callout-actions a { display: inline-flex; align-items: center; font-size: 13px; font-weight: 600; color: var(--sys-accent-primary); text-decoration: none; padding: 4px 10px; border: 1px solid var(--sys-accent-soft-border); border-radius: 999px; background: var(--sys-surface-canvas); transition: all 0.15s; }
+    .prose .tool-callout-actions a:hover { color: var(--sys-accent-primary-hover); border-color: var(--sys-accent-primary); background: var(--sys-accent-soft-bg); }
+    .prose .tool-callout-actions a.primary { color: #fff; background: var(--sys-accent-primary); border-color: var(--sys-accent-primary); }
+    .prose .tool-callout-actions a.primary:hover { color: #fff; background: var(--sys-accent-primary-hover); border-color: var(--sys-accent-primary-hover); }
     .prose code { font-family: 'JetBrains Mono', monospace; font-size: 13px; background: var(--sys-surface-raised); padding: 1px 5px; border-radius: 3px; }
     .prose pre { background: var(--sys-surface-raised); border: 1px solid var(--sys-border-default); border-radius: 6px; padding: var(--space-lg); overflow-x: auto; margin-bottom: var(--space-lg); }
     .prose pre code { background: none; padding: 0; font-size: 13px; line-height: 1.6; }
@@ -125,6 +134,8 @@
       nav .nav-links { gap: var(--space-sm); }
       nav .nav-links a { font-size: 12px; }
       .post-header h1 { font-size: 19px; }
+      .prose .tool-callout { flex-direction: column; align-items: flex-start; }
+      .prose .tool-callout-actions { justify-content: flex-start; }
     }
   </style>
 </head>
