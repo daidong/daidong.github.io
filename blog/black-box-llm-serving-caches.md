@@ -28,7 +28,20 @@ In a 10K document-shaped workload, DeepSeek branch probes hit on all 12 document
 
 However, we have some more interesting results: **the providers agree on prefix identity but differ sharply in the rest of the contract**. DeepSeek exposes 64-token accounting, deterministic long-prefix checkpoints, a warm-size threshold for branchability\*, and an automatic cache horizon that survived at least six hours in the current run. OpenAI exposes the same placement rule through automatic cached-token accounting, but its automatic horizon was alive at five minutes and gone by thirty minutes in this run. Anthropic exposes a control-plane version of the same idea: the application chooses cache breakpoints, and the documented 5-minute and 1-hour TTLs showed up as hard cliffs.
 
-This post focuses on what an API user can rely on. It is not a claim about the providers' internal data structures. A black-box experiment can tell us which prompt layouts hit, which edits invalidate reuse, and how cache age affects the next request. It cannot tell us whether a production system stores a trie, a radix tree, paged KV blocks, disk objects, or a mixture of mechanisms behind the API.
+A practical summary of the discoveries:
+
+* **Serialized prefix:** The cache reuses only text that starts at the first serialized token; repeated text in the middle or at the end does not count.
+* **64-token unit:** DeepSeek's hit counter moves in 64-token chunks, so small edits near a boundary can look like sudden jumps.
+* **One request warms:** Once a prefix is long enough to be cacheable, one completed request can warm the next compatible call.
+* **No warming sleep:** In our tests, probing immediately after the warm request returned hit just as well as waiting.
+* **Cache horizon:** TTL is provider-specific: DeepSeek lasted at least six hours here, OpenAI fell between five and thirty minutes, and Anthropic followed its declared TTLs.
+* **Long-prompt checkpoints:** Long DeepSeek prompts expose repeatable internal checkpoints, but clients do not choose where those checkpoints land.
+* **Coexisting prefixes:** Providers can remember multiple old prefixes, but whether you can branch from a shorter prefix depends on the provider and prefix size.
+* **Assistant replies:** Replaying prior assistant text did not increase the visible cached prefix in the DeepSeek chat test.
+* **System prompt:** Keep system prompts stable; making a stable system prompt longer did not materially hurt hit rate in these runs.
+* **Long-document QA:** Put the document before the question; document-first hit reliably, while question-first missed reliably.
+* **Edits:** Cache reuse follows the longest unchanged prefix, so early edits are expensive and appends are safest.
+* **Repo prompts:** Serialize repository context in a stable canonical order; shuffled or query-first file bundles lose reuse.
 
 ## Why prefix caches matter
 
@@ -470,7 +483,20 @@ Reference handles used in this writeup:
 
 更有意思的是：**这些服务商都同意 prefix identity，但在其他契约上差异很大**。DeepSeek 暴露出 64-token 计数、确定性的 long-prefix checkpoints、branchability 的 warm-size threshold，以及在当前 run 中至少存活 6 小时的自动 cache horizon。OpenAI 通过自动 cached-token accounting 暴露了同样的布局规则，但在这次 run 中，它的自动缓存 5 分钟还活着，30 分钟时已经消失。Anthropic 暴露的是这个思路的 control-plane 版本：应用自己选择 cache breakpoint，文档中的 5 分钟和 1 小时 TTL 在实验中表现为明确的 cliff。
 
-这篇文章关注的是 API 用户能依赖什么。它不是对服务商内部数据结构的声明。黑盒实验可以告诉我们哪些 prompt layout 会 hit、哪些 edit 会让复用失效、cache age 如何影响下一次请求。它不能告诉我们生产系统背后到底存的是 trie、radix tree、paged KV blocks、disk object，还是多种机制混合。
+下面是这组实验的实用版摘要：
+
+* **序列化前缀：** cache 只复用从第一个序列化 token 开始相同的文本；中间或末尾重复不算。
+* **64-token 单位：** DeepSeek 的 hit counter 按 64-token 块跳动，所以边界附近的小改动会表现得很突然。
+* **一次请求就能 warm：** prefix 足够长之后，一个完成的请求就能让下一次兼容调用命中。
+* **不用 sleep：** 在这些测试里，warm request 返回后立刻 probe 和等几秒效果一样。
+* **Cache horizon：** TTL 不是通用契约：DeepSeek 在这次 run 里至少活到 6 小时，OpenAI 落在 5 到 30 分钟之间，Anthropic 跟文档 TTL 一致。
+* **长 prompt checkpoints：** DeepSeek 的长 prompt 会出现可重复的内部 checkpoint，但客户端不能选择 checkpoint 位置。
+* **多个旧 prefix：** cache 可以保留多个旧 prefix，但能不能从较短 prefix branch 取决于 provider 和 prefix size。
+* **Assistant 回复：** 在 DeepSeek chat replay 测试中，重放之前的 assistant 文本没有增加可见 cached prefix。
+* **System prompt：** system prompt 要保持稳定；在这些 runs 中，稳定 system prompt 变长基本没有伤害 hit ratio。
+* **长文档 QA：** 文档放在问题前面几乎总是命中，问题放在文档前面几乎总是 miss。
+* **Edit：** 复用量跟 longest common prefix 走，所以早改很贵，append 最安全。
+* **Repo prompts：** repository context 要用稳定的 canonical order；shuffle 或 query-first 会丢掉复用。
 
 ## 为什么 prefix cache 重要
 
