@@ -16,15 +16,11 @@ Production LLM APIs now expose some form of prompt or context caching. The promi
 
 The practical question is not whether a provider has a cache. It is what contract the cache exposes to the client. Does it match repeated text anywhere in the prompt, or only the serialized prefix? Does changing the system prompt invalidate the document? Can one long warm request make shorter later prefixes reusable? How long does the cached state survive without reuse? Do explicit cache breakpoints behave differently from automatic provider caches?
 
-We measured these questions as a black-box systems problem. We did not have server logs, GPU counters, scheduler traces, or access to the provider implementation. We had only API calls, usage counters, prompt fingerprints, and time-to-first-token measurements. That is enough to infer a useful application-facing contract.
-
-Code, configs, result files, and plotting scripts are in the public repository: [`github.com/daidong/llmcache-probe`](https://github.com/daidong/llmcache-probe).
+We measured these questions as a black-box systems problem. Code, configs, result files, and plotting scripts are in the public repository: [`github.com/daidong/llmcache-probe`](https://github.com/daidong/llmcache-probe).
 
 The high-level result is simple and known by everyone:
 
 > Stable material must appear first. Variable material must appear last.
-
-In a 10K document-shaped workload, DeepSeek branch probes hit on all 12 document-first probes, with a mean of 11,904 cache-hit tokens. The same document placed after the variable question hit on none of the 12 probes. OpenAI showed the same binary result at the same workload scale: 12/12 hits for document-first, 0/12 hits for question-first. Anthropic, which exposes explicit cache controls rather than relying only on automatic prefix discovery, gave the corresponding control result: a declared cache breakpoint still missed if the serialized text before that breakpoint changed.
 
 However, we have some more interesting results: **the providers agree on prefix identity but differ sharply in the rest of the contract**. DeepSeek exposes 64-token accounting, deterministic long-prefix checkpoints, a warm-size threshold for branchability\*, and an automatic cache horizon that survived at least six hours in the current run. OpenAI exposes the same placement rule through automatic cached-token accounting, but its automatic horizon was alive at five minutes and gone by thirty minutes in this run. Anthropic exposes a control-plane version of the same idea: the application chooses cache breakpoints, and the documented 5-minute and 1-hour TTLs showed up as hard cliffs.
 
@@ -43,7 +39,7 @@ A practical summary of the discoveries:
 * **Edits:** Cache reuse follows the longest unchanged prefix, so early edits are expensive and appends are safest.
 * **Repo prompts:** Serialize repository context in a stable canonical order; shuffled or query-first file bundles lose reuse.
 
-## Why prefix caches matter
+## How prefix caches work
 
 During autoregressive inference, the model first processes the input prompt. This prefill phase computes key and value states for every token at every transformer layer. The decode phase then generates new tokens one at a time while reading those cached states. Long prompts make prefill expensive because the model has to process thousands or tens of thousands of input tokens before the first output token appears.
 
@@ -66,8 +62,6 @@ bytes per token    = 34,560 * 2                     =  69,120  ~= 67.5 KiB
 128K-token prefix  ~= 8.44 GiB
 ```
 
-This is only a scale argument. It is not a claim about DeepSeek's current production precision, compression, cache layout, or eviction policy. The point is that MLA turns a 128K prefix into an object that is large but disk-storable. Without some compression, persistent context caching would look much less plausible.
-
 OpenAI exposes automatic prompt caching through cached-token accounting. In the coda runs here, nonzero cached-token values appeared in 128-token increments. Anthropic exposes a different surface: prompt caching is controlled by cache-control breakpoints, and the API reports cache creation and cache reads around those breakpoints. These counters are not semantically identical across providers, so we compare only the outcomes that each API actually supports.
 
 | Provider  | Cache API shape                                                                                             | What we used it to test                                                                                                                     |
@@ -80,9 +74,9 @@ The public contracts agree on one broad principle: prompt caching is about prefi
 
 ## Measurement setup
 
-The harness records the provider's cache counters, prompt token counts, model id, scenario id, prompt and stable-prefix fingerprints, streaming time to first token, total latency, and error state. It does not log full prompt text in the result files. Most experiments use `max_tokens=1` to isolate prefill and cache accounting from generation cost, `temperature=0`, streaming with usage enabled, and a fresh namespace per trial to prevent accidental reuse across scenarios.
+Most experiments use `max_tokens=1` to isolate prefill and cache accounting from generation cost, `temperature=0`, streaming with usage enabled, and a fresh namespace per trial to prevent accidental reuse across scenarios.
 
-Two design details matter. First, shorter-prefix probes can contaminate later probes because a probe request can itself warm the cache. For fixed-interval and branchability experiments, we therefore use one warm request and one probe request per independent trial whenever the later probe could create a new shorter-prefix cache entry. Second, TTL experiments must use disjoint prefixes per delay bucket. If the same prefix is probed at one minute, five minutes, and thirty minutes, the one-minute probe may refresh or rewrite the cache, so the thirty-minute result no longer measures an untouched cache entry.
+Shorter-prefix probes can contaminate later probes because a probe request can itself warm the cache. For fixed-interval and branchability experiments, we therefore use one warm request and one probe request per independent trial whenever the later probe could create a new shorter-prefix cache entry. In addition, TTL experiments must use disjoint prefixes per delay bucket. If the same prefix is probed at one minute, five minutes, and thirty minutes, the one-minute probe may refresh or rewrite the cache, so the thirty-minute result no longer measures an untouched cache entry.
 
 For the provider comparison, the harness maps each API into a coarse common schema: cache hit or read tokens, miss or newly billed input tokens, cache creation tokens when exposed, prompt tokens, TTFT, and fingerprints. DeepSeek and OpenAI expose automatic cache accounting. Anthropic exposes explicit cache creation and cache read. The figures and tables below avoid treating these as the same counter when they are not.
 
