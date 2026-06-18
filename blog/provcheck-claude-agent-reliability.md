@@ -12,15 +12,15 @@
   </div>
 </div>
 
-The [previous post](post.html?slug=black-box-llm-serving-caches) was about prompt caching. The main lesson was that a hidden serving system still exposes a contract to the application. If the provider reuses only serialized prefixes, then prompt order becomes a systems interface.
+The [previous post](post.html?slug=black-box-llm-serving-caches) was about prompt caching. The main lesson was that a hidden serving system still exposes a contract to the application.
 
 Agent systems have a similar contract, but the surface is different. A long-running agent does work and then reports what it did. It edits files, runs tests, cites papers, saves CSVs, makes plots, and writes a final summary. That summary is useful only when its claims match the work record.
 
 The failure I worry about is not the answer that is obviously broken. It is the ordinary sentence that sounds complete but is not backed by the session: "all tests pass" after a later failing run, a paper citation that was never opened, a row count that the produced file does not have, or an output said to come from inputs the run never touched. These sentences look like normal progress reports, so they are easy to trust.
 
-I built a small Claude Code plugin for this class of failure: [`provcheck-claude`](https://github.com/daidong/provcheck-claude). You run `/provcheck-claude:check`, and it asks a narrow question: did the agent's words match the evidence available when it spoke? The plugin is open source and runs on demand. There is no separate service and no extra API key. The deterministic checker runs locally; a small reviewer step runs through the user's normal Claude Code environment.
+I built a small Claude Code plugin for this class of failure: [`provcheck-claude`](https://github.com/daidong/provcheck-claude). You run `/provcheck-claude:check`, and it asks a narrow question: **did the agent's words match the evidence available when it spoke**? The plugin is open source and runs on demand. There is no separate service and no extra API key. The deterministic checker runs locally; a small reviewer step runs through the user's normal Claude Code environment.
 
-## Support is not correctness
+## Support v.s. Correctness
 
 The useful distinction is between correctness and support.
 
@@ -30,13 +30,13 @@ The useful distinction is between correctness and support.
 
 A support check will not prove that the work is correct. It can still catch stale, missing, and mismatched evidence before a user trusts a result, commits code, or sends a report.
 
-For this post I use three labels:
+For this post, I use three labels:
 
-| Layer | Plain meaning | Example question |
-| --- | --- | --- |
-| L1 | What the agent told you | "The CSV has 5 columns." |
-| L2 | What the trace recorded | Did a prior tool output say 5 columns? |
-| L3 | What really exists or happened | Does the file on disk have 5 columns, and was it produced here? |
+| Layer | Plain meaning                  | Example question                                                |
+| ----- | ------------------------------ | --------------------------------------------------------------- |
+| L1    | What the agent told you        | "The CSV has 5 columns."                                        |
+| L2    | What the trace recorded        | Did a prior tool output say 5 columns?                          |
+| L3    | What really exists or happened | Does the file on disk have 5 columns, and was it produced here? |
 
 Most trajectory-checking work compares L1 with L2. It checks whether the agent's statement is supported by the recorded trajectory text. That is already valuable. TELBench/DRIFT, for example, gives 1,000 real deep-research trajectories with human-labeled error spans and a claim-centered method for checking whether earlier trajectory spans support later commitments.
 
@@ -57,48 +57,52 @@ The main design rule is that code handles hard evidence. The model helps extract
 The current checker looks for operational claims:
 
 * tests, builds, and no-error statements;
+
 * file edits, saved artifacts, and git actions;
+
 * citations and source-use claims;
+
 * searches and file-content assertions;
+
 * counts and measurable file properties, such as rows, columns, and byte size;
+
 * simple lineage statements, such as "output X came from input Y";
+
 * environment, config, and schema claims when the evidence is visible.
 
-It ignores plans, intentions, opinions, and semantic correctness claims. "The outputs match Table 2" is not a support claim. It asks whether a scientific comparison is true.
+It ignores plans, intentions, opinions, and semantic correctness claims. *"The outputs match Table 2"* is not a support claim. It asks whether a scientific comparison is true.
 
 The second rule is time. A claim should be judged using evidence that existed before the claim. For ambiguous cases, the checker builds a small case bundle and gives the reviewer only the relevant earlier evidence. That keeps the report from crediting a statement with evidence found later.
 
-The third piece is Tier-A capture. Two fail-open hooks record file metadata before and after file-touching tool calls: paths, sizes, mtimes, and created/modified/deleted sets. They do not copy file contents. This gives the checker enough L3 signal to say that a file was produced in the session and has not changed since capture before checking its rows or columns.
+The third piece is capture. Two fail-open hooks record file metadata before and after file-touching tool calls: paths, sizes, mtimes, and created/modified/deleted sets. They do not copy file contents. This gives the checker enough L3 signal to say that a file was produced in the session and has not changed since capture before checking its rows or columns.
 
-## What the external benchmark showed
+## Initial TELBench Results
 
-TELBench is useful because it is external and human-labeled. It is not a direct plugin benchmark. Its trajectories are prose, not Claude Code's structured tool blocks, and the original files are not available. I used it as a mechanism test: can a support judge detect commitments that earlier trajectory evidence does not back?
+We used TELBench to evaluate because it is external and human-labeled. It is not a direct plugin benchmark. Its trajectories are prose, not Claude Code's structured tool blocks, and the original files are not available. I used it as a mechanism test: can a support judge detect commitments that earlier trajectory evidence does not back? The results are discussed below.
 
-Two results matter.
+First, support checking has a ceiling. Sorting TELBench's 18 error types showed that a consistency checker can plausibly reach about 57% of the labeled errors. The other 43% are wrong-answer or semantic errors that require correctness judgment, hence are ignored in our evaluations.
 
-First, support checking has a ceiling. Sorting TELBench's 18 error types showed that a consistency checker can plausibly reach about 57% of the labeled errors. The other 43% are wrong-answer or semantic errors that require correctness judgment.
+Second, **the judge who decides whether the evidence is sufficient to support the claims needs to be skeptical**. A skeptical support prompt raised strict span recall from 58.1% to 71.3% on all 1,000 trajectories, while the share of flags landing on human-labeled error spans stayed around 72%. Counting partial support raised recall to 75.8%.
 
-Second, the judge needs to be skeptical. A skeptical support prompt raised strict span recall from 58.1% to 71.3% on all 1,000 trajectories, while the share of flags landing on human-labeled error spans stayed around 72%. Counting partial support raised recall to 75.8%.
+| TELBench operating point                   | Span recall | Any-gold precision |
+| ------------------------------------------ | ----------: | -----------------: |
+| Neutral support judge                      |       58.1% |                  — |
+| Skeptical prompt, strict                   |   **71.3%** |              71.9% |
+| Skeptical prompt, counting partial support |       75.8% |          about 72% |
 
-| TELBench operating point | Span recall | Any-gold precision |
-| --- | ---: | ---: |
-| Neutral support judge | 58.1% | — |
-| Skeptical prompt, strict | **71.3%** | 71.9% |
-| Skeptical prompt, counting partial support | 75.8% | about 72% |
-
-This is a calibration result, not a product result. TELBench shows that claim-evidence consistency is a real signal and that prompt strictness matters. It does not validate the L1↔L3 part of the plugin, because TELBench has no artifact bytes to inspect.
+TELBench results based on `provcheck-claude` clearly show that **claim-evidence consistency is a real signal** and that **prompt strictness matters**. It does not validate the L1↔L3 part of the plugin, because TELBench has no artifact bytes to inspect.
 
 ## What the deployed-plugin benchmark showed
 
-The second benchmark runs the shipped checker on self-contained Claude Code-style sessions. These sessions have real workspace files, transcripts, git state, and Tier-A capture diffs. Each case contains one judged claim labeled either `flag` or `clean`.
+The second benchmark runs the shipped checker on self-contained Claude Code-style sessions. These sessions have real workspace files, transcripts, git state, and captured diffs. Each case contains one judged claim labeled either `flag` (issues) or `clean`(no issues).
 
-| Metric | Value |
-| --- | ---: |
-| Core flag cases | 17 |
-| Surfaced recall, finding or reviewer bundle | **1.00** (17/17) |
-| Recall decided by code alone | 0.71 (12/17) |
-| Clean controls | 9 |
-| Clean false-positive rate | **0.00** (0/9) |
+| Metric                       |            Value |
+| ---------------------------- | ---------------: |
+| Core flag cases              |               17 |
+| Surfaced recall              | **1.00** (17/17) |
+| Recall decided by code alone |     0.71 (12/17) |
+| Clean controls               |                9 |
+| Clean false-positive rate    |   **0.00** (0/9) |
 
 By family, surfaced recall is 4/4 citation, 5/5 result, 5/5 artifact-property, 1/1 lineage, and 1/1 version-control. The seed benchmark is small and self-authored, so these numbers should not be read as a field-wide result. The useful point is that the benchmark runs the real matcher on real bytes.
 
@@ -110,7 +114,7 @@ The second was missing-file handling. Flagging every absent file catches halluci
 
 This is the engineering loop I want from an agent reliability tool: measure a concrete support failure, fix the matcher, rerun the benchmark, and keep the false-positive gate fixed.
 
-## Why provenance alone is not enough
+## System Provenance and The Missing Parts
 
 System provenance is the natural substrate for L3. AgentSight uses eBPF-style system observability for agents. PROV-AGENT extends W3C PROV concepts to agentic workflows. HPC workflow provenance systems can answer questions about what ran and what produced what.
 
@@ -118,17 +122,13 @@ Those records are useful, but capture is not checking. A provenance graph can sa
 
 That is why the current plugin starts with artifact state. Rows, columns, bytes, file existence, git state, and test outcomes are checkable against the real workspace. Full lineage is harder. More capture fidelity gives a better access graph, but not a proof that the agent's lineage sentence is true.
 
-## What this does not do
+## Current Limitations
 
-The limits are real.
+First, the checker tests support, not correctness. If a wrong conclusion is fully supported by bad evidence, this tool will not catch it.
 
-First, the checker tests support, not correctness. If a wrong conclusion is fully supported by bad evidence, this tool may not catch it.
-
-Second, the L1↔L3 benchmark is only a seed. I wrote the cases, so a careful reader should discount the headline numbers. The next useful benchmark should come from tasks with independent answer keys: bug-fix tasks with hidden tests for stale "tests pass" claims, or data-analysis tasks with reference outputs for file-property claims.
+Second, the L1↔L3 benchmark is only a seed. The next useful benchmark should come from tasks with independent answer keys: bug-fix tasks with hidden tests for stale "tests pass" claims, or data-analysis tasks with reference outputs for file-property claims.
 
 Third, the capture layer is intentionally shallow. It records metadata, not contents. That is safer for everyday use, but it means some mismatches remain low confidence when the file may have changed after the claim.
-
-These limits are the boundary of the tool, not incidental gaps.
 
 ## What this changes in agent-system design
 
@@ -137,10 +137,15 @@ Agent systems need reliability surfaces. A polished final answer is not enough. 
 A practical design checklist follows:
 
 * Treat test/build claims as stateful. A passing run before later edits is not evidence that tests still pass.
+
 * Treat citations as source-use claims. A citation should be tied to a retrieved or opened source, not just a plausible title.
+
 * Treat produced files as inspectable artifacts. If the agent reports rows, columns, sizes, or schemas, read the file.
+
 * Report coverage. A quiet checker should not imply that everything is verified.
+
 * Keep hard checks in code. Use the model for extraction and ambiguous judgment, not for inventing evidence.
+
 * Prefer artifact invariants over reconstructed lineage. File properties are often decidable; dataflow is often inferred.
 
 The pattern from the prompt-cache post shows up again. The model is only one part of the system. The reliability contract comes from how model output, tool traces, files, git, and runtime evidence fit together.
@@ -194,10 +199,10 @@ Agent 系统也有类似的契约，只是表面不同。一个长程 agent 做�
 
 这篇里我用三个标签：
 
-| 层 | 白话意思 | 例子 |
-| --- | --- | --- |
-| L1 | agent 嘴上说了什么 | “CSV 有 5 列。” |
-| L2 | trace 记录了什么 | 之前的工具输出有没有说 5 列？ |
+| 层  | 白话意思                  | 例子                                  |
+| -- | --------------------- | ----------------------------------- |
+| L1 | agent 嘴上说了什么          | “CSV 有 5 列。”                        |
+| L2 | trace 记录了什么           | 之前的工具输出有没有说 5 列？                    |
 | L3 | workspace 里真实存在或发生了什么 | 磁盘上的文件是否真的有 5 列，而且是不是本 session 产生的？ |
 
 大多数 trajectory-checking 工作在对 L1 和 L2。它检查 agent 的说法能不能被记录下来的 trajectory 文本支撑。这已经很有价值。TELBench/DRIFT 就提供了 1000 条真实 deep-research trajectories 和人工标注的错误 spans，并用 claim-centered 方法检查前面的 trajectory spans 是否支撑后面的 commitments。
@@ -219,11 +224,17 @@ Agent 系统也有类似的契约，只是表面不同。一个长程 agent 做�
 当前 checker 检查的是很操作化的说法：
 
 * 测试、build、no-error statements；
+
 * 文件编辑、保存 artifact、git actions；
+
 * 引用和 source-use claims；
+
 * 搜索和文件内容断言；
+
 * counts，以及 rows、columns、byte size 这类可测文件属性；
+
 * 简单 lineage，比如 “output X came from input Y”；
+
 * evidence 可见时的 environment、config 和 schema claims。
 
 计划、意图、意见、以及语义正确性 claims 不在范围内。“outputs match Table 2” 不是支撑性 claim，它问的是一个科学比较是否真的成立。
@@ -242,11 +253,11 @@ TELBench 有用，因为它是外部数据，而且有人类标注。但它不�
 
 第二，judge 必须更怀疑。一个 skeptical support prompt，把全部 1000 条 trajectories 上的 strict span recall 从 58.1% 提到 71.3%，同时 flags 落在人类标注错误上的比例仍然约 72%。如果把 partial support 也算进去，recall 到 75.8%。
 
-| TELBench operating point | Span recall | Any-gold precision |
-| --- | ---: | ---: |
-| Neutral support judge | 58.1% | — |
-| Skeptical prompt, strict | **71.3%** | 71.9% |
-| Skeptical prompt, counting partial support | 75.8% | about 72% |
+| TELBench operating point                   | Span recall | Any-gold precision |
+| ------------------------------------------ | ----------: | -----------------: |
+| Neutral support judge                      |       58.1% |                  — |
+| Skeptical prompt, strict                   |   **71.3%** |              71.9% |
+| Skeptical prompt, counting partial support |       75.8% |          about 72% |
 
 这是 calibration result，不是 product result。TELBench 说明 claim-evidence consistency 是真实信号，也说明 prompt strictness 很重要。但它没有验证插件最有差异化的 L1↔L3 部分，因为 TELBench 没有 artifact bytes 可以读。
 
@@ -254,13 +265,13 @@ TELBench 有用，因为它是外部数据，而且有人类标注。但它不�
 
 第二个 benchmark 直接跑 shipped checker，输入是自包含的 Claude Code 风格 sessions。这些 sessions 有真实 workspace files、transcripts、git state 和 Tier-A capture diffs。每个 case 只有一个被判断的 claim，标签是 `flag` 或 `clean`。
 
-| Metric | Value |
-| --- | ---: |
-| Core flag cases | 17 |
+| Metric                                      |            Value |
+| ------------------------------------------- | ---------------: |
+| Core flag cases                             |               17 |
 | Surfaced recall, finding or reviewer bundle | **1.00** (17/17) |
-| Recall decided by code alone | 0.71 (12/17) |
-| Clean controls | 9 |
-| Clean false-positive rate | **0.00** (0/9) |
+| Recall decided by code alone                |     0.71 (12/17) |
+| Clean controls                              |                9 |
+| Clean false-positive rate                   |   **0.00** (0/9) |
 
 按 family 分，surfaced recall 是 citation 4/4、result 5/5、artifact-property 5/5、lineage 1/1、version-control 1/1。这个 seed benchmark 很小，而且是我自己写的，所以不能把这些数字看成领域结论。它真正有用的地方是：它跑的是真 matcher，而且会读真实 bytes。
 
@@ -299,10 +310,15 @@ Agent 系统需要显式的 reliability surfaces。一个漂亮的 final answer 
 一个实用 checklist 是：
 
 * 把 test/build claims 当成有状态的东西。后续改动之前的 passing run，不等于现在 tests still pass。
+
 * 把 citations 当成 source-use claims。citation 应该能连到 retrieved 或 opened source，而不是只看起来像一篇合理的论文。
+
 * 把 produced files 当成可检查 artifacts。agent 报 rows、columns、sizes、schemas，就读文件。
+
 * 报告 coverage。checker 没说话，不等于所有东西都 verified。
+
 * 硬检查留给代码。模型用于 extraction 和 ambiguous judgment，不用于发明 evidence。
+
 * 优先检查 artifact invariants，而不是重建完整 lineage。文件属性经常可判；dataflow 经常只是推断。
 
 prompt-cache 那篇里的模式在这里又出现了一次。模型只是系统的一部分。可靠性契约来自 model output、tool traces、files、git 和 runtime evidence 怎么接在一起。
