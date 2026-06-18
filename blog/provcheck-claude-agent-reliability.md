@@ -12,6 +12,17 @@
   </div>
 </div>
 
+<div class="tool-callout" role="note" aria-label="provcheck-claude announcement" style="--sys-accent-primary: #2563eb; --sys-accent-primary-hover: #1d4ed8; --sys-accent-soft-bg: rgba(37,99,235,0.07); --sys-accent-soft-border: rgba(37,99,235,0.24);">
+  <div class="tool-callout-text">
+    <span class="tool-callout-label">Open-source plugin</span>
+    <strong>provcheck-claude</strong> is the local Claude Code checker discussed in this post. It checks whether an agent's claims are supported by its own transcript, files, git state, and captured diffs.
+  </div>
+  <div class="tool-callout-actions">
+    <a class="primary" href="https://github.com/daidong/provcheck-claude">GitHub</a>
+    <a href="https://github.com/daidong/provcheck-claude#readme">README</a>
+  </div>
+</div>
+
 The [previous post](post.html?slug=black-box-llm-serving-caches) was about prompt caching. The main lesson was that a hidden serving system still exposes a contract to the application.
 
 Agent systems have a similar contract, but the surface is different. A long-running agent does work and then reports what it did. It edits files, runs tests, cites papers, saves CSVs, makes plots, and writes a final summary. That summary is useful only when its claims match the work record.
@@ -106,7 +117,7 @@ The second benchmark runs the shipped checker on self-contained Claude Code-styl
 
 By family, surfaced recall is 4/4 citation, 5/5 result, 5/5 artifact-property, 1/1 lineage, and 1/1 version-control. The seed benchmark is small and self-authored, so these numbers should not be read as a field-wide result. The useful point is that the benchmark runs the real matcher on real bytes.
 
-It has already found two bugs.
+Running the benchmark exposed two real bugs in `provcheck-claude`'s own matcher.
 
 The first was a build claim after a GNU Make failure. The transcript contained `make: *** [all] Error 1`, but the parser did not know that signature, so it treated the later build-success claim as supported. Adding the Make failure marker turned the case into a deterministic contradiction.
 
