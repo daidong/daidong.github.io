@@ -1,5 +1,11 @@
 [
   {
+    "slug": "provcheck-claude-agent-reliability",
+    "title": "Agent Reliability Is a Systems Problem: Checking Claims Against the Work Record",
+    "date": "2026-06-18",
+    "excerpt": "A follow-up on agent-system reliability: why checking whether an agent's claims are supported by its own trace, files, and git state is different from checking whether the work is correct."
+  },
+  {
     "slug": "black-box-llm-serving-caches",
     "title": "Black-box Characterization of LLM Serving Caches: Contracts, Asymmetries, and Prompt Design",
     "date": "2026-06-06",
