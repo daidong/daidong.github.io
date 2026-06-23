@@ -1,5 +1,11 @@
 [
   {
+    "slug": "long-context-didnt-kill-agent-memory",
+    "title": "Long Context Didn't Kill Agent Memory. It Made the Case Narrower.",
+    "date": "2026-06-23",
+    "excerpt": "With 1M-token context windows, agent memory no longer wins by beating full context on short histories. Its clear value today is cost; persistence and learning remain open problems."
+  },
+  {
     "slug": "provcheck-claude-agent-reliability",
     "title": "Agent Reliability Is a Systems Problem: Checking Claims Against the Work Record",
     "date": "2026-06-18",
