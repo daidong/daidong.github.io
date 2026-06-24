@@ -1,2 +1,21 @@
 _site/
 
+
+# --- research-pilot (managed, RFC-014) ---
+.research-pilot/index/
+.research-pilot/artifacts-legacy/
+# --- end research-pilot ---
+
+# --- agent tooling & caches (kept local, not published) ---
+.DS_Store
+**/.DS_Store
+.claude/
+.agents/
+.pipilot/
+.provcheck/
+.research-pilot/
+rp-artifacts/
+web-content/
+AGENTS.md
+CLAUDE.md
+# --- end agent tooling ---
