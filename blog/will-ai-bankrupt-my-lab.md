@@ -62,17 +62,11 @@ On the other hand, a shared API key with no budget and no norms is clearly not s
 
 There is a brutal way to think about this. When I support a student, I already think about salary, tuition, travel, equipment, and sometimes computers. Maybe now I also need to think about an AI budget attached to that person.
 
-Not as a perk. As part of the cost of doing modern research. If one researcher needs a laptop, a server account, conference travel, and $200 or $500 or $1,000 a month in model access, then the real cost of supporting that researcher is higher than the salary line alone.
-
-That sounds extreme until you watch a coding agent spend $600 in one day. Of course, most projects should not need that level of spending. A lot of tasks can be done with cheaper models, local models, smaller contexts, better prompts, or simply more human judgment. But the direction is clear enough: AI usage is becoming a budget category.
-
-The question is whether universities, grant agencies, and labs are ready to treat it that way.
+That sounds extreme until you watch a coding agent spend $600 in one day. Of course, most projects should not need that level of spending. A lot of tasks can be done with cheaper models, local models, smaller contexts, better prompts, or simply more human judgment. But the direction is clear enough: AI usage is becoming a budget category. The question becomes whether universities, grant agencies, and labs are ready to treat it that way.
 
 ## What I will probably change
 
-I do not have a perfect answer yet. But after seeing the bill, I know the old model cannot continue. A lab API key cannot be treated like free electricity.
-
-At a minimum, I think we need a few basic norms:
+I do not have a perfect answer yet. But after seeing the bill, I know the old model cannot continue. At a minimum, I think we need a few basic norms:
 
 1. **Separate keys by person or project.** Shared keys make it too hard to understand who spent what and why.
 
