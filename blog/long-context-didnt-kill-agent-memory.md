@@ -58,6 +58,10 @@ Long context does not do that. It re-reads. Current memory systems mostly do not
 
 This is the part that retrieval alone cannot solve. A search over raw logs can return "user lives in New York" and "user lives in Boston" together. Something still has to decide which fact is current, whether the old fact should remain as history, and whether the conflict should be surfaced to the user.
 
+The obvious fix is to let the model rewrite its own memory: consolidate old entries into corrected ones instead of piling them up. But that step is itself fragile. Zhang et al. have an LLM continuously consolidate past trajectories into a textual memory bank, and find a consistent inverted-U: utility rises early, then degrades, and can fall below the no-memory baseline as updates accumulate. The cleanest case is stark. Even when consolidating from ground-truth solutions, GPT-5.4 fails on 54% of ARC-AGI problems it had already solved without any memory ([Faulty Memories, arXiv:2605.12978](https://arxiv.org/abs/2605.12978)). Each consolidation pass is a lossy rewrite: useful details get dropped, spurious rules get added. Their robust default is the opposite of a clean self-rewriting store. Keep the raw episodes, because an episodic-only control that simply retains trajectories stays competitive with the consolidators they test.
+
+The frontier response is to move consolidation offline, like sleep. Auto-Dreamer splits fast per-session writing from a slow consolidator that rewrites memory into a compact, abstracted set, reporting 41.1% on ScienceWorld, 7 points over the strongest baseline with 12x less memory ([Auto-Dreamer, arXiv:2605.20616](https://arxiv.org/abs/2605.20616)). That direction is promising, but the previous paragraph is the warning: the same consolidation that helps offline is what corrupts memory when it runs carelessly online.
+
 The real design space has at least three ways to read the past: retrieval, which is cheap and returns slices; long context, which sees more but is expensive and degrades with length; and parametric memory, which writes information into model weights and is still mostly a research direction. The hard problem, reconciling a changing history, sits above all three.
 
 ## The missing benchmark is more specific than "long"
@@ -77,6 +81,8 @@ This is why "memory beats long context" remains too easy to argue and too hard t
 
 The useful benchmark would look more like months of real agent use: project work, casual preferences, code edits, document analysis, abandoned plans, corrections, and topic shifts. Some facts should expire. Some should remain true only in a time range. Some should conflict. The answer key should reward updating and forgetting, not just recall.
 
+And the problem is not only the dataset. It is the metric. Flynt notes that every major memory benchmark, LoCoMo foremost, scores whether the model answered correctly, not whether the memory system retrieved correctly. A system that returns its entire store gets recall 1.0 and passes answer-quality evaluation. Measured in isolation, memory baselines reach mean retrieval precision of just 0.05 to 0.08, even on questions about their own extractions ([PrecisionMemBench, arXiv:2605.11325](https://arxiv.org/abs/2605.11325)). We are often grading the reader, not the memory.
+
 ## What this means for builders
 
 If you build agent systems today, the clean framing is narrower than the marketing language.
@@ -85,7 +91,7 @@ If you build agent systems today, the clean framing is narrower than the marketi
 
 * Treat persistence beyond the context window as an open capability until the evaluation history actually exceeds the model's effective window.
 
-* Treat memory writes as updates, not appends. A database that stores every extracted sentence forever is a retrieval index, not a memory.
+* Treat memory writes carefully. Storing every extracted sentence forever is a retrieval index, not a memory, but letting the model endlessly rewrite its own store corrupts it (the inverted-U above). The safer default today is to keep raw episodes and consolidate sparingly and with gates, not on every update.
 
 * Report what the system does when facts conflict: overwrite, version, keep both, ask the user, or mark uncertainty.
 
@@ -141,6 +147,10 @@ LongMemEval 又补了一点。即使答案在窗口内，模型读完整历史�
 
 这正是单纯 retrieval 解决不了的部分。对原始日志做搜索，可能会同时返回“用户住在 New York”和“用户住在 Boston”。仍然需要有东西决定哪个事实现在有效，旧事实是否要作为历史保留，以及是否应该把冲突告诉用户。
 
+显而易见的修法，是让模型重写自己的记忆：把旧条目 consolidate 成更正后的条目，而不是一直往上堆。但这一步本身就很脆弱。Zhang 等人让一个 LLM 持续把过去的 trajectory consolidate 进一个文本 memory bank，发现一条稳定的倒 U 曲线：utility 先上升，然后随着更新累积而退化，甚至掉到 no-memory baseline 以下。最干净的案例很刺眼。即便是从 ground-truth 解答做 consolidation，GPT-5.4 在那些它本来不靠记忆就已经解出的 ARC-AGI 题目上，仍有 54% 做错（[Faulty Memories, arXiv:2605.12978](https://arxiv.org/abs/2605.12978)）。每一次 consolidation 都是一次有损重写：有用的细节被丢掉，虚假的规则被塞进来。他们给出的稳健默认做法，恰好和“自我重写的干净存储”相反。保留原始 episode，因为一个只保留 trajectory 的 episodic-only 对照组，和他们测试的各种 consolidator 相比依然有竞争力。
+
+前沿的回应，是把 consolidation 挪到离线，像睡眠一样。Auto-Dreamer 把快速的单 session 写入和慢速的 consolidator 拆开，让后者把记忆重写成一份紧凑、抽象的集合，报告在 ScienceWorld 上达到 41.1%，比最强 baseline 高 7 个点，而内存少用 12 倍（[Auto-Dreamer, arXiv:2605.20616](https://arxiv.org/abs/2605.20616)）。这个方向有希望，但上一段就是警告：同一个在离线时有帮助的 consolidation，一旦在线上随意运行，就是腐蚀记忆的那一步。
+
 真正的设计空间至少有三种读过去的方式：retrieval，便宜、只取切片；long context，看得更多，但贵，而且长度一长就退化；parametric memory，把信息写进模型权重，目前仍主要是研究方向。最难的问题，如何消解一段会变化的历史，横跨这三条路线。
 
 ## 缺的 benchmark 不只是“长”
@@ -160,6 +170,8 @@ LongMemEval 又补了一点。即使答案在窗口内，模型读完整历史�
 
 真正有用的 benchmark 应该更像几个月的真实 agent 使用：项目工作、日常偏好、代码修改、文档分析、废弃计划、纠错、topic 切换。有些事实应该过期。有些事实只在某段时间内为真。有些事实应该冲突。答案集应该奖励更新和遗忘，而不只是奖励召回。
 
+而且问题不只在数据集，还在指标。Flynt 指出，几乎所有主流 memory benchmark（首先就是 LoCoMo）衡量的是模型有没有答对，而不是 memory 系统有没有检索对。一个把整个 store 全部返回的系统，recall 是 1.0，照样能通过答案质量评估。单独测量检索时，memory baseline 的平均检索 precision 只有 0.05 到 0.08，即便问的就是它自己抽取出来的内容（[PrecisionMemBench, arXiv:2605.11325](https://arxiv.org/abs/2605.11325)）。我们常常是在给“读者”打分，而不是给“记忆”打分。
+
 ## 对 builder 的含义
 
 如果你今天在做 agent 系统，最清楚的 framing 比市场语言要窄。
@@ -168,7 +180,7 @@ LongMemEval 又补了一点。即使答案在窗口内，模型读完整历史�
 
 * 在 evaluation history 真正超过模型有效窗口之前，把窗口之外的持久性当成开放能力，而不是已完成特性。
 
-* 把 memory write 当成 update，而不是 append。把每个抽取出来的句子永远存下来，是 retrieval index，不是 memory。
+* 谨慎对待 memory write。把每个抽取出来的句子永远存下来，是 retrieval index，不是 memory；但让模型无止境地重写自己的存储，会把它腐蚀掉（上文那条倒 U 曲线）。今天更稳妥的默认做法，是保留原始 episode，并且有节制、带门控地做 consolidation，而不是每次更新都重写。
 
 * 报告系统遇到事实冲突时怎么做：覆盖、版本化、两个都留、反问用户，还是标记不确定。
 
