@@ -90,10 +90,30 @@
     .post-back { display: inline-block; font-size: 13px; color: var(--sys-text-muted); text-decoration: none; margin-bottom: var(--space-lg); transition: color 0.15s; }
     .post-back:hover { color: var(--sys-accent-primary); }
 
+    /* Post overview */
+    .post-overview { display: grid; gap: var(--space-lg); margin-bottom: var(--space-2xl); }
+    .post-overview-card { padding: var(--space-xl); border: 1px solid var(--sys-border-default); border-left: 4px solid var(--sys-text-primary); border-radius: 8px; background: var(--sys-surface-panel); }
+    .post-overview-title { display: flex; align-items: center; gap: var(--space-sm); margin: 0 0 var(--space-md); font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sys-text-primary); }
+    .post-overview-icon { width: 16px; height: 16px; flex-shrink: 0; color: var(--sys-text-primary); }
+    .post-tldr { margin: 0; padding-left: var(--space-xl); color: var(--sys-text-secondary); }
+    .post-tldr li { margin-bottom: var(--space-sm); font-size: 14.5px; font-weight: 500; line-height: 1.65; }
+    .post-tldr li:last-child { margin-bottom: 0; }
+    .post-tldr a { color: var(--sys-text-primary); text-decoration: underline; text-decoration-color: var(--sys-border-strong); text-underline-offset: 3px; border-bottom: none; }
+    .post-tldr a:hover { text-decoration-color: var(--sys-text-primary); }
+    .post-contents { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
+    .post-contents-link { display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 6px 10px; border-radius: 7px; color: var(--sys-text-secondary); text-decoration: none; border-bottom: none; transition: background 0.15s, color 0.15s; }
+    .post-contents-link:hover { color: var(--sys-surface-canvas); background: var(--sys-text-primary); }
+    .post-contents-number { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; flex: 0 0 24px; border-radius: 50%; background: var(--sys-text-primary); color: var(--sys-surface-canvas); font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; line-height: 1; transition: background 0.15s, color 0.15s; }
+    .post-contents-text { flex: 1; min-width: 0; font-size: 14.5px; font-weight: 600; line-height: 1.35; }
+    .post-contents-arrow { color: var(--sys-text-muted); transition: transform 0.15s, color 0.15s; }
+    .post-contents-link:hover .post-contents-number { background: var(--sys-surface-canvas); color: var(--sys-text-primary); }
+    .post-contents-link:hover .post-contents-arrow { color: var(--sys-surface-canvas); transform: translateX(3px); }
+
     /* Markdown content */
     .prose h1 { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; margin: var(--space-xl) 0 var(--space-md); }
     .prose h2 { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; margin: var(--space-xl) 0 var(--space-md); color: var(--sys-text-primary); text-transform: none; border-bottom: none; padding-bottom: 0; }
     .prose h3 { font-size: 15px; font-weight: 600; margin: var(--space-lg) 0 var(--space-sm); }
+    .prose h1, .prose h2, .prose h3 { scroll-margin-top: 60px; }
     .prose p { margin-bottom: var(--space-md); color: var(--sys-text-secondary); line-height: 1.75; font-size: 14.5px; }
     .prose ul, .prose ol { margin-bottom: var(--space-md); padding-left: var(--space-xl); color: var(--sys-text-secondary); }
     .prose li { margin-bottom: var(--space-xs); line-height: 1.7; font-size: 14.5px; }
@@ -210,6 +230,107 @@ function estimateReadTime(text) {
   return mins + ' min read';
 }
 
+function escapeHtml(text) {
+  return text.replace(/[&<>"']/g, function(ch) {
+    return {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    }[ch];
+  });
+}
+
+function slugifyHeading(text, used) {
+  var base = text.trim().toLowerCase()
+    .replace(/[^\w\u3400-\u9fff\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+  if (!base) base = 'section';
+
+  var slug = base;
+  var n = 2;
+  while (used[slug]) {
+    slug = base + '-' + n;
+    n += 1;
+  }
+  used[slug] = true;
+  return slug;
+}
+
+function hasCjk(text) {
+  return /[\u3400-\u9fff]/.test(text);
+}
+
+function contentsTitle(text) {
+  return text.replace(/^\s*\d+\s*[\.)]\s*/, '').trim();
+}
+
+function getTldrItems(meta) {
+  if (!meta) return [];
+  if (Array.isArray(meta.tldr)) {
+    return meta.tldr.filter(function(item) {
+      return typeof item === 'string' && item.trim();
+    });
+  }
+  return meta.excerpt ? [meta.excerpt] : [];
+}
+
+function buildPostOverview(meta, prose) {
+  var tldrItems = getTldrItems(meta);
+  var headings = Array.prototype.slice.call(prose.querySelectorAll('h1, h2'));
+  var used = {};
+  var contents = [];
+
+  headings.some(function(heading) {
+    var text = heading.textContent.trim();
+    if (!text) return false;
+    if (hasCjk(text)) return true;
+    if (!heading.id) heading.id = slugifyHeading(text, used);
+    contents.push({
+      id: heading.id,
+      text: contentsTitle(text),
+      level: heading.tagName === 'H1' ? 1 : 2
+    });
+    return false;
+  });
+
+  if (tldrItems.length === 0 && contents.length === 0) return '';
+
+  var html = '<section class="post-overview" aria-label="Post overview">';
+
+  if (tldrItems.length > 0) {
+    html += '<div class="post-overview-card post-tldr-card">';
+    html += '<p class="post-overview-title">TL;DR</p><ul class="post-tldr">';
+    tldrItems.forEach(function(item) {
+      html += '<li>' + marked.parseInline(item) + '</li>';
+    });
+    html += '</ul></div>';
+  }
+
+  if (contents.length > 0) {
+    html += '<nav class="post-overview-card post-contents-card" aria-label="Table of contents">';
+    html += '<p class="post-overview-title">';
+    html += '<svg class="post-overview-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>';
+    html += 'Contents</p><ol class="post-contents">';
+    contents.forEach(function(item, index) {
+      html += '<li class="post-contents-level-' + item.level + '">';
+      html += '<a class="post-contents-link" href="#' + encodeURIComponent(item.id) + '">';
+      html += '<span class="post-contents-number">' + (index + 1) + '</span>';
+      html += '<span class="post-contents-text">' + escapeHtml(item.text) + '</span>';
+      html += '<span class="post-contents-arrow" aria-hidden="true">\u2192</span>';
+      html += '</a>';
+      html += '</li>';
+    });
+    html += '</ol></nav>';
+  }
+
+  html += '</section>';
+  return html;
+}
+
 function loadGiscus(term) {
   var theme = document.documentElement.getAttribute('data-theme') || 'light';
   var s = document.createElement('script');
@@ -276,7 +397,21 @@ if (!slug) {
       mdBody = md.replace(/^#\s+.*\n+/, '');
     }
 
-    html += '<div class="prose">' + marked.parse(mdBody) + '</div>';
+    var prose = document.createElement('div');
+    prose.className = 'prose';
+    prose.innerHTML = marked.parse(mdBody);
+
+    var leadProse = document.createElement('div');
+    leadProse.className = 'prose';
+    while (prose.firstElementChild && prose.firstElementChild.classList.contains('tool-callout')) {
+      leadProse.appendChild(prose.firstElementChild);
+    }
+
+    if (leadProse.children.length > 0) {
+      html += leadProse.outerHTML;
+    }
+    html += buildPostOverview(meta, prose);
+    html += prose.outerHTML;
     container.innerHTML = html;
 
   }).catch(function() {

@@ -3,54 +3,99 @@
     "slug": "long-context-didnt-kill-agent-memory",
     "title": "Agent Memory: Accuracy, Cost, and Gaps.",
     "date": "2026-06-23",
-    "excerpt": "With 1M-token context windows, agent memory no longer wins by beating full context on short histories. Its clear value today is cost; persistence and learning remain open problems."
+    "excerpt": "With 1M-token context windows, agent memory no longer wins by beating full context on short histories. Its clear value today is cost; persistence and learning remain open problems.",
+    "tldr": [
+      "Long context weakens the old accuracy pitch for memory: when the history fits in the prompt, full context often matches or beats retrieval-style memory.",
+      "The part that clearly works today is cost and latency. Memory trades write-time work for cheaper repeated reads at roughly fixed accuracy.",
+      "The hard promises are still open: updating stale facts, handling contradictions, forgetting safely, learning reusable procedures, and testing memory beyond the effective context window."
+    ]
   },
   {
     "slug": "provcheck-claude-agent-reliability",
     "title": "Agent Reliability Is a Systems Problem: Checking Claims Against the Work Record",
     "date": "2026-06-18",
-    "excerpt": "A follow-up on agent-system reliability: why checking whether an agent's claims are supported by its own trace, files, and git state is different from checking whether the work is correct."
+    "excerpt": "A follow-up on agent-system reliability: why checking whether an agent's claims are supported by its own trace, files, and git state is different from checking whether the work is correct.",
+    "tldr": [
+      "Agent reports fail in ordinary sentences: tests pass, a citation was read, a CSV has certain rows, or an output came from files the session never touched.",
+      "`provcheck-claude` checks support, not correctness: it compares the agent's claims against the transcript, files, git state, and captured diffs.",
+      "The useful reliability surface is systems-level. Code should verify hard evidence, the model should handle extraction and ambiguous judgment, and the report should say what was checked."
+    ]
   },
   {
     "slug": "black-box-llm-serving-caches",
     "title": "Black-box Characterization of LLM Serving Caches: Contracts, Asymmetries, and Prompt Design",
     "date": "2026-06-06",
-    "excerpt": "A black-box measurement of DeepSeek, OpenAI, and Anthropic prompt caches: why prefix identity matters, where provider contracts differ, and how prompt layout becomes a systems interface."
+    "excerpt": "A black-box measurement of DeepSeek, OpenAI, and Anthropic prompt caches: why prefix identity matters, where provider contracts differ, and how prompt layout becomes a systems interface.",
+    "tldr": [
+      "Prompt caches are prefix contracts. Stable material must appear before variable material; repeated text in the middle or at the end does not buy reuse.",
+      "DeepSeek, OpenAI, and Anthropic agree on prefix identity but differ in visible token units, cache horizon, branchability, and whether cache breakpoints are explicit.",
+      "For applications, layout is a systems interface: put documents, repo context, schemas, and rubrics before the question; keep file order canonical; append volatile material late; log cache-hit counters."
+    ]
   },
   {
     "slug": "will-ai-bankrupt-my-lab",
     "title": "Will AI bankrupt my lab?",
     "date": "2026-05-01",
-    "excerpt": "A shared API key, a negative balance, and a harder question for research labs: if frontier-model access becomes part of the cost of doing research, who pays for the tokens?"
+    "excerpt": "A shared API key, a negative balance, and a harder question for research labs: if frontier-model access becomes part of the cost of doing research, who pays for the tokens?",
+    "tldr": [
+      "A shared lab API key turned routine coding-agent use into a real research bill: more than $3,000 in April, with two students spending over $2,000 in about a week.",
+      "Token access is becoming research infrastructure, closer to GPU time or cluster allocation than a casual software subscription.",
+      "Labs need explicit norms: separate keys, budgets before usage, alerts and hard limits, cheaper models for routine work, and protection against pushing research costs onto students."
+    ]
   },
   {
     "slug": "auto-research-where-we-are",
     "title": "Auto Research Is Real. It's Just Not What People Think.",
     "date": "2026-04-11",
-    "excerpt": "Auto research is real and getting better fast. But it's not replacing researchers — it's changing where human effort matters. After months of building these systems, here's what I've learned about verification, deskilling, and taste."
+    "excerpt": "Auto research is real and getting better fast. But it's not replacing researchers — it's changing where human effort matters. After months of building these systems, here's what I've learned about verification, deskilling, and taste.",
+    "tldr": [
+      "Auto-research agents can move through the workflow, but they are still execution-fragile: polished papers, plots, and summaries can hide broken environments or experiments that never really ran.",
+      "The bottleneck is verification. Code has compilers and tests; research has sparse, delayed feedback, so errors can survive across literature review, implementation, experiments, and writing.",
+      "AI compresses the middle of research. Humans still own the ends: choosing worthwhile problems, judging evidence, spotting failure, and training taste."
+    ]
   },
   {
     "slug": "introducing-research-copilot",
     "title": "Introducing Research Copilot — An AI Lab Partner for Academics",
     "date": "2026-04-11",
-    "excerpt": "Research Copilot is an open-source AI desktop app built for PhD students, postdocs, and faculty — it searches literature across four databases, writes papers with verified citations, runs data analysis, and helps draft grant proposals, all in one place."
+    "excerpt": "Research Copilot is an open-source AI desktop app built for PhD students, postdocs, and faculty — it searches literature across four databases, writes papers with verified citations, runs data analysis, and helps draft grant proposals, all in one place.",
+    "tldr": [
+      "Research Copilot is an open-source desktop research assistant meant to help you think through ideas, not just generate text.",
+      "It searches Semantic Scholar, arXiv, OpenAlex, and DBLP, deduplicates results, and verifies citations against real search results.",
+      "The app lives in your project folder, can run workspace tools, keeps papers and notes across sessions, and can be extended with project-specific Markdown skills."
+    ]
   },
   {
     "slug": "introducing-ram-desktop",
     "title": "Introducing RAM Desktop — A Research Assistant That Works With You",
     "date": "2026-03-14",
-    "excerpt": "RAM Desktop is a macOS research assistant that breaks your question into tasks, collects evidence, and advances the work round by round — pausing at key checkpoints for your review."
+    "excerpt": "RAM Desktop is a macOS research assistant that breaks your question into tasks, collects evidence, and advances the work round by round — pausing at key checkpoints for your review.",
+    "tldr": [
+      "RAM Desktop is a macOS research assistant that decomposes a research question into tasks, gathers evidence, and advances the run in reviewable rounds.",
+      "The interface is built for human-in-the-loop research: Dashboard, Taskboard, Console, Review Inbox, Evidence, and Audit views keep progress and provenance visible.",
+      "It works best on bounded, measurable questions. Because it can write and run code inside the project workspace, use a clean folder and watch the Console for sensitive or first-time runs."
+    ]
   },
   {
     "slug": "university-not-a-job-factory",
     "title": "University Isn't a Job Factory — and Computer Science Isn't Ending",
     "date": "2026-02-28",
-    "excerpt": "Two recurring fears: universities should be industry pipelines, and AI is ending software jobs. I think both framings are wrong — and the reasons why matter."
+    "excerpt": "Two recurring fears: universities should be industry pipelines, and AI is ending software jobs. I think both framings are wrong — and the reasons why matter.",
+    "tldr": [
+      "A university is not a company's training pipeline. Its deeper job is to build judgment, discipline, confidence, and a foundation students can carry beyond any one stack.",
+      "AI does not make universities obsolete; it makes fundamentals and AI fluency both more important.",
+      "Computer science is not ending. Its center of gravity is shifting toward the systems, security, data, evaluation, governance, and integration work that turns AI from demos into infrastructure."
+    ]
   },
   {
     "slug": "hello-world",
     "title": "Hello World — Reviving My Personal Site",
     "date": "2026-02-19",
-    "excerpt": "After years of redirecting to Google Sites, I finally rebuilt my homepage from scratch. Here's why and what's next."
+    "excerpt": "After years of redirecting to Google Sites, I finally rebuilt my homepage from scratch. Here's why and what's next.",
+    "tldr": [
+      "I rebuilt `daidong.github.io` as a personal academic site instead of redirecting to a Google Sites profile.",
+      "The site is intentionally small: plain HTML and CSS, no framework, no build step, a light/dark theme, and a client-side Markdown blog.",
+      "The blog will be a place for research directions, mentoring notes, and academic productivity workflows."
+    ]
   }
 ]
