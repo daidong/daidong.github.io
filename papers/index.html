@@ -31,6 +31,7 @@
       --sys-accent-soft-border: rgba(13,148,136,0.18);
       --nav-bg: rgba(255,255,255,0.85);
       --fig-bg: #ffffff;
+      --shadow-lift: 0 10px 28px rgba(0,0,0,0.10);
       --max-w: 820px;
       --space-xs: 0.25rem; --space-sm: 0.5rem; --space-md: 0.75rem;
       --space-lg: 1rem; --space-xl: 1.5rem; --space-2xl: 2rem;
@@ -52,6 +53,7 @@
       --sys-accent-soft-border: rgba(20,184,166,0.20);
       --nav-bg: rgba(10,10,10,0.85);
       --fig-bg: #f4f4f5;
+      --shadow-lift: 0 10px 28px rgba(0,0,0,0.6);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -99,9 +101,19 @@
       align-items: start; padding: var(--space-lg);
       border: 1px solid var(--sys-border-default); border-radius: 10px;
       background: var(--sys-surface-canvas); text-decoration: none;
-      margin-bottom: var(--space-md); transition: border-color 0.15s, background 0.15s, transform 0.15s;
+      margin-bottom: var(--space-md);
+      transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
     }
-    .report-card:hover { border-color: var(--sys-accent-primary); background: var(--sys-surface-hover); transform: translateY(-1px); }
+    .report-card:hover {
+      border-color: var(--sys-accent-primary);
+      background: var(--sys-surface-panel);
+      box-shadow: var(--shadow-lift);
+      transform: translateY(-3px);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .report-card { transition: none; }
+      .report-card:hover { transform: none; }
+    }
     .report-thumb {
       width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: left top;
       border-radius: 6px; border: 1px solid var(--sys-border-subtle);
@@ -133,6 +145,10 @@
       .report-thumb { max-width: 100%; }
       nav .nav-links { gap: var(--space-sm); }
       nav .nav-links a { font-size: 12px; }
+      .nav-right { min-width: 0; }
+      nav .nav-links { overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
+      nav .nav-links::-webkit-scrollbar { display: none; }
+      nav .nav-links a { white-space: nowrap; }
       .page-header h1 { font-size: 20px; }
     }
   </style>
@@ -146,6 +162,9 @@
       <ul class="nav-links">
         <li><a href="../index.html">About</a></li>
         <li><a href="../index.html#publications">Papers</a></li>
+        <li><a href="../index.html#teaching">Teaching</a></li>
+        <li><a href="../index.html#students">Students</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
         <li><a href="index.html" class="active">Reports</a></li>
         <li><a href="../blog.html">Blog</a></li>
       </ul>

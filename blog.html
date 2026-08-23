@@ -127,6 +127,10 @@
       .post-cover { width: 80px; height: 52px; }
       nav .nav-links { gap: var(--space-sm); }
       nav .nav-links a { font-size: 12px; }
+      .nav-right { min-width: 0; }
+      nav .nav-links { overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
+      nav .nav-links::-webkit-scrollbar { display: none; }
+      nav .nav-links a { white-space: nowrap; }
     }
   </style>
 </head>
