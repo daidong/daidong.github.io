@@ -514,6 +514,135 @@
                 color: var(--sys-accent-primary);
             }
 
+            /* ── BibTeX button and its popover ── */
+            button.pub-bibtex {
+                font-family: inherit;
+                font-size: var(--text-xs);
+                color: var(--sys-text-muted);
+                background: none;
+                border: 0;
+                padding: 0;
+                margin-right: 10px;
+                cursor: pointer;
+                transition: color 0.15s;
+            }
+
+            button.pub-bibtex:hover,
+            button.pub-bibtex[aria-expanded="true"] {
+                color: var(--sys-accent-primary);
+            }
+
+            .bib-pop {
+                position: absolute;
+                z-index: 400;
+                width: 580px;
+                max-width: calc(100vw - 2rem);
+                border: 1px solid var(--sys-border-default);
+                border-radius: 10px;
+                background: var(--sys-surface-canvas);
+                box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+                opacity: 0;
+                transform: translateY(4px);
+                pointer-events: none;
+                transition:
+                    opacity 0.15s,
+                    transform 0.15s;
+            }
+
+            .bib-pop.visible {
+                opacity: 1;
+                transform: translateY(0);
+                pointer-events: auto;
+            }
+
+            .bib-pop-head {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: var(--space-md);
+                padding: 7px 8px 7px 14px;
+                border-bottom: 1px solid var(--sys-border-subtle);
+            }
+
+            .bib-pop-label {
+                font-family: "JetBrains Mono", monospace;
+                font-size: 10px;
+                font-weight: 700;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: var(--sys-accent-primary);
+            }
+
+            .bib-pop-actions {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+            }
+
+            .bib-copy,
+            .bib-close {
+                font-family: inherit;
+                font-size: var(--text-xs);
+                cursor: pointer;
+                transition: all 0.15s;
+            }
+
+            .bib-copy {
+                display: inline-flex;
+                align-items: center;
+                gap: 5px;
+                font-weight: 700;
+                color: #fff;
+                background: var(--sys-accent-primary);
+                border: 1px solid var(--sys-accent-primary);
+                border-radius: 999px;
+                padding: 3px 12px;
+            }
+
+            .bib-copy:hover {
+                background: var(--sys-accent-primary-hover);
+                border-color: var(--sys-accent-primary-hover);
+            }
+
+            .bib-copy svg {
+                width: 11px;
+                height: 11px;
+                flex-shrink: 0;
+            }
+
+            .bib-close {
+                color: var(--sys-text-muted);
+                background: none;
+                border: 0;
+                line-height: 1;
+                padding: 3px 7px;
+                border-radius: 5px;
+            }
+
+            .bib-close:hover {
+                color: var(--sys-text-primary);
+                background: var(--sys-surface-hover);
+            }
+
+            .bib-pop pre {
+                margin: 0;
+                padding: var(--space-md) 14px var(--space-lg);
+                max-height: 300px;
+                overflow: auto;
+                font-family: "JetBrains Mono", monospace;
+                font-size: 11.5px;
+                line-height: 1.6;
+                color: var(--sys-text-secondary);
+                white-space: pre;
+                overscroll-behavior: contain;
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .bib-pop {
+                    transition: none;
+                }
+            }
+
             /* ── Publications that have a paper report ── */
             .pub-list li[data-report] {
                 background: var(--sys-accent-soft-bg);
@@ -1055,7 +1184,7 @@
                     Master/undergraduate student mentored
                 </p>
                 <ul class="pub-list">
-                    <li>
+                    <li data-bib="sun2026zocheck">
                         <span class="pub-venue">SC'26</span>
                         <span class="pub-title"
                             >ZOCheck: CPU-Shadow Checkpointing for Zeroth-Order
@@ -1065,8 +1194,17 @@
                             >Minqiu Sun*, Xin Huang, Luanzheng Guo, Nathan R.
                             Tallent, Kento Sato, Dong Dai</span
                         >
+                        <span class="pub-links">
+                            <button
+                                type="button"
+                                class="pub-bibtex"
+                                aria-expanded="false"
+                            >
+                                BibTeX
+                            </button>
+                        </span>
                     </li>
-                    <li>
+                    <li data-bib="egersdoerfer2026reliability">
                         <span class="pub-venue">SC'26</span>
                         <span class="pub-title"
                             >Understanding Reliability Bottlenecks in LLM Agents
@@ -1076,8 +1214,59 @@
                             >Chris Egersdoerfer*, Orcun Yildiz, Kevin Harms,
                             Robert Latham, Robert Ross, Dong Dai</span
                         >
+                        <span class="pub-links">
+                            <button
+                                type="button"
+                                class="pub-bibtex"
+                                aria-expanded="false"
+                            >
+                                BibTeX
+                            </button>
+                        </span>
                     </li>
-                    <li>
+                    <li data-bib="sun2026layercheck">
+                        <span class="pub-venue">Cluster'26</span>
+                        <span class="pub-title"
+                            >LayerCheck: Adaptive Layer-wise Checkpointing for
+                            Large Language Model Post-training</span
+                        >
+                        <span class="pub-authors"
+                            >Minqiu Sun*, Xin Huang, Luanzheng Guo, Nathan R.
+                            Tallent, Kento Sato, Dong Dai</span
+                        >
+                        <span class="pub-links">
+                            <button
+                                type="button"
+                                class="pub-bibtex"
+                                aria-expanded="false"
+                            >
+                                BibTeX
+                            </button>
+                        </span>
+                    </li>
+                    <li data-bib="mumenin2026deepcq">
+                        <span class="pub-venue">Cluster'26</span>
+                        <span class="pub-title"
+                            >DeepCQ: A Two-Stage Deep-Surrogate Framework for
+                            Lossy Compression Quality Prediction</span
+                        >
+                        <span class="pub-authors"
+                            >Khondoker Mirazul Mumenin*, Robert Underwood, Dong
+                            Dai, Jinzhen Wang, Sheng Di, Zarija Luki&#263;,
+                            Franck Cappello</span
+                        >
+                        <span class="pub-links">
+                            <a href="https://arxiv.org/abs/2512.21433">arXiv</a>
+                            <button
+                                type="button"
+                                class="pub-bibtex"
+                                aria-expanded="false"
+                            >
+                                BibTeX
+                            </button>
+                        </span>
+                    </li>
+                    <li data-bib="rashid2026qosflow">
                         <span class="pub-venue">IPDPS'26</span>
                         <span class="pub-title"
                             >QoSFlow: Ensuring QoS of Distributed Workflows
@@ -1090,9 +1279,16 @@
                         <span class="pub-links">
                             <a href="https://arxiv.org/abs/2602.23598">arXiv</a>
                             <a href="files/IPDPS26_QoSFlow.pdf">Talk</a>
+                            <button
+                                type="button"
+                                class="pub-bibtex"
+                                aria-expanded="false"
+                            >
+                                BibTeX
+                            </button>
                         </span>
                     </li>
-                    <li>
+                    <li data-bib="rashid2026carat">
                         <span class="pub-venue">IPDPS'26</span>
                         <span class="pub-title"
                             >CARAT: Client-Side Adaptive RPC and Cache Co-Tuning
@@ -1105,9 +1301,16 @@
                         <span class="pub-links">
                             <a href="https://arxiv.org/abs/2602.22423">arXiv</a>
                             <a href="files/IPDPS26_CARAT.pdf">Talk</a>
+                            <button
+                                type="button"
+                                class="pub-bibtex"
+                                aria-expanded="false"
+                            >
+                                BibTeX
+                            </button>
                         </span>
                     </li>
-                    <li>
+                    <li data-bib="ridwan2026crystal">
                         <span class="pub-venue">npj Comp. Mat.</span>
                         <span class="pub-title"
                             >AI-assisted Rapid Crystal Structure Generation
@@ -1117,8 +1320,17 @@
                             >O. G. Ridwan, S. Piti&eacute;, M. Soundar Raj, Dong
                             Dai, G. Frapper, H. Xue, Q. Zhu. (IF=11.09)</span
                         >
+                        <span class="pub-links">
+                            <button
+                                type="button"
+                                class="pub-bibtex"
+                                aria-expanded="false"
+                            >
+                                BibTeX
+                            </button>
+                        </span>
                     </li>
-                    <li data-report="stellar">
+                    <li data-report="stellar" data-bib="egersdoerfer2025stellar">
                         <span class="pub-venue">SC'25</span>
                         <span class="pub-title"
                             >STELLAR: Storage Tuning Engine Leveraging LLM
@@ -1154,9 +1366,16 @@
                                 <span class="arrow" aria-hidden="true">&rarr;</span>
                             </a>
                             <a href="https://arxiv.org/abs/2602.23220">arXiv</a>
+                            <button
+                                type="button"
+                                class="pub-bibtex"
+                                aria-expanded="false"
+                            >
+                                BibTeX
+                            </button>
                         </span>
                     </li>
-                    <li>
+                    <li data-bib="islam2025spgemm">
                         <span class="pub-venue">SC'25</span>
                         <span class="pub-title"
                             >Improving SpGEMM Performance Through
@@ -1168,9 +1387,16 @@
                         >
                         <span class="pub-links">
                             <a href="https://arxiv.org/abs/2507.21253">arXiv</a>
+                            <button
+                                type="button"
+                                class="pub-bibtex"
+                                aria-expanded="false"
+                            >
+                                BibTeX
+                            </button>
                         </span>
                     </li>
-                    <li>
+                    <li data-bib="wei2025tsue">
                         <span class="pub-venue">HPDC'25</span>
                         <span class="pub-title"
                             >TSUE: A Two-Stage Data Update Method for an Erasure
@@ -1180,8 +1406,17 @@
                             >Zheng Wei, Jing Xing, Yida Gu, Wenjing Huang, Dong
                             Dai, Guangming Tan, Dingwen Tao</span
                         >
+                        <span class="pub-links">
+                            <button
+                                type="button"
+                                class="pub-bibtex"
+                                aria-expanded="false"
+                            >
+                                BibTeX
+                            </button>
+                        </span>
                     </li>
-                    <li>
+                    <li data-bib="carns2025roofline">
                         <span class="pub-venue">CUG'25</span>
                         <span class="pub-title"
                             >Towards Empirical Roofline Modeling of Distributed
@@ -1193,8 +1428,17 @@
                             Snyder, A. Gueroudji, S. Ockerman, J. Soumagne, Dong
                             Dai, Robert Ross</span
                         >
+                        <span class="pub-links">
+                            <button
+                                type="button"
+                                class="pub-bibtex"
+                                aria-expanded="false"
+                            >
+                                BibTeX
+                            </button>
+                        </span>
                     </li>
-                    <li>
+                    <li data-bib="rashid2025dial">
                         <span class="pub-venue">CCGrid'25</span>
                         <span class="pub-title"
                             >DIAL: Decentralized I/O AutoTuning via Learned
@@ -1207,9 +1451,16 @@
                         >
                         <span class="pub-links">
                             <a href="https://arxiv.org/abs/2602.22392">arXiv</a>
+                            <button
+                                type="button"
+                                class="pub-bibtex"
+                                aria-expanded="false"
+                            >
+                                BibTeX
+                            </button>
                         </span>
                     </li>
-                    <li>
+                    <li data-bib="egersdoerfer2025ioagent">
                         <span class="pub-venue">IPDPS'25</span>
                         <span class="pub-title"
                             >IOAgent: Democratizing Trustworthy HPC I/O
@@ -1221,9 +1472,16 @@
                         >
                         <span class="pub-links">
                             <a href="https://arxiv.org/abs/2602.22017">arXiv</a>
+                            <button
+                                type="button"
+                                class="pub-bibtex"
+                                aria-expanded="false"
+                            >
+                                BibTeX
+                            </button>
                         </span>
                     </li>
-                    <li>
+                    <li data-bib="kamat2025metadata">
                         <span class="pub-venue">IPDPS'25</span>
                         <span class="pub-title"
                             >Be Aware of Metadata Corruption in Parallel File
@@ -1237,9 +1495,16 @@
                                 href="https://drive.google.com/file/d/10FD5LFVG17ikT8YRhJGqrWlpNKl0WFnJ/view?usp=drive_link"
                                 >PDF</a
                             >
+                            <button
+                                type="button"
+                                class="pub-bibtex"
+                                aria-expanded="false"
+                            >
+                                BibTeX
+                            </button>
                         </span>
                     </li>
-                    <li>
+                    <li data-bib="rashid2025adaptbf">
                         <span class="pub-venue">IPDPS'25</span>
                         <span class="pub-title"
                             >AdapTBF: Decentralized Bandwidth Control via
@@ -1250,9 +1515,16 @@
                         >
                         <span class="pub-links">
                             <a href="https://arxiv.org/abs/2602.22409">arXiv</a>
+                            <button
+                                type="button"
+                                class="pub-bibtex"
+                                aria-expanded="false"
+                            >
+                                BibTeX
+                            </button>
                         </span>
                     </li>
-                    <li>
+                    <li data-bib="sun2025llmtailor">
                         <span class="pub-venue">PDSW'25</span>
                         <span class="pub-title"
                             >LLMTailor: A Layer-wise Tailoring Tool for
@@ -1265,9 +1537,16 @@
                         >
                         <span class="pub-links">
                             <a href="https://arxiv.org/abs/2602.22158">arXiv</a>
+                            <button
+                                type="button"
+                                class="pub-bibtex"
+                                aria-expanded="false"
+                            >
+                                BibTeX
+                            </button>
                         </span>
                     </li>
-                    <li>
+                    <li data-bib="dong2025rl4sys">
                         <span class="pub-venue">PDSW'25</span>
                         <span class="pub-title"
                             >RL4Sys: A Lightweight System-driven RL Framework
@@ -1277,9 +1556,18 @@
                             >Jiaxin Dong*, Md. Hasanur Rashid*, Helen Xu, Dong
                             Dai</span
                         >
+                        <span class="pub-links">
+                            <button
+                                type="button"
+                                class="pub-bibtex"
+                                aria-expanded="false"
+                            >
+                                BibTeX
+                            </button>
+                        </span>
                     </li>
-                    <li>
-                        <span class="pub-venue">IEEE TC'24</span>
+                    <li data-bib="gao2025vit">
+                        <span class="pub-venue">IEEE TC'25</span>
                         <span class="pub-title"
                             >Hardware Accelerated Vision Transformer via
                             Heterogeneous Architecture Design and Adaptive
@@ -1289,8 +1577,17 @@
                             >Y. Gao, T. Wang, L. Gong, C. Wang, Dong Dai, Y.
                             Yang, X. Chen, X. Li, X. Zhou</span
                         >
+                        <span class="pub-links">
+                            <button
+                                type="button"
+                                class="pub-bibtex"
+                                aria-expanded="false"
+                            >
+                                BibTeX
+                            </button>
+                        </span>
                     </li>
-                    <li>
+                    <li data-bib="mumenin2024qualitynet">
                         <span class="pub-venue">BigData'24</span>
                         <span class="pub-title"
                             >QualityNet: Error-bounded Lossy Compression Quality
@@ -1305,9 +1602,16 @@
                                 href="https://drive.google.com/file/d/19OUK-ZeP2vEN-4gQQWU7Gbfnqt29aq4h/view?usp=drive_link"
                                 >PDF</a
                             >
+                            <button
+                                type="button"
+                                class="pub-bibtex"
+                                aria-expanded="false"
+                            >
+                                BibTeX
+                            </button>
                         </span>
                     </li>
-                    <li>
+                    <li data-bib="egersdoerfer2024interference">
                         <span class="pub-venue">PDSW'24</span>
                         <span class="pub-title"
                             >Understanding and Predicting Cross-Application I/O
@@ -1325,9 +1629,16 @@
                             <a href="https://github.com/mrashid2/Quanterference"
                                 >GitHub</a
                             >
+                            <button
+                                type="button"
+                                class="pub-bibtex"
+                                aria-expanded="false"
+                            >
+                                BibTeX
+                            </button>
                         </span>
                     </li>
-                    <li>
+                    <li data-bib="egersdoerfer2024ion">
                         <span class="pub-venue">HotStorage'24</span>
                         <span class="pub-title"
                             >ION: Navigating HPC I/O Optimization Journey using
@@ -1347,9 +1658,16 @@
                                 href="https://drive.google.com/file/d/1-zTfswJbFxbts7UDL5PqMGeNZ0c40587/view?usp=drive_link"
                                 >Talk</a
                             >
+                            <button
+                                type="button"
+                                class="pub-bibtex"
+                                aria-expanded="false"
+                            >
+                                BibTeX
+                            </button>
                         </span>
                     </li>
-                    <li>
+                    <li data-bib="raj2024jobtrace">
                         <span class="pub-venue">JSSPP'24</span>
                         <span class="pub-title"
                             >An Empirical Study of Machine Learning-based
@@ -1372,9 +1690,16 @@
                                 href="https://drive.google.com/file/d/105S-b_imCvofsFR69-t8R6LprPfzFt86/view?usp=drive_link"
                                 >Talk</a
                             >
+                            <button
+                                type="button"
+                                class="pub-bibtex"
+                                aria-expanded="false"
+                            >
+                                BibTeX
+                            </button>
                         </span>
                     </li>
-                    <li>
+                    <li data-bib="zhang2024crosssystem">
                         <span class="pub-venue">IPDPS'24</span>
                         <span class="pub-title"
                             >Cross-System Analysis of Job Characterization and
@@ -1396,6 +1721,13 @@
                                 href="https://drive.google.com/file/d/1fgehUb4ehaEDXPnlPRceAu1ytT0OSZw9/view?usp=sharing"
                                 >Talk</a
                             >
+                            <button
+                                type="button"
+                                class="pub-bibtex"
+                                aria-expanded="false"
+                            >
+                                BibTeX
+                            </button>
                         </span>
                     </li>
                 </ul>
@@ -1612,6 +1944,187 @@
                 if (saved) {
                     document.documentElement.setAttribute("data-theme", saved);
                 }
+            })();
+
+            /* Click a publication's BibTeX button to show its entry in a
+               popover, with one-click copy to the clipboard. */
+            (function () {
+                var buttons = document.querySelectorAll(".pub-bibtex");
+                if (!buttons.length) return;
+
+                var PUB_BIBTEX = {
+                    "sun2026zocheck": "@inproceedings{sun2026zocheck,\n  author    = {Minqiu Sun and Xin Huang and Luanzheng Guo and Nathan R.\n               Tallent and Kento Sato and Dong Dai},\n  title     = {{ZOCheck:} {CPU}-Shadow Checkpointing for Zeroth-Order {LLM}\n               Fine-Tuning},\n  booktitle = {Proceedings of the International Conference for High\n               Performance Computing, Networking, Storage and Analysis, {SC}\n               2026, Chicago, IL, USA, November 15-20, 2026},\n  publisher = {{ACM}},\n  year      = {2026},\n  note      = {To appear}\n}",
+                    "egersdoerfer2026reliability": "@inproceedings{egersdoerfer2026reliability,\n  author    = {Chris Egersdoerfer and Orcun Yildiz and Kevin Harms and\n               Robert Latham and Robert B. Ross and Dong Dai},\n  title     = {Understanding Reliability Bottlenecks in {LLM} Agents for\n               {HPC} {I/O} Telemetry Analysis},\n  booktitle = {Proceedings of the International Conference for High\n               Performance Computing, Networking, Storage and Analysis, {SC}\n               2026, Chicago, IL, USA, November 15-20, 2026},\n  publisher = {{ACM}},\n  year      = {2026},\n  note      = {To appear}\n}",
+                    "sun2026layercheck": "@inproceedings{sun2026layercheck,\n  author    = {Minqiu Sun and Xin Huang and Luanzheng Guo and Nathan R.\n               Tallent and Kento Sato and Dong Dai},\n  title     = {{LayerCheck:} Adaptive Layer-wise Checkpointing for Large\n               Language Model Post-training},\n  booktitle = {{IEEE} International Conference on Cluster Computing,\n               {CLUSTER} 2026, Alexandria, VA, USA, September 22-25, 2026},\n  publisher = {{IEEE}},\n  year      = {2026},\n  note      = {To appear}\n}",
+                    "mumenin2026deepcq": "@inproceedings{mumenin2026deepcq,\n  author    = {Khondoker Mirazul Mumenin and Robert Underwood and Dong Dai\n               and Jinzhen Wang and Sheng Di and Zarija Luki{\\'{c}} and\n               Franck Cappello},\n  title     = {{DeepCQ:} {A} Two-Stage Deep-Surrogate Framework for Lossy\n               Compression Quality Prediction},\n  booktitle = {{IEEE} International Conference on Cluster Computing,\n               {CLUSTER} 2026, Alexandria, VA, USA, September 22-25, 2026},\n  publisher = {{IEEE}},\n  year      = {2026},\n  note      = {To appear}\n}",
+                    "rashid2026qosflow": "@inproceedings{rashid2026qosflow,\n  author    = {Md. Hasanur Rashid and Jesun Firoz and Nathan R. Tallent and\n               Luanzheng Guo and Meng Tang and Dong Dai},\n  title     = {QoSFlow: Ensuring Service Quality of Distributed Workflows\n               Using Interpretable Sensitivity Models},\n  booktitle = {{IEEE} International Parallel and Distributed Processing\n               Symposium, {IPDPS} 2026, New Orleans, LA, USA, May 25-29,\n               2026},\n  pages     = {1372--1387},\n  publisher = {{IEEE}},\n  year      = {2026},\n  doi       = {10.1109/IPDPS65963.2026.00112}\n}",
+                    "rashid2026carat": "@inproceedings{rashid2026carat,\n  author    = {Md. Hasanur Rashid and Nathan R. Tallent and Forrest Sheng\n               Bao and Dong Dai},\n  title     = {{CARAT:} Client-Side Adaptive {RPC} and Cache Co-Tuning for\n               Parallel File Systems},\n  booktitle = {{IEEE} International Parallel and Distributed Processing\n               Symposium, {IPDPS} 2026, New Orleans, LA, USA, May 25-29,\n               2026},\n  pages     = {1343--1357},\n  publisher = {{IEEE}},\n  year      = {2026},\n  doi       = {10.1109/IPDPS65963.2026.00110}\n}",
+                    "ridwan2026crystal": "@article{ridwan2026crystal,\n  author  = {Osman Goni Ridwan and Sylvain Piti{\\'{e}} and Monish Soundar\n             Raj and Dong Dai and Gilles Frapper and Hongfei Xue and Qiang\n             Zhu},\n  title   = {AI-assisted rapid crystal structure generation towards a target\n             local environment},\n  journal = {npj Computational Materials},\n  volume  = {12},\n  number  = {1},\n  pages   = {64},\n  year    = {2026},\n  doi     = {10.1038/s41524-025-01931-9}\n}",
+                    "egersdoerfer2025stellar": "@inproceedings{egersdoerfer2025stellar,\n  author    = {Chris Egersdoerfer and Philip H. Carns and Shane Snyder and\n               Robert B. Ross and Dong Dai},\n  title     = {{STELLAR:} Storage Tuning Engine Leveraging {LLM} Autonomous\n               Reasoning for High Performance Parallel File Systems},\n  booktitle = {Proceedings of the International Conference for High\n               Performance Computing, Networking, Storage and Analysis, {SC}\n               2025, St. Louis, MO, USA, November 16-21, 2025},\n  pages     = {1252--1266},\n  publisher = {{ACM}},\n  year      = {2025},\n  doi       = {10.1145/3712285.3759887}\n}",
+                    "islam2025spgemm": "@inproceedings{islam2025spgemm,\n  author    = {Abdullah Al Raqibul Islam and Helen Xu and Dong Dai and Aydin\n               Bulu{\\c{c}}},\n  title     = {Improving SpGEMM Performance Through Matrix-Reordering and\n               Cluster-wise Computation},\n  booktitle = {Proceedings of the International Conference for High\n               Performance Computing, Networking, Storage and Analysis, {SC}\n               2025, St. Louis, MO, USA, November 16-21, 2025},\n  pages     = {1446--1463},\n  publisher = {{ACM}},\n  year      = {2025},\n  doi       = {10.1145/3712285.3759885}\n}",
+                    "wei2025tsue": "@inproceedings{wei2025tsue,\n  author    = {Zheng Wei and Jing Xing and Yida Gu and Wenjing Huang and\n               Dong Dai and Guangming Tan and Dingwen Tao},\n  title     = {{TSUE:} {A} Two-Stage Data Update Method for an Erasure Coded\n               Cluster File System},\n  booktitle = {Proceedings of the 34th International Symposium on\n               High-Performance Parallel and Distributed Computing, {HPDC}\n               2025, University of Notre Dame Conference Facilities, Notre\n               Dame, IN, USA, July 20-23, 2025},\n  pages     = {9:1--9:14},\n  publisher = {{ACM}},\n  year      = {2025},\n  doi       = {10.1145/3731545.3731577}\n}",
+                    "carns2025roofline": "@inproceedings{carns2025roofline,\n  author    = {Philip H. Carns and Matthieu Dorier and Robert Latham and\n               Shane Snyder and Amal Gueroudji and Seth Ockerman and\n               J{\\'{e}}rome Soumagne and Dong Dai and Robert B. Ross},\n  title     = {Towards Empirical Roofline Modeling of Distributed Data\n               Services: Mapping the Boundaries of {RPC} Throughput},\n  booktitle = {Proceedings of the Cray User Group, {CUG} 2025, Jersey City,\n               NJ, USA, May 4-8, 2025},\n  pages     = {79--92},\n  publisher = {{ACM}},\n  year      = {2025},\n  doi       = {10.1145/3757348.3757358}\n}",
+                    "rashid2025dial": "@inproceedings{rashid2025dial,\n  author    = {Md. Hasanur Rashid and Xinyi Li and Youbiao He and Forrest\n               Sheng Bao and Dong Dai},\n  title     = {Dial: Decentralized {I/O} Autotuning Via Learned Client-Side\n               Local Metrics for Parallel File System},\n  booktitle = {25th {IEEE} International Symposium on Cluster, Cloud and\n               Internet Computing, CCGrid 2025, Troms{\\o}, Norway, 19-22 May\n               2025},\n  pages     = {1--4},\n  publisher = {{IEEE}},\n  year      = {2025},\n  doi       = {10.1109/CCGRID64434.2025.00037}\n}",
+                    "egersdoerfer2025ioagent": "@inproceedings{egersdoerfer2025ioagent,\n  author    = {Chris Egersdoerfer and Arnav Sareen and Jean Luca Bez and\n               Suren Byna and Dongkuan Xu and Dong Dai},\n  title     = {IOAgent: Democratizing Trustworthy {HPC} {I/O} Performance\n               Diagnosis Capability via LLMs},\n  booktitle = {{IEEE} International Parallel and Distributed Processing\n               Symposium, {IPDPS} 2025, Milano, Italy, June 3-7, 2025},\n  pages     = {322--334},\n  publisher = {{IEEE}},\n  year      = {2025},\n  doi       = {10.1109/IPDPS64566.2025.00036}\n}",
+                    "kamat2025metadata": "@inproceedings{kamat2025metadata,\n  author    = {Saisha Kamat and Mai Zheng and Bo Fang and Dong Dai},\n  title     = {Be Aware of Metadata Corruption in Parallel File System: It\n               can be Silent and Catastrophic},\n  booktitle = {{IEEE} International Parallel and Distributed Processing\n               Symposium, {IPDPS} 2025, Milano, Italy, June 3-7, 2025},\n  pages     = {1--13},\n  publisher = {{IEEE}},\n  year      = {2025},\n  doi       = {10.1109/IPDPS64566.2025.00063}\n}",
+                    "rashid2025adaptbf": "@inproceedings{rashid2025adaptbf,\n  author    = {Md. Hasanur Rashid and Dong Dai},\n  title     = {AdapTBF: Decentralized Bandwidth Control via Adaptive Token\n               Borrowing for {HPC} Storage},\n  booktitle = {{IEEE} International Parallel and Distributed Processing\n               Symposium, {IPDPS} 2025, Milano, Italy, June 3-7, 2025},\n  pages     = {775--788},\n  publisher = {{IEEE}},\n  year      = {2025},\n  doi       = {10.1109/IPDPS64566.2025.00074}\n}",
+                    "sun2025llmtailor": "@inproceedings{sun2025llmtailor,\n  author    = {Minqiu Sun and Xin Huang and Luanzheng Guo and Nathan R.\n               Tallent and Kento Sato and Dong Dai},\n  title     = {LLMTailor: {A} Layer-wise Tailoring Tool for Efficient\n               Checkpointing of Large Language Models},\n  booktitle = {Proceedings of the {SC} '25 Workshops of the International\n               Conference for High Performance Computing, Networking,\n               Storage and Analysis, {SC} Workshops 2025, St Louis, MO, USA,\n               November 16-21, 2025},\n  pages     = {1366--1374},\n  publisher = {{ACM}},\n  year      = {2025},\n  doi       = {10.1145/3731599.3767515}\n}",
+                    "dong2025rl4sys": "@inproceedings{dong2025rl4sys,\n  author    = {Jiaxin Dong and Md. Hasanur Rashid and Helen Xu and Dong Dai},\n  title     = {RL4Sys: {A} Lightweight System-driven {RL} Framework for\n               Drop-in Integration in System Optimization},\n  booktitle = {Proceedings of the {SC} '25 Workshops of the International\n               Conference for High Performance Computing, Networking,\n               Storage and Analysis, {SC} Workshops 2025, St Louis, MO, USA,\n               November 16-21, 2025},\n  pages     = {1406--1414},\n  publisher = {{ACM}},\n  year      = {2025},\n  doi       = {10.1145/3731599.3767514}\n}",
+                    "gao2025vit": "@article{gao2025vit,\n  author  = {Yingxue Gao and Teng Wang and Lei Gong and Chao Wang and Dong\n             Dai and Yang Yang and Xianglan Chen and Xi Li and Xuehai Zhou},\n  title   = {Hardware Accelerated Vision Transformer via Heterogeneous\n             Architecture Design and Adaptive Dataflow Mapping},\n  journal = {{IEEE} Trans. Computers},\n  volume  = {74},\n  number  = {4},\n  pages   = {1224--1238},\n  year    = {2025},\n  doi     = {10.1109/TC.2024.3517751}\n}",
+                    "mumenin2024qualitynet": "@inproceedings{mumenin2024qualitynet,\n  author    = {Khondoker Mirazul Mumenin and Dong Dai and Jinzhen Wang and\n               Sheng Di},\n  title     = {QualityNet: Error-bounded Lossy Compression Quality\n               Prediction via Deep Surrogate},\n  booktitle = {{IEEE} International Conference on Big Data, BigData 2024,\n               Washington, DC, USA, December 15-18, 2024},\n  pages     = {252--261},\n  publisher = {{IEEE}},\n  year      = {2024},\n  doi       = {10.1109/BigData62323.2024.10826140}\n}",
+                    "egersdoerfer2024interference": "@inproceedings{egersdoerfer2024interference,\n  author    = {Chris Egersdoerfer and Md. Hasanur Rashid and Dong Dai and Bo\n               Fang and Nathan R. Tallent},\n  title     = {Understanding and Predicting Cross-Application {I/O}\n               Interference in {HPC} Storage Systems},\n  booktitle = {{SC24-W:} Workshops of the International Conference for High\n               Performance Computing, Networking, Storage and Analysis,\n               Atlanta, GA, USA, November 17-22, 2024},\n  pages     = {1330--1339},\n  publisher = {{IEEE}},\n  year      = {2024},\n  doi       = {10.1109/SCW63240.2024.00174}\n}",
+                    "egersdoerfer2024ion": "@inproceedings{egersdoerfer2024ion,\n  author    = {Chris Egersdoerfer and Arnav Sareen and Jean Luca Bez and\n               Suren Byna and Dong Dai},\n  title     = {{ION:} Navigating the {HPC} {I/O} Optimization Journey using\n               Large Language Models},\n  booktitle = {Proceedings of the 16th {ACM} Workshop on Hot Topics in\n               Storage and File Systems, HotStorage 2024, Santa Clara, CA,\n               USA, July 8-9, 2024},\n  publisher = {{ACM}},\n  year      = {2024},\n  doi       = {10.1145/3655038.3665950}\n}",
+                    "raj2024jobtrace": "@inproceedings{raj2024jobtrace,\n  author    = {Monish Soundar Raj and Thomas MacDougall and Di Zhang and\n               Dong Dai},\n  title     = {An Empirical Study of Machine Learning-Based Synthetic Job\n               Trace Generation Methods},\n  booktitle = {Job Scheduling Strategies for Parallel Processing - 27th\n               International Workshop, {JSSPP} 2024, San Francisco, CA, USA,\n               May 31, 2024, Revised Selected Papers},\n  series    = {Lecture Notes in Computer Science},\n  volume    = {14591},\n  pages     = {20--39},\n  publisher = {Springer},\n  year      = {2024},\n  doi       = {10.1007/978-3-031-74430-3\\_2}\n}",
+                    "zhang2024crosssystem": "@inproceedings{zhang2024crosssystem,\n  author    = {Di Zhang and Monish Soundar Raj and Bing Xie and Sheng Di and\n               Dong Dai},\n  title     = {Cross-System Analysis of Job Characterization and Scheduling\n               in Large-Scale Computing Clusters},\n  booktitle = {{IEEE} International Parallel and Distributed Processing\n               Symposium, {IPDPS} 2024, San Francisco, CA, USA, May 27-31,\n               2024},\n  pages     = {716--727},\n  publisher = {{IEEE}},\n  year      = {2024},\n  doi       = {10.1109/IPDPS57955.2024.00069}\n}"
+                };
+
+                var COPY_ICON =
+                    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"' +
+                    ' stroke-width="2.2" stroke-linecap="round"' +
+                    ' stroke-linejoin="round" aria-hidden="true">' +
+                    '<rect x="9" y="9" width="13" height="13" rx="2"/>' +
+                    '<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>' +
+                    "</svg>";
+
+                var pop = null;
+                var pre = null;
+                var copyBtn = null;
+                var copyLabel = null;
+                var openFor = null;
+                var copyTimer = null;
+
+                function build() {
+                    pop = document.createElement("div");
+                    pop.className = "bib-pop";
+                    pop.innerHTML =
+                        '<div class="bib-pop-head">' +
+                        '<span class="bib-pop-label">BibTeX</span>' +
+                        '<span class="bib-pop-actions">' +
+                        '<button type="button" class="bib-copy">' +
+                        COPY_ICON +
+                        "<span>Copy</span></button>" +
+                        '<button type="button" class="bib-close" aria-label="Close">&times;</button>' +
+                        "</span></div><pre></pre>";
+                    pre = pop.querySelector("pre");
+                    copyBtn = pop.querySelector(".bib-copy");
+                    copyLabel = copyBtn.querySelector("span");
+                    copyBtn.addEventListener("click", copy);
+                    pop.querySelector(".bib-close").addEventListener("click", close);
+                    document.body.appendChild(pop);
+                }
+
+                function legacyCopy(text) {
+                    var ta = document.createElement("textarea");
+                    ta.value = text;
+                    ta.setAttribute("readonly", "");
+                    ta.style.position = "fixed";
+                    ta.style.top = "-1000px";
+                    document.body.appendChild(ta);
+                    ta.select();
+                    var ok = false;
+                    try {
+                        ok = document.execCommand("copy");
+                    } catch (e) {
+                        ok = false;
+                    }
+                    document.body.removeChild(ta);
+                    return ok;
+                }
+
+                function copied(ok) {
+                    copyLabel.textContent = ok ? "Copied" : "Copy failed";
+                    clearTimeout(copyTimer);
+                    copyTimer = setTimeout(function () {
+                        copyLabel.textContent = "Copy";
+                    }, 1600);
+                }
+
+                function copy() {
+                    var text = pre.textContent;
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(text).then(
+                            function () {
+                                copied(true);
+                            },
+                            function () {
+                                copied(legacyCopy(text));
+                            },
+                        );
+                    } else {
+                        copied(legacyCopy(text));
+                    }
+                }
+
+                function place(btn) {
+                    var r = btn.getBoundingClientRect();
+                    var vh = document.documentElement.clientHeight;
+                    var h = pop.offsetHeight;
+
+                    // Prefer below the button; flip above when it would run off screen.
+                    var top =
+                        r.bottom + 8 + h <= vh || r.top - 8 - h < 0
+                            ? r.bottom + 8
+                            : r.top - 8 - h;
+                    var maxLeft =
+                        document.documentElement.clientWidth - pop.offsetWidth - 16;
+                    pop.style.top = top + window.scrollY + "px";
+                    pop.style.left =
+                        Math.max(16, Math.min(r.left, maxLeft)) + window.scrollX + "px";
+                }
+
+                function close() {
+                    if (!openFor) return;
+                    openFor.setAttribute("aria-expanded", "false");
+                    openFor = null;
+                    pop.classList.remove("visible");
+                }
+
+                function open(btn, key) {
+                    if (!pop) build();
+                    // Don't stack with the paper-report hover card.
+                    var preview = document.querySelector(".report-preview");
+                    if (preview) preview.classList.remove("visible");
+                    if (openFor) openFor.setAttribute("aria-expanded", "false");
+                    pre.textContent = PUB_BIBTEX[key];
+                    copyLabel.textContent = "Copy";
+                    openFor = btn;
+                    btn.setAttribute("aria-expanded", "true");
+                    pop.classList.add("visible");
+                    place(btn);
+                }
+
+                Array.prototype.forEach.call(buttons, function (btn) {
+                    var li = btn.closest ? btn.closest("li[data-bib]") : null;
+                    var key = li && li.getAttribute("data-bib");
+                    if (!key || !PUB_BIBTEX[key]) {
+                        btn.style.display = "none";
+                        return;
+                    }
+                    btn.addEventListener("click", function (e) {
+                        e.stopPropagation();
+                        if (openFor === btn) {
+                            close();
+                            return;
+                        }
+                        open(btn, key);
+                    });
+                });
+
+                document.addEventListener("click", function (e) {
+                    if (openFor && !pop.contains(e.target)) close();
+                });
+
+                document.addEventListener("keydown", function (e) {
+                    if (e.key === "Escape" && openFor) {
+                        var btn = openFor;
+                        close();
+                        btn.focus();
+                    }
+                });
+
+                window.addEventListener("resize", function () {
+                    if (openFor) place(openFor);
+                });
             })();
 
             /* Hover preview for publications that have a paper report.
