@@ -8,6 +8,93 @@
             name="description"
             content="Dong Dai's academic homepage. Associate Professor at University of Delaware, Department of Computer and Information Science."
         />
+        <link rel="canonical" href="https://daidong.github.io/" />
+        <meta property="og:type" content="profile" />
+        <meta property="og:title" content="Dong Dai — Associate Professor, University of Delaware" />
+        <meta property="og:description" content="Dong Dai's academic homepage. Associate Professor at University of Delaware, Department of Computer and Information Science." />
+        <meta property="og:url" content="https://daidong.github.io/" />
+        <meta property="og:image" content="https://daidong.github.io/images/dongdai.jpg" />
+        <meta property="og:site_name" content="Dong Dai" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Dong Dai — Associate Professor, University of Delaware" />
+        <meta name="twitter:description" content="Dong Dai's academic homepage. Associate Professor at University of Delaware, Department of Computer and Information Science." />
+        <meta name="twitter:image" content="https://daidong.github.io/images/dongdai.jpg" />
+        <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://daidong.github.io/#website",
+      "url": "https://daidong.github.io/",
+      "name": "Dong Dai",
+      "description": "Academic homepage of Dong Dai, Associate Professor of Computer and Information Sciences at the University of Delaware.",
+      "publisher": {
+        "@id": "https://daidong.github.io/#dongdai"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://daidong.github.io/#dongdai",
+      "name": "Dong Dai",
+      "alternateName": "代栋",
+      "url": "https://daidong.github.io/",
+      "image": "https://daidong.github.io/images/dongdai.jpg",
+      "jobTitle": "Associate Professor",
+      "description": "Associate Professor in the Department of Computer and Information Sciences at the University of Delaware, where he leads the Data Intelligence Research Lab (DIRLab). His research is on data-intensive and high-performance systems: parallel file systems, metadata management, graph storage, resource scheduling, and machine learning for systems.",
+      "worksFor": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Delaware",
+        "department": {
+          "@type": "Organization",
+          "name": "Department of Computer and Information Sciences"
+        },
+        "url": "https://www.udel.edu/"
+      },
+      "affiliation": {
+        "@type": "ResearchOrganization",
+        "name": "Data Intelligence Research Lab (DIRLab)",
+        "url": "https://sites.google.com/udel.edu/dirlab"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Science and Technology of China"
+      },
+      "knowsAbout": [
+        "Parallel file systems",
+        "High-performance computing I/O",
+        "Storage systems",
+        "Metadata management",
+        "Graph storage systems",
+        "Resource scheduling",
+        "Machine learning for systems",
+        "Agentic LLM systems"
+      ],
+      "sameAs": [
+        "https://scholar.google.com/citations?user=wGF_4JsAAAAJ&hl=en",
+        "https://github.com/daidong",
+        "https://github.com/DIR-LAB",
+        "https://www.linkedin.com/in/dong-dai-9684092a/",
+        "https://sites.google.com/udel.edu/dirlab"
+      ]
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://daidong.github.io/",
+      "url": "https://daidong.github.io/",
+      "name": "Dong Dai — Associate Professor, University of Delaware",
+      "isPartOf": {
+        "@id": "https://daidong.github.io/#website"
+      },
+      "mainEntity": {
+        "@id": "https://daidong.github.io/#dongdai"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+        </script>
         <link
             rel="icon"
             type="image/x-icon"
@@ -1155,7 +1242,7 @@
                         >Visit site</a
                     >
                     <a href="https://github.com/daidong/PiPilot">GitHub</a>
-                    <a href="post.html?slug=introducing-research-copilot"
+                    <a href="blog/introducing-research-copilot/"
                         >Read note</a
                     >
                 </div>
@@ -1344,7 +1431,7 @@
                         <span class="pub-links">
                             <a
                                 class="pub-report"
-                                href="papers/report.html?id=stellar"
+                                href="papers/stellar/"
                             >
                                 <svg
                                     viewBox="0 0 24 24"
@@ -2215,7 +2302,7 @@
                         card.innerHTML = build(paper);
                         active = paper.id;
                     }
-                    card.href = "papers/report.html?id=" + encodeURIComponent(paper.id);
+                    card.href = "papers/" + encodeURIComponent(paper.id) + "/";
                     card.classList.add("visible");
                     place(li.querySelector(".pub-report") || li);
                 }

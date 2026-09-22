@@ -8,6 +8,16 @@
     "year": 2025,
     "date": "2026-08-23",
     "tagline": "An agentic LLM tuner that reaches near-expert Lustre configurations in five runs instead of thousands.",
+    "definition": "STELLAR is an autonomous, LLM-driven tuner for HPC parallel file systems: it reads the parameters out of the file system manual, analyzes an application's Darshan I/O trace, proposes a configuration, reruns the application to measure it, and adjusts — reaching near-optimal Lustre settings within five attempts instead of the hundreds to thousands of runs classical autotuners need.",
+    "keywords": [
+      "parallel file system tuning",
+      "Lustre",
+      "HPC I/O performance",
+      "LLM agents",
+      "autotuning",
+      "Darshan I/O traces",
+      "retrieval-augmented generation"
+    ],
     "authors": [
       { "name": "Chris Egersdoerfer", "affil": [1], "mark": "*" },
       { "name": "Philip Carns", "affil": [2] },

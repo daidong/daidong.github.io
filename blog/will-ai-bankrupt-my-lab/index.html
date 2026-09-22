@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Will AI bankrupt my lab? — Dong Dai</title>
+  <meta name="description" content="A shared API key, a negative balance, and a harder question for research labs: if frontier-model access becomes part of the cost of doing research, who…">
+  <meta name="author" content="Dong Dai">
+  <link rel="canonical" href="https://daidong.github.io/blog/will-ai-bankrupt-my-lab/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Will AI bankrupt my lab? — Dong Dai">
+  <meta property="og:description" content="A shared API key, a negative balance, and a harder question for research labs: if frontier-model access becomes part of the cost of doing research, who…">
+  <meta property="og:url" content="https://daidong.github.io/blog/will-ai-bankrupt-my-lab/">
+  <meta property="og:site_name" content="Dong Dai">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Will AI bankrupt my lab? — Dong Dai">
+  <meta name="twitter:description" content="A shared API key, a negative balance, and a harder question for research labs: if frontier-model access becomes part of the cost of doing research, who…">
+  <link rel="icon" type="image/x-icon" href="/images/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..800;1,8..60,300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/post.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://daidong.github.io/blog/will-ai-bankrupt-my-lab/#post",
+      "headline": "Will AI bankrupt my lab?",
+      "name": "Will AI bankrupt my lab?",
+      "description": "A shared API key, a negative balance, and a harder question for research labs: if frontier-model access becomes part of the cost of doing research, who pays for the tokens?",
+      "datePublished": "2026-05-01",
+      "dateModified": "2026-05-01",
+      "author": {
+        "@type": "Person",
+        "@id": "https://daidong.github.io/#dongdai",
+        "name": "Dong Dai",
+        "url": "https://daidong.github.io/",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "University of Delaware"
+        }
+      },
+      "publisher": {
+        "@type": "Person",
+        "@id": "https://daidong.github.io/#dongdai",
+        "name": "Dong Dai",
+        "url": "https://daidong.github.io/",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "University of Delaware"
+        }
+      },
+      "mainEntityOfPage": {
+        "@id": "https://daidong.github.io/blog/will-ai-bankrupt-my-lab/"
+      },
+      "url": "https://daidong.github.io/blog/will-ai-bankrupt-my-lab/",
+      "inLanguage": "en",
+      "wordCount": 1403,
+      "isAccessibleForFree": true,
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "A shared lab API key turned routine coding-agent use into a real research bill: more than $3,000 in April, with two students spending over $2,000 in about a week."
+        },
+        {
+          "@type": "Thing",
+          "name": "Token access is becoming research infrastructure, closer to GPU time or cluster allocation than a casual software subscription."
+        },
+        {
+          "@type": "Thing",
+          "name": "Labs need explicit norms: separate keys, budgets before usage, alerts and hard limits, cheaper models for routine work, and protection against pushing research costs onto students."
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://daidong.github.io/blog/will-ai-bankrupt-my-lab/",
+      "url": "https://daidong.github.io/blog/will-ai-bankrupt-my-lab/",
+      "name": "Will AI bankrupt my lab?",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://daidong.github.io/#website"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Dong Dai",
+            "item": "https://daidong.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://daidong.github.io/blog.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Will AI bankrupt my lab?",
+            "item": "https://daidong.github.io/blog/will-ai-bankrupt-my-lab/"
+          }
+        ]
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-name" href="/">Dong Dai</a>
+    <div class="nav-right">
+      <ul class="nav-links"><li><a href="/">About</a></li><li><a href="/#publications">Papers</a></li><li><a href="/#teaching">Teaching</a></li><li><a href="/#students">Students</a></li><li><a href="/#projects">Projects</a></li><li><a href="/papers/">Reports</a></li><li><a href="/blog.html" class="active">Blog</a></li></ul>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <a class="post-back" href="/blog.html">&larr; All posts</a>
+  <div id="post-content"><div class="post-header"><h1>Will AI bankrupt my lab?</h1><div class="post-meta">1 May, 2026 &middot; 7 min read</div></div>
+<section class="post-overview" aria-label="Post overview"><div class="post-overview-card post-tldr-card"><p class="post-overview-title">TL;DR</p><ul class="post-tldr"><li>A shared lab API key turned routine coding-agent use into a real research bill: more than $3,000 in April, with two students spending over $2,000 in about a week.</li><li>Token access is becoming research infrastructure, closer to GPU time or cluster allocation than a casual software subscription.</li><li>Labs need explicit norms: separate keys, budgets before usage, alerts and hard limits, cheaper models for routine work, and protection against pushing research costs onto students.</li></ul></div><nav class="post-overview-card post-contents-card" aria-label="Table of contents"><p class="post-overview-title"><svg class="post-overview-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>Contents</p><ol class="post-contents"><li class="post-contents-level-2"><a class="post-contents-link" href="#the-expensive-lesson"><span class="post-contents-number">1</span><span class="post-contents-text">The expensive lesson</span><span class="post-contents-arrow" aria-hidden="true">→</span></a></li><li class="post-contents-level-2"><a class="post-contents-link" href="#tokens-are-becoming-research-infrastructure"><span class="post-contents-number">2</span><span class="post-contents-text">Tokens are becoming research infrastructure</span><span class="post-contents-arrow" aria-hidden="true">→</span></a></li><li class="post-contents-level-2"><a class="post-contents-link" href="#the-current-pricing-may-be-an-illusion"><span class="post-contents-number">3</span><span class="post-contents-text">The current pricing may be an illusion</span><span class="post-contents-arrow" aria-hidden="true">→</span></a></li><li class="post-contents-level-2"><a class="post-contents-link" href="#the-pi-problem"><span class="post-contents-number">4</span><span class="post-contents-text">The PI problem</span><span class="post-contents-arrow" aria-hidden="true">→</span></a></li><li class="post-contents-level-2"><a class="post-contents-link" href="#a-token-budget-may-become-part-of-hiring"><span class="post-contents-number">5</span><span class="post-contents-text">A token budget may become part of hiring</span><span class="post-contents-arrow" aria-hidden="true">→</span></a></li><li class="post-contents-level-2"><a class="post-contents-link" href="#what-i-will-probably-change"><span class="post-contents-number">6</span><span class="post-contents-text">What I will probably change</span><span class="post-contents-arrow" aria-hidden="true">→</span></a></li><li class="post-contents-level-2"><a class="post-contents-link" href="#i-am-still-not-sure-what-the-right-norm-should-be"><span class="post-contents-number">7</span><span class="post-contents-text">I am still not sure what the right norm should be</span><span class="post-contents-arrow" aria-hidden="true">→</span></a></li></ol></nav></section>
+<div class="prose"><p>Last week I logged into my OpenAI account and saw something I had never seen before: a negative balance. That was not supposed to happen.</p>
+<p>A while ago, I gave my students access to lab API credits. A lot of our research touches large language models, agents, or AI-assisted workflows, so this felt reasonable. If a student needed to run an experiment, test a prompt pipeline, debug a model-assisted tool, or use an API for a small research task, they should not have to pay out of pocket.</p>
+<p>For a long time, this worked fine. Most students used ten dollars here, twenty dollars there, maybe a few dozen dollars for a concrete experiment. The cost was real, but the return in speed and exploration seemed worth it.</p>
+<p>Then I opened the billing page.</p>
+<p><img alt="1.00" src="/images/ai-lab-april-usage.png"  width="2508" height="906" loading="lazy" decoding="async"></p>
+<p>The account that had still had a few thousand dollars in credit was suddenly below zero. After digging through the usage logs, I found that two students had spent more than $2,000 in about a week. In April, the lab burned through more than $3,000 in API credits.</p>
+<p>To put that in perspective, $3,000 is roughly a month of RA support in many settings. It is not a small software bill. It is a person-month.</p>
+<h2 id="the-expensive-lesson">The expensive lesson</h2>
+<p>At first, I assumed something had gone wrong. Maybe an API key had leaked. Maybe somebody had accidentally left a script running. Maybe there was some runaway job in the background.</p>
+<p>The main reason turned out to be something much more ordinary: <strong>coding agents</strong>. Students had connected the lab API key to tools like Cursor or Codex-style coding agents and let them work, especially when their subscription runs out. The agents helped them write code, debug, and restructure projects. They just did not realize what the price tag can be.</p>
+<p>This is the strange part of the story. The students are using AI to work (sometimes eager to finish the work and can not wait for the limits to reset).</p>
+<h2 id="tokens-are-becoming-research-infrastructure">Tokens are becoming research infrastructure</h2>
+<p>A few months ago, I told a colleague that in the future, one of the things separating productive labs from less productive ones, especially in computer science, might simply be <strong>token budget</strong>.</p>
+<p>A lab that can afford to let every student use strong models all day may move faster than a lab that cannot. Students with generous access can ask agents to inspect codebases, generate tests, try implementations, clean data, summarize papers, draft analysis scripts, and explain unfamiliar libraries. Even when the outputs are imperfect, the iteration speed changes.</p>
+<p>The question is what happens when it becomes normal. If the next generation of research workflows depends on having continuous access to frontier models, then tokens start to look less like optional software spending and more like lab infrastructure. They become the new cluster queue, the new GPU allocation, the new invisible resource behind productivity.</p>
+<p>And then a very uncomfortable question appears: <em>can my lab afford to compete in that world</em>?</p>
+<h2 id="the-current-pricing-may-be-an-illusion">The current pricing may be an illusion</h2>
+<p>Right now, many of us experience AI through subscription plans: $20 or $100 a month. Sometimes more. These plans make the tools feel almost like utilities: pay a flat fee, use them whenever you need them, do not think too much about the marginal cost.</p>
+<p>But if you price the same usage through an API, the economics can look completely different. Look at what has happened to my bill! A heavy user can burn through a monthly subscription's worth of value very quickly. Depending on the model and the workflow, it may take hours or much less to spend what looks like a generous monthly plan.</p>
+<p>That suggests something awkward: model companies may still be subsidizing a lot of our usage, directly or indirectly. They are competing for users, market share, and developer mindshare. The flat-rate plans make sense in that environment.</p>
+<p>But what if that environment does not last?</p>
+<p>What happens when the competition cools down, or when the models become too expensive to subsidize at current levels, or when providers decide that heavy users should pay closer to their real cost?</p>
+<p>At that point, we may discover that what felt like a cheap AI assistant was actually expensive compute with a very friendly wrapper.</p>
+<p>And if every student has to pay the real marginal cost of their AI usage, then the question changes from "which tool should we use?" to "who can afford to think with the best models?"</p>
+<h2 id="the-pi-problem">The PI problem</h2>
+<p>As a PI, what am I responsible for providing?</p>
+<p>If my students need powerful coding models to work efficiently, should I buy everyone the best coding subscription? If I do not, am I putting them at a disadvantage? If I only provide a shared API key, am I accidentally creating a system where the most expensive usage pattern becomes the default? If a student does not want to pay for a personal subscription, is it fair for them to route all coding-agent work through the lab key?</p>
+<p>On one hand, I do not want students paying personally for tools that are really part of their research work. That feels wrong. A lab should not quietly shift research costs onto students, especially when those students may have very different financial situations.</p>
+<p>On the other hand, a shared API key with no budget and no norms is clearly not sustainable. It turns token spending into a commons problem. Students who use agents most aggressively get the greatest benefit. A careful student who worries about cost may use weaker tools and move more slowly. A more aggressive student may burn hundreds of dollars in a day. If nobody can see the cost until the end, the incentives are terrible.</p>
+<h2 id="a-token-budget-may-become-part-of-hiring">A token budget may become part of hiring</h2>
+<p>There is a brutal way to think about this. When I support a student, I already think about salary, tuition, travel, equipment, and sometimes computers. Maybe now I also need to think about an AI budget attached to that person.</p>
+<p>That sounds extreme until you watch a coding agent spend $600 in one day. Of course, most projects should not need that level of spending. A lot of tasks can be done with cheaper models, local models, smaller contexts, better prompts, or simply more human judgment. But the direction is clear enough: AI usage is becoming a budget category. The question becomes whether universities, grant agencies, and labs are ready to treat it that way.</p>
+<h2 id="what-i-will-probably-change">What I will probably change</h2>
+<p>I do not have a perfect answer yet. But after seeing the bill, I know the old model cannot continue. At a minimum, I think we need a few basic norms:</p>
+<ol>
+<li>
+<p><strong>Separate keys by person or project.</strong> Shared keys make it too hard to understand who spent what and why.</p>
+</li>
+<li>
+<p><strong>Set budgets before usage, not after the bill arrives.</strong> A student should know whether a task is a $5 experiment, a $50 experiment, or a $500 experiment.</p>
+</li>
+<li>
+<p><strong>Use alerts and hard limits.</strong> If a tool can burn hundreds of dollars in a day, the default should not be unlimited spending.</p>
+</li>
+<li>
+<p><strong>Match model strength to task.</strong> Not every debugging session needs the most expensive model at the highest reasoning setting.</p>
+</li>
+<li>
+<p><strong>Discuss AI spending openly in the lab.</strong> Token usage should become part of research planning, the same way GPU time or participant payments are.</p>
+</li>
+<li>
+<p><strong>Protect students from paying out of pocket by default.</strong> If a tool is necessary for lab work, we should not pretend it is a personal hobby expense.</p>
+</li>
+</ol>
+<h2 id="i-am-still-not-sure-what-the-right-norm-should-be">I am still not sure what the right norm should be</h2>
+<p>Should every lab provide premium AI tools to every student? If not, what baseline should a lab provide? Should grants include explicit token budgets? Should universities negotiate institutional access the way they do for journals and software? Should students be trained in AI cost awareness the same way we train them not to waste cluster resources? And at a more basic level: how much AI access is now necessary to do competitive research?</p>
+<p><em>I do not know</em>.</p>
+<p>What I do know is that the old assumption — that AI tools are cheap enough to be treated casually — is starting to break. The bill is becoming visible. Once it is visible, we have to decide who pays it, how it is allocated, and what kind of research culture it creates.</p>
+<p>I just hope AI won't bankrupt my lab in the future.</p></div></div>
+</main>
+
+<div class="giscus-section">
+  <div id="giscus-container"></div>
+</div>
+
+<footer>&copy; 2025 Dong Dai. University of Delaware.</footer>
+
+<script>
+function toggleTheme() {
+  var html = document.documentElement;
+  var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  var frame = document.querySelector('iframe.giscus-frame');
+  if (frame) {
+    frame.contentWindow.postMessage({ giscus: { setConfig: { theme: next } } }, 'https://giscus.app');
+  }
+}
+(function() {
+  var saved = localStorage.getItem('theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+})();
+(function() {
+  var theme = document.documentElement.getAttribute('data-theme') || 'light';
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.setAttribute('data-repo', 'daidong/daidong.github.io');
+  s.setAttribute('data-repo-id', 'R_kgDOID--JQ');
+  s.setAttribute('data-category', 'General');
+  s.setAttribute('data-category-id', 'DIC_kwDOID--Jc4C4ZAc');
+  s.setAttribute('data-mapping', 'specific');
+  s.setAttribute('data-term', "will-ai-bankrupt-my-lab");
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'bottom');
+  s.setAttribute('data-theme', theme);
+  s.setAttribute('data-lang', 'en');
+  s.setAttribute('crossorigin', 'anonymous');
+  s.async = true;
+  document.getElementById('giscus-container').appendChild(s);
+})();
+</script>
+
+</body>
+</html>

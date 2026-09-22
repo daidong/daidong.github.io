@@ -1,0 +1,9 @@
+# https://daidong.github.io/
+# Crawling is welcome, including by the retrieval bots behind LLM assistants.
+
+User-agent: *
+Allow: /
+Disallow: /papers/report.html
+Disallow: /post.html
+
+Sitemap: https://daidong.github.io/sitemap.xml

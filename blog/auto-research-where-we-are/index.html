@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Auto Research Is Real. It&#39;s Just Not What People Think. — Dong Dai</title>
+  <meta name="description" content="Auto research is real and getting better fast. But it&#39;s not replacing researchers — it&#39;s changing where human effort matters. After months of building…">
+  <meta name="author" content="Dong Dai">
+  <link rel="canonical" href="https://daidong.github.io/blog/auto-research-where-we-are/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Auto Research Is Real. It&#39;s Just Not What People Think. — Dong Dai">
+  <meta property="og:description" content="Auto research is real and getting better fast. But it&#39;s not replacing researchers — it&#39;s changing where human effort matters. After months of building…">
+  <meta property="og:url" content="https://daidong.github.io/blog/auto-research-where-we-are/">
+  <meta property="og:site_name" content="Dong Dai">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Auto Research Is Real. It&#39;s Just Not What People Think. — Dong Dai">
+  <meta name="twitter:description" content="Auto research is real and getting better fast. But it&#39;s not replacing researchers — it&#39;s changing where human effort matters. After months of building…">
+  <link rel="icon" type="image/x-icon" href="/images/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..800;1,8..60,300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/post.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://daidong.github.io/blog/auto-research-where-we-are/#post",
+      "headline": "Auto Research Is Real. It's Just Not What People Think.",
+      "name": "Auto Research Is Real. It's Just Not What People Think.",
+      "description": "Auto research is real and getting better fast. But it's not replacing researchers — it's changing where human effort matters. After months of building these systems, here's what I've learned about verification, deskilling, and taste.",
+      "datePublished": "2026-04-11",
+      "dateModified": "2026-04-11",
+      "author": {
+        "@type": "Person",
+        "@id": "https://daidong.github.io/#dongdai",
+        "name": "Dong Dai",
+        "url": "https://daidong.github.io/",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "University of Delaware"
+        }
+      },
+      "publisher": {
+        "@type": "Person",
+        "@id": "https://daidong.github.io/#dongdai",
+        "name": "Dong Dai",
+        "url": "https://daidong.github.io/",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "University of Delaware"
+        }
+      },
+      "mainEntityOfPage": {
+        "@id": "https://daidong.github.io/blog/auto-research-where-we-are/"
+      },
+      "url": "https://daidong.github.io/blog/auto-research-where-we-are/",
+      "inLanguage": "en",
+      "wordCount": 1890,
+      "isAccessibleForFree": true,
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Auto-research agents can move through the workflow, but they are still execution-fragile: polished papers, plots, and summaries can hide broken environments or experiments that never really ran."
+        },
+        {
+          "@type": "Thing",
+          "name": "The bottleneck is verification. Code has compilers and tests; research has sparse, delayed feedback, so errors can survive across literature review, implementation, experiments, and writing."
+        },
+        {
+          "@type": "Thing",
+          "name": "AI compresses the middle of research. Humans still own the ends: choosing worthwhile problems, judging evidence, spotting failure, and training taste."
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://daidong.github.io/blog/auto-research-where-we-are/",
+      "url": "https://daidong.github.io/blog/auto-research-where-we-are/",
+      "name": "Auto Research Is Real. It's Just Not What People Think.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://daidong.github.io/#website"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Dong Dai",
+            "item": "https://daidong.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://daidong.github.io/blog.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Auto Research Is Real. It's Just Not What People Think.",
+            "item": "https://daidong.github.io/blog/auto-research-where-we-are/"
+          }
+        ]
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-name" href="/">Dong Dai</a>
+    <div class="nav-right">
+      <ul class="nav-links"><li><a href="/">About</a></li><li><a href="/#publications">Papers</a></li><li><a href="/#teaching">Teaching</a></li><li><a href="/#students">Students</a></li><li><a href="/#projects">Projects</a></li><li><a href="/papers/">Reports</a></li><li><a href="/blog.html" class="active">Blog</a></li></ul>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <a class="post-back" href="/blog.html">&larr; All posts</a>
+  <div id="post-content"><div class="post-header"><h1>Auto Research Is Real. It&#39;s Just Not What People Think.</h1><div class="post-meta">11 Apr, 2026 &middot; 9 min read</div></div>
+<section class="post-overview" aria-label="Post overview"><div class="post-overview-card post-tldr-card"><p class="post-overview-title">TL;DR</p><ul class="post-tldr"><li>Auto-research agents can move through the workflow, but they are still execution-fragile: polished papers, plots, and summaries can hide broken environments or experiments that never really ran.</li><li>The bottleneck is verification. Code has compilers and tests; research has sparse, delayed feedback, so errors can survive across literature review, implementation, experiments, and writing.</li><li>AI compresses the middle of research. Humans still own the ends: choosing worthwhile problems, judging evidence, spotting failure, and training taste.</li></ul></div><nav class="post-overview-card post-contents-card" aria-label="Table of contents"><p class="post-overview-title"><svg class="post-overview-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>Contents</p><ol class="post-contents"><li class="post-contents-level-2"><a class="post-contents-link" href="#workflow-capable-execution-fragile"><span class="post-contents-number">1</span><span class="post-contents-text">Workflow-capable, execution-fragile</span><span class="post-contents-arrow" aria-hidden="true">→</span></a></li><li class="post-contents-level-2"><a class="post-contents-link" href="#the-real-bottleneck-is-verification"><span class="post-contents-number">2</span><span class="post-contents-text">The real bottleneck is verification</span><span class="post-contents-arrow" aria-hidden="true">→</span></a></li><li class="post-contents-level-2"><a class="post-contents-link" href="#research-labor-is-being-reshaped"><span class="post-contents-number">3</span><span class="post-contents-text">Research labor is being reshaped</span><span class="post-contents-arrow" aria-hidden="true">→</span></a></li><li class="post-contents-level-2"><a class="post-contents-link" href="#ai-compresses-the-middle-humans-own-the-ends"><span class="post-contents-number">4</span><span class="post-contents-text">AI compresses the middle. Humans own the ends.</span><span class="post-contents-arrow" aria-hidden="true">→</span></a></li><li class="post-contents-level-2"><a class="post-contents-link" href="#lessons-from-building-these-systems"><span class="post-contents-number">5</span><span class="post-contents-text">Lessons from building these systems</span><span class="post-contents-arrow" aria-hidden="true">→</span></a></li><li class="post-contents-level-2"><a class="post-contents-link" href="#where-this-goes"><span class="post-contents-number">6</span><span class="post-contents-text">Where this goes</span><span class="post-contents-arrow" aria-hidden="true">→</span></a></li></ol></nav></section>
+<div class="prose"><p><em>Slides from my recent talk at the ASB East conference: </em><em><a href="/blog/files/auto-research-slides.pdf">auto-research-slides.pdf</a></em><em>.</em></p>
+<p>Over the past few months, I've spent most of my time building and using autonomous research agents: systems that search the literature, write code, run experiments, and draft papers with surprisingly little human help. I've read a lot of the recent work in this area, and I've also spent enough API money to learn, firsthand, <strong>where the demos end and the real problems begin</strong>. BTW, two systems we built: <strong><a href="/blog/introducing-research-copilot/">Research Copilot</a></strong> and <strong><a href="/blog/introducing-ram-desktop/">Research Assistant Mode</a></strong></p>
+<p>The short version is simple. Auto research is real, and it is getting better fast. But it is not replacing researchers. It is changing where human effort matters.</p>
+<hr />
+<h2 id="workflow-capable-execution-fragile">Workflow-capable, execution-fragile</h2>
+<p>Systems like <strong><a href="https://arxiv.org/abs/2408.06292">The AI Scientist</a></strong>, <strong><a href="https://arxiv.org/abs/2501.04227">Agent Laboratory</a></strong>, and <strong><a href="https://arxiv.org/abs/2603.08127">EvoScientist</a></strong> have shown that LLM-based agents can move through the whole outer shape of a research project: read papers, propose ideas, write code, run experiments, analyze results, and draft a manuscript. If you judge by the workflow diagram alone, the future can look almost settled.</p>
+<p>In practice, though, moving through the steps of research is not the same thing as doing reliable science.</p>
+<p>The phrase that still feels most accurate to me is <strong>workflow-capable, execution-fragile</strong>. These systems can often produce paper-shaped output. Much less reliably, they produce science you would want to trust. A nice figure may come from a broken pipeline. A polished summary may miss the one paper that ruins the whole writing. A result section can sound perfectly confident while resting on an experiment that never actually ran.</p>
+<p>I don't think this is some rare failure mode. It seems closer to the default way these systems go wrong when the task rewards plausible narration more than grounded truth and execution.</p>
+<p>The recent benchmarks point in the same direction. <strong><a href="https://arxiv.org/abs/2409.11363">CORE-Bench</a></strong> asks whether agents can support computational reproducibility. <strong><a href="https://arxiv.org/abs/2505.24785">EXP-Bench</a></strong> asks a more uncomfortable question: can AI actually conduct AI research experiments, rather than merely describe them? <strong><a href="https://arxiv.org/abs/2603.06739">ResearchEnvBench</a></strong> highlights an especially underappreciated failure mode: many agents fail before the first experiment even begins because they cannot build the software environment needed to run it.</p>
+<p>I've seen stories from other people building auto-researchers. One example I found online involved setting up Karpathy's autoresearch workflow on a rented RTX Pro 6000, which uses Nvidia's Blackwell architecture. The original workflow had been run on H100s, which are Hopper-generation GPUs. That turned out to matter because only the newly released FlashAttention v4 supported Blackwell, and getting it to work required compiling from source with very little documentation. In the write-up, when the agent failed to install <code>flash-attn</code>, it did not really solve the compatibility problem; it quietly reduced the batch size and carried on as if nothing important had happened. The human operator had to push it back toward the real issue, add web search, and eventually step in to compile with the right architecture flags. Once the system got back to writing and editing code, it was fine. The weak point was the infrastructure around it.</p>
+<h2 id="the-real-bottleneck-is-verification">The real bottleneck is verification</h2>
+<p>After enough episodes like this, I stopped thinking of the main problem as model intelligence alone. Like many people have pointed out, the harder problem is <strong>verification</strong>.</p>
+<p>Why are agents often decent at coding? Because code comes with feedback. If the program does not compile, the compiler tells you. If a test fails, the failure is local and explicit. Research is harsher. If an agent misreads a paper's core mechanism, nothing immediately lights up red. The feedback is sparse, delayed, and tangled across multiple stages.</p>
+<p>That is a big part of why these systems often look better in demos than in the wild. They are operating in settings where polished output is easier to produce than grounded evidence.</p>
+<p>You can see the literature adjusting to this reality. <strong><a href="https://arxiv.org/abs/2505.19253">DeepResearchGym</a></strong> matters because it tries to create a transparent evaluation sandbox instead of another glossy end-to-end claim. <strong><a href="https://arxiv.org/abs/2502.16069">Curie</a></strong> is interesting for the same reason: it pushes toward more rigorous and automated experimentation, not just free-form agent chatter. Critique papers such as <strong><a href="https://arxiv.org/abs/2402.04247">Risks of AI Scientists</a></strong> and <strong><a href="https://arxiv.org/abs/2509.08713">The More You Automate, the Less You See</a></strong> are worth taking seriously because they capture something practitioners run into very quickly. Smoother automation can make failure harder to notice.</p>
+<p>Although these systems still have issues being an 'autonomous' researcher, the consequences are already playing out quickly based on what they can do now.</p>
+<h2 id="research-labor-is-being-reshaped">Research labor is being reshaped</h2>
+<p>A traditional lab does two things at once. It produces papers (or more generally, knowledge and research artifacts), and it trains future researchers. Junior students clean data, reproduce baselines, debug code, inspect metrics, and draft sections. That work has always been tedious, but it has also been formative. It is where people develop debugging instincts, experimental judgment, and the nose for when a result smells wrong.</p>
+<p>Agents can now do a surprising amount of that work. They can analyze data distributions, summarize training curves, scaffold baselines, and write serviceable prose. Systems like <strong><a href="https://arxiv.org/abs/2408.06292">The AI Scientist</a></strong> made this legible to a wider audience, and systems like <strong><a href="https://arxiv.org/abs/2603.08127">EvoScientist</a></strong> and <strong><a href="https://arxiv.org/abs/2501.04227">Agent Laboratory</a></strong> have kept pushing in the same direction. The result is that the lower layers of the research stack — routine coding, baseline-running, draft-writing, much of the mechanical experimentation — are getting cheaper very quickly. Then how do junior students get trained, or are these lower layers of research work still valuable?</p>
+<p>Without such training, can one develop the scarce part of research: judgment, or, to use the less academic word, <strong>taste</strong>? Taste is what tells you which problem is worth chasing, which result matters, which anomaly is real, which "new idea" is just an old one in a fresh wrapper. Models are getting better at execution. They are still much worse at deciding what is worth executing. How does the changing landscape change the way we train <strong>taste</strong>?</p>
+<h2 id="ai-compresses-the-middle-humans-own-the-ends">AI compresses the middle. Humans own the ends.</h2>
+<p>That realization changed how I think about research tools. I stopped trying to build a system that replaces the researcher and started trying to build one that <strong>amplifies judgment</strong>.</p>
+<p>In practice, that meant rebuilding my own workflow. Instead of asking an agent to run everything end to end and then hoping the output is real, I use it more like a research partner. It helps me skim and translate faster, collect notes into an evolving idea document, and push implementation and experiments onto a server while I stay focused on direction and review. The agent compresses execution. I spend more time on selection, framing, and interpretation.</p>
+<p>That is the most useful near-term model I've found. Not "AI replaces the scientist," but <strong>AI compresses the expensive middle of the workflow</strong>.</p>
+<p>However, once you start from there, several downstream questions become hard to avoid.</p>
+<p>One is authorship. Right now, academic credit often tracks labor: who ran the experiments, who wrote the code, who drafted the paper. But if an agent can do much of that in hours, those categories get blurry fast. What exactly does "contributed to the experiments" mean when the experiments were launched and monitored through an API? What does second authorship represent when the execution layer is heavily automated?</p>
+<p>My guess is that contribution will shift upward, toward the parts that remain difficult to automate: defining the problem, choosing the right evidence, spotting the signal in noisy results, noticing when something is wrong, and providing the oversight that keeps the work honest.</p>
+<p>Again, there is the training problem buried in all this. Many of the instincts that make a strong senior researcher were learned by doing exactly the work that is now being automated. If junior researchers no longer spend years debugging, reproducing, and interpreting messy experiments, then we will need a new answer to a very old question: how do people learn scientific judgment?</p>
+<h2 id="lessons-from-building-these-systems">Lessons from building these systems</h2>
+<p>A few technical lessons from building these systems are worth stating plainly.</p>
+<p><strong>Context rot is real.</strong> A single agent can drown in its own history. Tool outputs, debug traces, long instructions, and partial plans pile up until the system forgets what mattered. I used to worry that multi-agent handoffs would fragment context. In practice, one giant context can be just as destructive. Clean main context, specialized subagents, and compact returns work much better.</p>
+<p><strong>Memory is hard.</strong> Persistent memory helps only if the stored material is reliable. If the system stores a wrong conclusion, that error does not stay in the past. As memory accumulates, it hurts later reasoning very quickly and becomes hard to recover from.</p>
+<p><strong>Novelty checking needs infrastructure, not vibes.</strong> Searching arXiv is not enough. Prompting is not enough. If you want agents to judge whether an idea is actually new, you need better retrieval, stronger provenance, and a way to replay how the conclusion was reached.</p>
+<p><strong>Papers themselves can mislead agents.</strong> Papers are narratives. They tell the clean version of the story. The most important details are often in the code, the appendix, or the parts that authors compress away. Agents are good at following the story on the page. They are much worse at catching where the implementation diverges from the narrative. That is one reason replication benchmarks matter so much.</p>
+<h2 id="where-this-goes">Where this goes</h2>
+<p>I do not think we are about to get the fully autonomous scientist people keep imagining. Not yet. But the field is moving beyond toy workflow demos. The progress that matters most is not just bigger models with smoother prose. It is better infrastructure: replayable execution, environment-aware benchmarking, phase-specific verification, stronger harnesses, memory governance, and forms of oversight that preserve visibility without requiring constant babysitting.</p>
+<p>So I keep ending up in the same place. The future of auto research probably is not a single super-agent that replaces the lab. It is a stack: better tools, better execution environments, better checks, and humans who stay responsible for taste, direction, and honesty.</p>
+<p>Auto research is real. It already works well enough to change how research gets done. But it does not remove the need for scientists. If anything, it makes the human role sharper.</p>
+<p>When execution gets cheap, the value moves upstream.</p>
+<p>What matters then is not whether you can produce another experiment faster than a machine. It is whether you know which experiment is worth running in the first place.</p>
+<hr />
+<h1>自动科研是真的，只是和人们想的不一样</h1>
+<p><em>我最近在 ASB East 会议上的演讲幻灯片：</em><em><a href="/blog/files/auto-research-slides.pdf">auto-research-slides.pdf</a></em><em>。</em></p>
+<p>过去几个月，我大部分时间都在构建和使用自动科研 agent：能检索文献、写代码、跑实验、写论文，而且需要的人工干预少得惊人。这个方向的最新工作我读了不少，API 费用也烧了不少。足够让我亲身体会到: demo 止步的地方，真正的问题才刚开始。我们构建的两个测试系统：<strong><a href="/blog/introducing-research-copilot/">Research Copilot</a></strong> and <strong><a href="/blog/introducing-ram-desktop/">Research Assistant Mode</a></strong></p>
+<p>简单说：自动科研是真的，而且进步很快。但它没有在取代研究者，它在改变人的精力应该花在哪。</p>
+<hr />
+<h2>流程跑得通，执行靠不住</h2>
+<p>AI Scientist、Agent Laboratory、EvoScientist 这些系统已经展示了 LLM agent 能走完一个研究项目的完整外壳：读论文、提 idea、写代码、跑实验、分析结果、起草手稿。如果只看流程图，未来似乎已经板上钉钉。</p>
+<p>但实际上，走完研究的步骤和做出可靠的科学是两回事。</p>
+<p>我觉得最准确的描述仍然是<strong>流程跑得通，执行靠不住</strong>。这些系统经常能产出论文形状的东西，但远不能可靠地产出你愿意信赖的科学。一张漂亮的图可能来自一个有 bug 的 pipeline；一份精致的综述可能漏掉了那篇毁掉整篇文章的论文；一个结果章节可以写得信心满满，底下的实验其实根本没跑过。</p>
+<p>我不认为这是什么罕见的失败模式。当任务奖励"看起来合理的叙述"胜过"有根据的事实和执行"时，这更像是这些系统出错的默认方式。</p>
+<p>最近的 benchmark 也指向同一个方向。CORE-Bench 考察 agent 能否支持计算可复现性。EXP-Bench 问了一个更让人不舒服的问题：AI 能不能真正做 AI 研究实验，而不仅仅是描述实验？ResearchEnvBench 则揭示了一个特别被低估的失败模式：很多 agent 在第一个实验开始之前就失败了，因为它们搭不出运行实验所需的软件环境。</p>
+<p>我见过其他做自动科研系统的人遇到类似的故事。一个在线案例是在租的 RTX Pro 6000（Nvidia Blackwell 架构）上跑 Karpathy 的 autoresearch 工作流。原始工作流是在 H100（Hopper 架构）上跑的。这个差异很关键，因为只有刚发布的 FlashAttention v4 才支持 Blackwell，而且必须从源码编译，文档几乎没有。在那篇记录里，agent 装不上 <code>flash-attn</code> 之后并没有真正解决兼容性问题——它悄悄把 batch size 改小，然后若无其事地继续跑了。人类操作者不得不把它拉回正题，加上网页搜索，最后还是自己下场用正确的架构参数编译的。回到写代码和改代码的环节后，agent 就没问题了。薄弱点在于周围的基础设施。</p>
+<h2>真正的瓶颈是验证</h2>
+<p>经历了足够多这样的事情之后，我不再把主要问题单纯归结为模型智能了。正如很多人指出的，更难的问题是<strong>验证</strong>。</p>
+<p>为什么 agent 写代码还行？因为代码自带反馈。程序编译不过，编译器会告诉你。测试失败了，失败是局部的、明确的。科研更残酷。如果 agent 误读了论文的核心机制，没有任何东西会立刻亮红灯。反馈是稀疏的、延迟的、跨阶段纠缠在一起的。</p>
+<p>这在很大程度上解释了为什么这些系统在 demo 里比在实战中好看得多。它们运行在"做出漂亮的输出"比"拿出有根据的证据"更容易的环境里。</p>
+<p>文献也在适应这个现实。DeepResearchGym 之所以重要，是因为它试图创建一个透明的评估沙盒，而不是又一个光鲜的端到端声明。Curie 有意思也是同样的原因：它推动的是更严谨的自动化实验，而不只是 agent 自由发挥。Risks of AI Scientists 和 The More You Automate, the Less You See 这类批评性论文值得认真对待，因为它们捕捉到了实践者很快就会撞上的东西：更丝滑的自动化可以让失败更难被察觉。</p>
+<p>尽管这些系统在成为"自主"研究者这件事上仍有很多问题，但基于它们现在已经能做的，后果已经在快速显现了。</p>
+<h2>科研劳动正在被快速重塑</h2>
+<p>一个传统实验室同时在做两件事：产出论文（或者更广义地说，知识和研究产出），培养未来的研究者。低年级的学生洗数据、复现 baseline、debug 代码、检查指标、起草段落。这些工作一直很枯燥，但也一直有塑造性。正是在这里，人们培养出了 debug 直觉、实验判断力、以及对"结果不对劲"的嗅觉。</p>
+<p>Agent 现在能做其中惊人比例的工作。它们能分析数据分布、总结训练曲线、搭建 baseline、写出过得去的文字。AI Scientist 让更多人看到了这一点，EvoScientist 和 Agent Laboratory 继续推进着同一个方向。结果就是研究栈的下层——常规编码、跑 baseline、起草文稿、大量机械性的实验——正在迅速变得廉价。那么低年级学生怎么得到训练？这些底层的研究工作还有价值吗？</p>
+<p>没有这样的训练，一个人能培养出研究中稀缺的那部分能力吗：判断力，或者用一个不那么学术的词，<strong>taste</strong>？Taste 告诉你哪个问题值得追、哪个结果有意义、哪个异常是真的、哪个"新 idea"只是旧 idea 换了个包装。模型的执行能力越来越强，但在判断什么值得执行这件事上，它们还差得远。变化中的格局如何改变我们训练 <strong>taste</strong> 的方式？</p>
+<h2>AI 压缩中间，人掌控两端</h2>
+<p>这个认识改变了我对科研工具的想法。我不再试图构建一个替代研究者的系统，而是开始构建一个<strong>放大判断力</strong>的系统。</p>
+<p>在实践中，这意味着重建我自己的工作流。我不再让 agent 端到端地跑完所有东西然后祈祷输出是真的，而是把它更多地当作一个研究搭档。它帮我更快地浏览和翻译、把笔记汇集成一个不断演化的想法文档、把实现和实验推到服务器上跑——而我集中精力在方向和审查上。Agent 压缩执行，我把更多时间花在选择、框架和解读上。</p>
+<p>这是我目前找到的最有用的近期模型。不是"AI 取代科学家"，而是 <strong>AI 压缩工作流中间那段昂贵的部分</strong>。</p>
+<p>然而，一旦从这里出发，几个下游问题就很难回避了。</p>
+<p>一个是署名。目前学术署名往往跟踪劳动：谁跑了实验、谁写了代码、谁起草了论文。但如果 agent 几小时就能做完大部分，这些类别很快就模糊了。当实验是通过 API 发起和监控的，"参与了实验"到底是什么意思？当执行层被大量自动化后，二作代表什么？</p>
+<p>我猜贡献会向上迁移，朝向那些仍然难以自动化的部分：定义问题、选择正确的证据、在嘈杂的结果中发现信号、注意到什么地方不对、以及提供让工作保持诚实的监督。</p>
+<p>再说回培养问题。让一个资深研究者强大的那些直觉，很多是通过做那些正在被自动化的工作学会的。如果年轻研究者不再花几年时间 debug、复现、解读混乱的实验结果，那我们就需要为一个很老的问题找到新的答案：人是怎么学会科学判断力的？</p>
+<h2>构建这些系统的教训</h2>
+<p>从构建这些系统中学到的几条技术教训，值得直说。</p>
+<p><strong>上下文腐败是真实的。</strong> 单个 agent 会被自己的历史淹没。工具输出、debug 日志、长指令、半成品计划不断堆积，直到系统忘记什么是重要的。我以前担心多 agent 切换会切断上下文。实际上，一个巨大的上下文同样具有破坏性。干净的主上下文、专门的 subagent、压缩后的返回结果，效果好得多。</p>
+<p><strong>Memory 很难做对。</strong> 持久化 memory 只在存储的内容可靠时才有帮助。如果系统存了一个错误的结论，这个错误不会留在过去。随着 memory 不断积累，它会很快伤害后续的推理，而且很难恢复。</p>
+<p><strong>新颖性检查需要基础设施，不是感觉。</strong> 只搜 arXiv 不够，只靠 prompting 也不够。如果你希望 agent 判断一个 idea 是否真的新，你需要更好的检索、更强的溯源、以及一种回放结论是如何得出的方式。</p>
+<p><strong>论文本身会误导 agent。</strong> 论文是叙事。它们讲的是故事的干净版本。最重要的细节往往在代码里、附录里、或者作者压缩掉的部分里。Agent 很擅长跟着纸面上的故事走，但在发现实现与叙事之间的偏差这件事上差得多。这也是论文复现 benchmark 如此重要的原因之一。</p>
+<h2>未来的方向</h2>
+<p>我不认为我们即将得到人们一直想象的那种完全自主的科学家。还没到。但这个领域正在走出玩具级的工作流 demo。最重要的进展不只是更大的模型和更流畅的文字，而是更好的基础设施：可回放的执行、感知环境的 benchmark、分阶段的验证、更强的 harness、memory 治理、以及不需要全程盯着但保持可见性的监督形式。</p>
+<p>所以我总是回到同一个结论。自动科研的未来大概不是一个替代整个实验室的超级 agent。它是一个栈：更好的工具、更好的执行环境、更好的检查机制，以及对 taste、方向和诚实负责的人。</p>
+<p>自动科研是真的。它已经足够好，能够改变科研的做法。但它没有消除对科学家的需求。如果说有什么变化的话，它让人的角色变得更锐利了。</p>
+<p>当执行变得廉价，价值就向上游迁移。</p>
+<p>到那时重要的不是你能不能比机器更快地跑出下一个实验，而是你是否知道哪个实验一开始就值得跑。</p></div></div>
+</main>
+
+<div class="giscus-section">
+  <div id="giscus-container"></div>
+</div>
+
+<footer>&copy; 2025 Dong Dai. University of Delaware.</footer>
+
+<script>
+function toggleTheme() {
+  var html = document.documentElement;
+  var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  var frame = document.querySelector('iframe.giscus-frame');
+  if (frame) {
+    frame.contentWindow.postMessage({ giscus: { setConfig: { theme: next } } }, 'https://giscus.app');
+  }
+}
+(function() {
+  var saved = localStorage.getItem('theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+})();
+(function() {
+  var theme = document.documentElement.getAttribute('data-theme') || 'light';
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.setAttribute('data-repo', 'daidong/daidong.github.io');
+  s.setAttribute('data-repo-id', 'R_kgDOID--JQ');
+  s.setAttribute('data-category', 'General');
+  s.setAttribute('data-category-id', 'DIC_kwDOID--Jc4C4ZAc');
+  s.setAttribute('data-mapping', 'specific');
+  s.setAttribute('data-term', "auto-research-where-we-are");
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'bottom');
+  s.setAttribute('data-theme', theme);
+  s.setAttribute('data-lang', 'en');
+  s.setAttribute('crossorigin', 'anonymous');
+  s.async = true;
+  document.getElementById('giscus-container').appendChild(s);
+})();
+</script>
+
+</body>
+</html>

@@ -181,7 +181,9 @@
     <h1>Paper Reports</h1>
     <p>Plain-language walkthroughs of papers from our group — what problem the paper attacks, how the system works, and what the numbers actually say. Each report links back to the paper itself.</p>
   </div>
-  <div id="list"><p class="empty">Loading&hellip;</p></div>
+  <div id="list"><!--build:papers-list-->
+<section class="year-group"><div class="year-label">2025 <span>1 report</span></div><a class="report-card" href="/papers/stellar/"><img class="report-thumb" src="/papers/figs/stellar/overall-SC.png" alt="" width="1500" height="695" loading="lazy" decoding="async"><div><span class="report-venue">SC &#39;25</span><div class="report-title">STELLAR: Storage Tuning Engine Leveraging LLM Autonomous Reasoning for HPC Parallel File Systems</div><div class="report-authors">Chris Egersdoerfer, Philip Carns, Shane Snyder, Robert Ross, Dong Dai</div><div class="report-tagline">An agentic LLM tuner that reaches near-expert Lustre configurations in five runs instead of thousands.</div><div class="report-stats"><span class="report-stat"><b>7.8×</b> peak speedup over default Lustre settings</span><span class="report-stat"><b>≤ 5</b> configurations tried per tuning run</span><span class="report-stat"><b>13</b> parameters kept, out of 159+ Lustre exposes</span></div></div></a></section>
+<!--/build:papers-list--></div>
 </main>
 
 <footer>&copy; 2025 Dong Dai. University of Delaware.</footer>
@@ -227,7 +229,7 @@ fetch('papers.json')
 
     list.innerHTML = order.map(function(year) {
       var items = groups[year].map(function(p) {
-        var html = '<a class="report-card" href="report.html?id=' + encodeURIComponent(p.id) + '">';
+        var html = '<a class="report-card" href="/papers/' + encodeURIComponent(p.id) + '/">';
         html += p.teaser
           ? '<img class="report-thumb" src="' + esc(p.teaser) + '" alt="">'
           : '<span></span>';

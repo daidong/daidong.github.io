@@ -1,0 +1,31 @@
+# Dong Dai
+
+> Associate Professor in the Department of Computer and Information Sciences at the University of Delaware, leading the Data Intelligence Research Lab (DIRLab). Research on data-intensive and high-performance systems: parallel file systems, metadata management, graph storage, resource scheduling, and machine learning for systems.
+
+Homepage: https://daidong.github.io/ — publications, teaching, students, and projects.
+
+## Paper reports
+
+Plain-language walkthroughs of the group's papers. Each page carries the verbatim abstract, the key findings, the BibTeX entry, and links to the paper itself.
+
+- [STELLAR: Storage Tuning Engine Leveraging LLM Autonomous Reasoning for HPC Parallel File Systems (SC '25)](https://daidong.github.io/papers/stellar/): STELLAR is an autonomous, LLM-driven tuner for HPC parallel file systems: it reads the parameters out of the file system manual, analyzes an application's Darshan I/O trace, proposes a configuration, reruns the application to measure it, and adjusts — reaching near-optimal Lustre settings within five attempts instead of the hundreds to thousands of runs classical autotuners need.
+
+## Blog
+
+Notes on systems research, agentic LLM systems, and academic life.
+
+- [Agent Memory: Accuracy, Cost, and Gaps.](https://daidong.github.io/blog/long-context-didnt-kill-agent-memory/) (2026-06-23): With 1M-token context windows, agent memory no longer wins by beating full context on short histories. Its clear value today is cost; persistence and learning remain open problems.
+- [Agent Reliability Is a Systems Problem: Checking Claims Against the Work Record](https://daidong.github.io/blog/provcheck-claude-agent-reliability/) (2026-06-18): A follow-up on agent-system reliability: why checking whether an agent's claims are supported by its own trace, files, and git state is different from checking whether the work is correct.
+- [Black-box Characterization of LLM Serving Caches: Contracts, Asymmetries, and Prompt Design](https://daidong.github.io/blog/black-box-llm-serving-caches/) (2026-06-06): A black-box measurement of DeepSeek, OpenAI, and Anthropic prompt caches: why prefix identity matters, where provider contracts differ, and how prompt layout becomes a systems interface.
+- [Will AI bankrupt my lab?](https://daidong.github.io/blog/will-ai-bankrupt-my-lab/) (2026-05-01): A shared API key, a negative balance, and a harder question for research labs: if frontier-model access becomes part of the cost of doing research, who pays for the tokens?
+- [Auto Research Is Real. It's Just Not What People Think.](https://daidong.github.io/blog/auto-research-where-we-are/) (2026-04-11): Auto research is real and getting better fast. But it's not replacing researchers — it's changing where human effort matters. After months of building these systems, here's what I've learned about verification, deskilling, and taste.
+- [Introducing Research Copilot — An AI Lab Partner for Academics](https://daidong.github.io/blog/introducing-research-copilot/) (2026-04-11): Research Copilot is an open-source AI desktop app built for PhD students, postdocs, and faculty — it searches literature across four databases, writes papers with verified citations, runs data analysis, and helps draft grant proposals, all in one place.
+- [Introducing RAM Desktop — A Research Assistant That Works With You](https://daidong.github.io/blog/introducing-ram-desktop/) (2026-03-14): RAM Desktop is a macOS research assistant that breaks your question into tasks, collects evidence, and advances the work round by round — pausing at key checkpoints for your review.
+- [University Isn't a Job Factory — and Computer Science Isn't Ending](https://daidong.github.io/blog/university-not-a-job-factory/) (2026-02-28): Two recurring fears: universities should be industry pipelines, and AI is ending software jobs. I think both framings are wrong — and the reasons why matter.
+- [Hello World — Reviving My Personal Site](https://daidong.github.io/blog/hello-world/) (2026-02-19): After years of redirecting to Google Sites, I finally rebuilt my homepage from scratch. Here's why and what's next.
+
+## Optional
+
+- [Curriculum vitae](https://daidong.github.io/files/dai_cv.pdf)
+- [Google Scholar](https://scholar.google.com/citations?user=wGF_4JsAAAAJ&hl=en)
+- [Group code on GitHub](https://github.com/DIR-LAB)
