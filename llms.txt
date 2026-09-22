@@ -8,6 +8,7 @@ Homepage: https://daidong.github.io/ — publications, teaching, students, and p
 
 Plain-language walkthroughs of the group's papers. Each page carries the verbatim abstract, the key findings, the BibTeX entry, and links to the paper itself.
 
+- [LayerCheck: Adaptive Layer-wise Checkpointing for Large Language Model Post-training (Cluster '26)](https://daidong.github.io/papers/layercheck/): LayerCheck is a layer-wise adaptive checkpointing framework for large language model post-training: during training it tracks how much each transformer layer has actually changed and writes only the layers whose accumulated update crosses a threshold, and after a failure it rebuilds a full training state from the most recent saved copy of each layer — cutting total checkpoint size by up to 22.6× and end-to-end training time by up to 1.31× while the recovered run stays within 0.54% of the failure-free loss.
 - [STELLAR: Storage Tuning Engine Leveraging LLM Autonomous Reasoning for HPC Parallel File Systems (SC '25)](https://daidong.github.io/papers/stellar/): STELLAR is an autonomous, LLM-driven tuner for HPC parallel file systems: it reads the parameters out of the file system manual, analyzes an application's Darshan I/O trace, proposes a configuration, reruns the application to measure it, and adjusts — reaching near-optimal Lustre settings within five attempts instead of the hundreds to thousands of runs classical autotuners need.
 
 ## Blog

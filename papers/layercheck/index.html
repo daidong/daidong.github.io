@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LayerCheck — Paper Report — Dong Dai</title>
+  <meta name="description" content="LayerCheck is a layer-wise adaptive checkpointing framework for large language model post-training: during training it tracks how much each transformer…">
+  <meta name="author" content="Dong Dai">
+  <link rel="canonical" href="https://daidong.github.io/papers/layercheck/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="LayerCheck — Paper Report — Dong Dai">
+  <meta property="og:description" content="LayerCheck is a layer-wise adaptive checkpointing framework for large language model post-training: during training it tracks how much each transformer…">
+  <meta property="og:url" content="https://daidong.github.io/papers/layercheck/">
+  <meta property="og:site_name" content="Dong Dai">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LayerCheck — Paper Report — Dong Dai">
+  <meta name="twitter:description" content="LayerCheck is a layer-wise adaptive checkpointing framework for large language model post-training: during training it tracks how much each transformer…">
+  <meta property="og:image" content="https://daidong.github.io/papers/figs/layercheck/workflow.png">
+  <meta name="twitter:image" content="https://daidong.github.io/papers/figs/layercheck/workflow.png">
+  <link rel="icon" type="image/x-icon" href="/images/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..800;1,8..60,300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/papers/report.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://daidong.github.io/papers/layercheck/#article",
+      "headline": "LayerCheck: Adaptive Layer-wise Checkpointing for Large Language Model Post-training",
+      "name": "LayerCheck: Adaptive Layer-wise Checkpointing for Large Language Model Post-training",
+      "description": "LayerCheck is a layer-wise adaptive checkpointing framework for large language model post-training: during training it tracks how much each transformer layer has actually changed and writes only the layers whose accumulated update crosses a threshold, and after a failure it rebuilds a full training state from the most recent saved copy of each layer — cutting total checkpoint size by up to 22.6× and end-to-end training time by up to 1.31× while the recovered run stays within 0.54% of the failure-free loss.",
+      "abstract": "With the rising computational and monetary costs of training large language models (LLMs), checkpointing—periodically storing model states for recovery—becomes essential for fault tolerance. Conventional checkpointing entails a severe trade-off between checkpoint frequency (I/O overhead) and computational recovery (recovery time). State-of-the-art approaches mitigate this cost through pipelining checkpoint I/Os, differential checkpointing, or in-memory persistence, yet none leverage the distinct characteristics of LLM training dynamics, where model weight updates are non-uniformly distributed across transformer layers. This observation implies that saving all weights each time might not be efficient. Inspired by this observation, we present LayerCheck, a layer-wise adaptive checkpointing framework that selectively persists layers whose updates exceed a threshold. This design avoids periodic I/O bursts by distributing layer-wise checkpoint writes over time, resulting in smoother and more balanced I/O profiles. Upon recovery, LayerCheck reconstructs a mixed-timestamp composite model state by aggregating the most recently persisted versions of each layer together with their matching optimizer states. Under a bounded per-layer staleness guard, this introduces a controlled perturbation: under standard Adam assumptions it adds a bounded staleness term, and empirically the post-restart loss deviates from the failure-free trajectory by at most 0.54%. Empirical results on multiple open-source LLMs with different datasets further demonstrate that recovered models preserve the original convergence behavior and accuracy while substantially reducing checkpoint overheads. Specifically, LayerCheck achieves up to 22.6× reduction in total checkpoint size and 1.31× reduction in end-to-end training time compared to state-of-the-art systems, significantly lowering the cost of checkpointing.",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Minqiu Sun",
+          "affiliation": [
+            {
+              "@type": "Organization",
+              "name": "University of Delaware"
+            }
+          ]
+        },
+        {
+          "@type": "Person",
+          "name": "Xin Huang",
+          "affiliation": [
+            {
+              "@type": "Organization",
+              "name": "RIKEN Center for Computational Science"
+            }
+          ]
+        },
+        {
+          "@type": "Person",
+          "name": "Luanzheng Guo",
+          "affiliation": [
+            {
+              "@type": "Organization",
+              "name": "Pacific Northwest National Laboratory"
+            }
+          ]
+        },
+        {
+          "@type": "Person",
+          "name": "Nathan R. Tallent",
+          "affiliation": [
+            {
+              "@type": "Organization",
+              "name": "Pacific Northwest National Laboratory"
+            }
+          ]
+        },
+        {
+          "@type": "Person",
+          "name": "Kento Sato",
+          "affiliation": [
+            {
+              "@type": "Organization",
+              "name": "RIKEN Center for Computational Science"
+            }
+          ]
+        },
+        {
+          "@type": "Person",
+          "name": "Dong Dai",
+          "affiliation": [
+            {
+              "@type": "Organization",
+              "name": "University of Delaware"
+            }
+          ],
+          "@id": "https://daidong.github.io/#dongdai",
+          "sameAs": [
+            "https://scholar.google.com/citations?user=wGF_4JsAAAAJ&hl=en",
+            "https://github.com/daidong",
+            "https://github.com/DIR-LAB"
+          ]
+        }
+      ],
+      "datePublished": "2026",
+      "inLanguage": "en",
+      "url": "https://daidong.github.io/papers/layercheck/",
+      "isAccessibleForFree": true,
+      "isPartOf": {
+        "@type": "Book",
+        "name": "IEEE International Conference on Cluster Computing (CLUSTER 2026), Alexandria, VA, USA, September 22–25, 2026"
+      },
+      "image": "https://daidong.github.io/papers/figs/layercheck/workflow.png",
+      "sameAs": [
+        "https://github.com/DIR-LAB/LayerCheck"
+      ],
+      "keywords": "checkpointing, large language model training, LLM post-training, fault tolerance, layer-wise selective persistence, mixed-timestamp recovery, DeepSpeed ZeRO-3, AdamW",
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "In LLM post-training, transformer layers change at very different rates, so rewriting the whole model at every checkpoint is mostly redundant. LayerCheck saves a layer only when its accumulated drift crosses a threshold, and a staleness guard forces any layer to disk before it becomes too old."
+        },
+        {
+          "@type": "Thing",
+          "name": "Recovery assembles the newest saved copy of each layer — with its matching Adam state — into one composite checkpoint and resumes at the failure step, with no replay. On Qwen2.5-7B the resumed run stays within 0.54% of the failure-free loss across three injected failures, and downstream benchmark scores match failure-free fine-tuning."
+        },
+        {
+          "@type": "Thing",
+          "name": "Against CheckFreq, GEMINI, and LowDiff, LayerCheck cuts total checkpoint storage by up to 22.6×, end-to-end training time by up to 1.31× (3.76× vs. GEMINI), and recovery time by 3.4×. In a repeated-failure simulation at a half-hour MTBF it keeps 92.3% of wall-clock time on useful training."
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://daidong.github.io/papers/layercheck/",
+      "url": "https://daidong.github.io/papers/layercheck/",
+      "name": "LayerCheck — paper report",
+      "description": "LayerCheck is a layer-wise adaptive checkpointing framework for large language model post-training: during training it tracks how much each transformer…",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://daidong.github.io/#website"
+      },
+      "about": {
+        "@id": "https://daidong.github.io/papers/layercheck/#article"
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://daidong.github.io/#dongdai",
+        "name": "Dong Dai",
+        "url": "https://daidong.github.io/",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "University of Delaware"
+        }
+      },
+      "inLanguage": "en",
+      "wordCount": 3054,
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Dong Dai",
+            "item": "https://daidong.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Paper reports",
+            "item": "https://daidong.github.io/papers/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "LayerCheck",
+            "item": "https://daidong.github.io/papers/layercheck/"
+          }
+        ]
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-name" href="/">Dong Dai</a>
+    <div class="nav-right">
+      <ul class="nav-links"><li><a href="/">About</a></li><li><a href="/#publications">Papers</a></li><li><a href="/#teaching">Teaching</a></li><li><a href="/#students">Students</a></li><li><a href="/#projects">Projects</a></li><li><a href="/papers/" class="active">Reports</a></li><li><a href="/blog.html">Blog</a></li></ul>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <a class="back-link" href="/papers/">&larr; All paper reports</a>
+  <div id="report"><header class="hero"><div class="hero-venue">Cluster &#39;26</div><h1>LayerCheck: Adaptive Layer-wise Checkpointing for Large Language Model Post-training</h1><p class="hero-tagline">Save only the layers that changed, and rebuild the rest at recovery — 22.6× smaller checkpoints without changing what the model learns.</p><div class="hero-authors"><span class="author">Minqiu Sun<sup>1*</sup></span><span class="author">Xin Huang<sup>2</sup></span><span class="author">Luanzheng Guo<sup>3</sup></span><span class="author">Nathan R. Tallent<sup>3</sup></span><span class="author">Kento Sato<sup>2</sup></span><span class="author">Dong Dai<sup>1</sup></span></div><div class="hero-affils"><sup>1</sup>&nbsp;University of Delaware<span class="sep">&middot;</span><sup>2</sup>&nbsp;RIKEN Center for Computational Science<span class="sep">&middot;</span><sup>3</sup>&nbsp;Pacific Northwest National Laboratory</div><div class="hero-note">* Ph.D. student mentored</div><div class="hero-links"><a class="primary" href="https://github.com/DIR-LAB/LayerCheck" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Code</a><a href="#cite"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>BibTeX</a></div></header>
+<section class="stats" aria-label="Key results"><div class="stat"><div class="stat-value">22.6×</div><div class="stat-label">smaller total checkpoint storage than LowDiff</div></div><div class="stat"><div class="stat-value">0.54%</div><div class="stat-label">max loss deviation after recovery, within training noise</div></div><div class="stat"><div class="stat-value">3.4×</div><div class="stat-label">faster recovery at matched restart freshness</div></div><div class="stat"><div class="stat-value">92.3%</div><div class="stat-label">of wall-clock time spent training at MTBF = 0.5 h</div></div></section>
+<figure class="teaser"><a href="/papers/figs/layercheck/workflow.png" target="_blank" rel="noopener"><img src="/papers/figs/layercheck/workflow.png" alt="LayerCheck overview" width="1500" height="649" loading="lazy" decoding="async"></a><figcaption>LayerCheck writes only the layers whose accumulated change crossed a threshold at each checkpoint (colored blocks at steps 928, 952, 968). When training fails, recovery assembles the newest saved version of every layer, together with its optimizer state, into one composite checkpoint and resumes at the failure step.</figcaption></figure>
+<section class="overview"><div class="card tldr"><p class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Key findings</p><ul><li>In LLM post-training, transformer layers change at very different rates, so rewriting the whole model at every checkpoint is mostly redundant. LayerCheck saves a layer only when its accumulated drift crosses a threshold, and a staleness guard forces any layer to disk before it becomes too old.</li><li>Recovery assembles the newest saved copy of each layer — with its matching Adam state — into one composite checkpoint and resumes at the failure step, with no replay. On Qwen2.5-7B the resumed run stays within 0.54% of the failure-free loss across three injected failures, and downstream benchmark scores match failure-free fine-tuning.</li><li>Against CheckFreq, GEMINI, and LowDiff, LayerCheck cuts total checkpoint storage by up to 22.6×, end-to-end training time by up to 1.31× (3.76× vs. GEMINI), and recovery time by 3.4×. In a repeated-failure simulation at a half-hour MTBF it keeps 92.3% of wall-clock time on useful training.</li></ul></div><nav class="card" aria-label="Contents"><p class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>Contents</p><ol class="contents"><li><a href="#the-problem-saving-everything-every-time"><span class="num">1</span><span class="txt">The problem: saving everything, every time</span><span class="arw" aria-hidden="true">→</span></a></li><li><a href="#the-observation-layers-dont-move-together"><span class="num">2</span><span class="txt">The observation: layers don&#39;t move together</span><span class="arw" aria-hidden="true">→</span></a></li><li><a href="#how-layercheck-works"><span class="num">3</span><span class="txt">How LayerCheck works</span><span class="arw" aria-hidden="true">→</span></a></li><li><a href="#deciding-what-to-save"><span class="num">4</span><span class="txt">Deciding what to save</span><span class="arw" aria-hidden="true">→</span></a></li><li><a href="#what-stale-means-and-how-it-is-bounded"><span class="num">5</span><span class="txt">What &quot;stale&quot; means, and how it is bounded</span><span class="arw" aria-hidden="true">→</span></a></li><li><a href="#recovering-from-a-mixed-timestamp-checkpoint"><span class="num">6</span><span class="txt">Recovering from a mixed-timestamp checkpoint</span><span class="arw" aria-hidden="true">→</span></a></li><li><a href="#does-recovery-hurt-the-model"><span class="num">7</span><span class="txt">Does recovery hurt the model?</span><span class="arw" aria-hidden="true">→</span></a></li><li><a href="#what-it-saves-during-training"><span class="num">8</span><span class="txt">What it saves during training</span><span class="arw" aria-hidden="true">→</span></a></li><li><a href="#what-it-saves-after-a-failure"><span class="num">9</span><span class="txt">What it saves after a failure</span><span class="arw" aria-hidden="true">→</span></a></li><li><a href="#when-failures-are-frequent"><span class="num">10</span><span class="txt">When failures are frequent</span><span class="arw" aria-hidden="true">→</span></a></li><li><a href="#implementation-notes"><span class="num">11</span><span class="txt">Implementation notes</span><span class="arw" aria-hidden="true">→</span></a></li><li><a href="#limits-and-what-comes-next"><span class="num">12</span><span class="txt">Limits, and what comes next</span><span class="arw" aria-hidden="true">→</span></a></li><li><a href="#why-this-result-matters"><span class="num">13</span><span class="txt">Why this result matters</span><span class="arw" aria-hidden="true">→</span></a></li></ol></nav></section>
+<section class="abstract"><p class="card-title">Abstract</p><p>With the rising computational and monetary costs of training large language models (LLMs), checkpointing—periodically storing model states for recovery—becomes essential for fault tolerance. Conventional checkpointing entails a severe trade-off between checkpoint frequency (I/O overhead) and computational recovery (recovery time). State-of-the-art approaches mitigate this cost through pipelining checkpoint I/Os, differential checkpointing, or in-memory persistence, yet none leverage the distinct characteristics of LLM training dynamics, where model weight updates are non-uniformly distributed across transformer layers. This observation implies that saving all weights each time might not be efficient. Inspired by this observation, we present LayerCheck, a layer-wise adaptive checkpointing framework that selectively persists layers whose updates exceed a threshold. This design avoids periodic I/O bursts by distributing layer-wise checkpoint writes over time, resulting in smoother and more balanced I/O profiles. Upon recovery, LayerCheck reconstructs a mixed-timestamp composite model state by aggregating the most recently persisted versions of each layer together with their matching optimizer states. Under a bounded per-layer staleness guard, this introduces a controlled perturbation: under standard Adam assumptions it adds a bounded staleness term, and empirically the post-restart loss deviates from the failure-free trajectory by at most 0.54%. Empirical results on multiple open-source LLMs with different datasets further demonstrate that recovered models preserve the original convergence behavior and accuracy while substantially reducing checkpoint overheads. Specifically, LayerCheck achieves up to 22.6× reduction in total checkpoint size and 1.31× reduction in end-to-end training time compared to state-of-the-art systems, significantly lowering the cost of checkpointing.</p></section>
+<div class="prose"><h2 id="the-problem-saving-everything-every-time">The problem: saving everything, every time</h2>
+<p>Training a large language model takes long enough that something will break before it finishes. Pre-training runs on thousands of GPUs for weeks or months. Post-training — the supervised fine-tuning and alignment stages this paper is about — still needs hundreds of GPUs for days or weeks. At that scale, failures are routine: one report puts them as often as every 45 minutes.</p>
+<p>The standard defense is checkpointing. Frameworks such as DeepSpeed and FSDP periodically write the full training state — model weights, optimizer moments, scheduler and RNG state — to storage, so a crashed job can resume from the last save instead of from scratch.</p>
+<p>The cost is a trade-off that gets worse as jobs grow. Checkpoint rarely and you lose more work to each failure. Checkpoint often and you pay more I/O, and that I/O stalls training. Prior work measures checkpointing at up to 12% of total training time, and as much as 43% in extreme cases.</p>
+<p>Systems that attack this cost fall into three groups. Some overlap checkpoint I/O with computation (GEMINI, DataState-LLM). Some compress checkpoints after the fact (Delta-DNN, ExCP) — but the full checkpoint still has to be written first. Some persist only what changed (Check-N-Run, LowDiff, Amber), at the cost of per-parameter tracking or gradient replay at recovery. All of them decide what to write with a rule that treats the model as one object.</p>
+<p><strong>LayerCheck starts from a different question: does every layer need saving every time?</strong> Its answer is no. During post-training, transformer layers change at very different rates. LayerCheck saves a layer only when it has moved enough to matter, and at recovery it rebuilds a full training state from the most recent saved copy of each layer.</p>
+<h2 id="the-observation-layers-dont-move-together">The observation: layers don't move together</h2>
+<figure><a href="/papers/figs/layercheck/layer-drift-heatmap.png" target="_blank" rel="noopener"><img alt="Figure 1. Accumulated per-layer weight updates during Qwen2.5-7B fine-tuning. Rows are the 31 layers (28 transformer layers plus embedding, lm_head, and norm); columns are training steps. Dark means a layer has accumulated a large update since it was last &quot;saved&quot;; the value resets to zero once it crosses the threshold. Layers reach the threshold at different times, producing the wave pattern." src="/papers/figs/layercheck/layer-drift-heatmap.png"  width="1500" height="624" loading="lazy" decoding="async"></a><figcaption>Figure 1. Accumulated per-layer weight updates during Qwen2.5-7B fine-tuning. Rows are the 31 layers (28 transformer layers plus embedding, lm_head, and norm); columns are training steps. Dark means a layer has accumulated a large update since it was last &quot;saved&quot;; the value resets to zero once it crosses the threshold. Layers reach the threshold at different times, producing the wave pattern.</figcaption></figure>
+<p>The paper's motivating measurement is the heatmap above. Each row is one of the 31 layers of Qwen2.5-7B — 28 transformer blocks plus the embedding table, the output head, and the final normalization. Each column is a training step. Color tracks how much a layer's weights have changed, accumulated since the last time that layer crossed the threshold, at which point its counter resets as if it had just been checkpointed.</p>
+<p>If all layers moved in lockstep, every row would reset at the same steps and the plot would show vertical stripes. Instead it shows waves: the embedding resets constantly, the output head almost never does, and the transformer layers cross the threshold at staggered, drifting intervals. A full-model checkpoint at any given step is rewriting many layers that have barely changed since the last write.</p>
+<h2 id="how-layercheck-works">How LayerCheck works</h2>
+<figure><a href="/papers/figs/layercheck/workflow.png" target="_blank" rel="noopener"><img alt="Figure 2. LayerCheck workflow. At each checkpoint opportunity only the layers whose accumulated drift crossed the threshold are written (colored blocks). When training fails, recovery takes the newest saved version of every layer — here from steps 928, 952, and 968 — and assembles them into one composite checkpoint." src="/papers/figs/layercheck/workflow.png"  width="1500" height="649" loading="lazy" decoding="async"></a><figcaption>Figure 2. LayerCheck workflow. At each checkpoint opportunity only the layers whose accumulated drift crossed the threshold are written (colored blocks). When training fails, recovery takes the newest saved version of every layer — here from steps 928, 952, and 968 — and assembles them into one composite checkpoint.</figcaption></figure>
+<p>The system has three stages.</p>
+<p><strong>Online monitoring.</strong> During training, LayerCheck keeps one number per layer: how much that layer has changed, in total, since it was last written to disk. The number is cheap to maintain because it is computed from tensors the optimizer already has in hand during the update.</p>
+<p><strong>Selective persistence.</strong> At each checkpoint opportunity, a layer is written only if its accumulated change crosses a threshold. When a layer is written, LayerCheck writes the whole layer state — its weights <em>and</em> the Adam moments that belong to those weights — and resets the counter. Fast-changing layers are refreshed often; slow ones are skipped. Because different layers cross the line at different steps, checkpoint writes spread out over time instead of arriving as periodic bursts.</p>
+<p><strong>Composite recovery.</strong> After a failure at step <em>t</em>, recovery does not roll back to the last full snapshot. For each layer it finds the most recent saved copy at or before <em>t</em>, loads that layer's weights together with its matching optimizer tensors, and places them back into the model's layout. The result is a full checkpoint assembled from layers saved at different steps. Training resumes at <em>t</em> + 1 with no replay of lost iterations.</p>
+<h2 id="deciding-what-to-save">Deciding what to save</h2>
+<p>The per-layer signal is a normalized update magnitude. At each step, LayerCheck takes the element-wise absolute change in a layer's weights, averages it, and divides by the average magnitude of the weights themselves. That value is added to the layer's running accumulator.</p>
+<p>Two choices in this definition are deliberate. Using absolute values means positive and negative changes across parameters cannot cancel each other, so the accumulator over-counts rather than under-counts drift — it biases toward saving slightly too often instead of missing a meaningful change. Using the mean rather than a max keeps a handful of outlier parameters from triggering a write.</p>
+<p>A layer is persisted when its accumulator crosses a threshold <em>K</em>. Rather than one fixed value, <em>K</em> is a base threshold scaled by the current learning rate, so that warm-up and decay in the schedule do not silently change how often layers get saved. The default base threshold is 10⁻³, a scale prior work has found to be a meaningful unit of relative parameter drift during fine-tuning. Embeddings update in smaller steps, so they get a larger base threshold (10⁻²) to avoid persisting them constantly. During the first 200 steps, selective persistence is off and one full base checkpoint is taken as a fallback for layers that rarely update afterward.</p>
+<h2 id="what-stale-means-and-how-it-is-bounded">What "stale" means, and how it is bounded</h2>
+<p>The obvious risk in composite recovery is that the recovered model never existed. Layer 5 might come from step 968 and layer 20 from step 928 — a mixed-timestamp state that failure-free training never passed through.</p>
+<p>The paper names this quantity <em>staleness</em>: for a failure at step <em>τ</em> and a layer last saved at step <em>t</em>, the layer's staleness is <em>τ</em> − <em>t</em>. Two things keep it in check.</p>
+<p>First, the threshold itself. With the default settings, most layers naturally cross the threshold and get refreshed roughly every 200 iterations.</p>
+<p>Second, an explicit guard. The user sets a budget <em>S</em><sub>max</sub>. If any layer's staleness reaches <em>S</em><sub>max</sub>, LayerCheck forces that layer out to disk at the next opportunity, whether or not its accumulator crossed the threshold. The paper uses <em>S</em><sub>max</sub> = 1000 and reports that in practice the guard is a rarely triggered safety backstop.</p>
+<figure><a href="/papers/figs/layercheck/staleness.png" target="_blank" rel="noopener"><img alt="Figure 3. Staleness during Qwen2.5-7B fine-tuning with the default threshold. The maximum per-layer staleness (blue) is dominated by the tiny normalization layer, which drifts very slowly. The parameter-size-weighted average (red) — what actually matters for the checkpoint as a whole — peaks at 115 steps." src="/papers/figs/layercheck/staleness.png"  width="1380" height="846" loading="lazy" decoding="async"></a><figcaption>Figure 3. Staleness during Qwen2.5-7B fine-tuning with the default threshold. The maximum per-layer staleness (blue) is dominated by the tiny normalization layer, which drifts very slowly. The parameter-size-weighted average (red) — what actually matters for the checkpoint as a whole — peaks at 115 steps.</figcaption></figure>
+<p>The figure shows why the guard is about the worst case rather than the typical one. The maximum per-layer staleness climbs toward 800 steps between steps 200 and 1000, but that line is set by the normalization layer, whose contribution to the checkpoint is negligible. Weighted by parameter count, the average staleness of the checkpoint stays low and peaks at 115 steps.</p>
+<p>This bound also carries the paper's convergence argument. Following the style of analysis in ExCP, the authors show that under standard Adam assumptions, a recovery from a state with bounded staleness adds a bounded term to Adam's regret without changing its asymptotic average-regret rate. Multiple recoveries add up their terms, and for a fixed number of failures the rate is still unchanged. The paper presents this as a proof of concept rather than a tight bound.</p>
+<h2 id="recovering-from-a-mixed-timestamp-checkpoint">Recovering from a mixed-timestamp checkpoint</h2>
+<p>Recovery is driven by metadata. While training runs, LayerCheck records which layers were persisted at which step. On failure it derives a per-layer plan from that record — for each layer, the newest saved copy at or before the failure step, falling back to the base full checkpoint if a layer has never been saved on its own — and assembles a DeepSpeed-compatible full checkpoint from those pieces.</p>
+<p>The reason optimizer state is saved <em>with</em> each layer, rather than separately, is exactly this step. Adam's first and second moments for a layer are only meaningful alongside the weights they were computed against. Saving them together means each recovered layer is internally consistent even when the checkpoint as a whole spans multiple timestamps.</p>
+<h2 id="does-recovery-hurt-the-model">Does recovery hurt the model?</h2>
+<p>This is the question the paper has to answer before any of the savings matter. The experiments run on one server with eight A100 40 GB GPUs, a 100 TB Lustre file system, DeepSpeed ZeRO-3, and AdamW, fine-tuning three open models — Llama-3.2-1B, Qwen2.5-3B, and Qwen2.5-7B — on two datasets, MedQA (medical) and OpenThoughts (reasoning).</p>
+<p>To stress recovery, failures are injected at the single worst moment: the step where the parameter-weighted average staleness is highest for a given threshold. For Qwen2.5-7B on OpenThoughts with the default threshold, that is step 299.</p>
+<figure><a href="/papers/figs/layercheck/loss-after-recovery.png" target="_blank" rel="noopener"><img alt="Figure 4. Training loss for Qwen2.5-7B on OpenThoughts under three cascading composite recoveries — failures injected at steps 299, 799, and 1299, each resumed from a reconstructed mixed-timestamp checkpoint — against the failure-free run. The inset zooms on the final 100 steps." src="/papers/figs/layercheck/loss-after-recovery.png"  width="1500" height="916" loading="lazy" decoding="async"></a><figcaption>Figure 4. Training loss for Qwen2.5-7B on OpenThoughts under three cascading composite recoveries — failures injected at steps 299, 799, and 1299, each resumed from a reconstructed mixed-timestamp checkpoint — against the failure-free run. The inset zooms on the final 100 steps.</figcaption></figure>
+<p>The recovered run tracks the failure-free trajectory through all three restarts with no visible drift or compounding instability. Measured at the end of training, the maximum absolute deviation in loss is 0.0024 — 0.54% relative — which the paper characterizes as within step-to-step training noise. A second experiment varies the threshold across 10⁻², 10⁻³, and 10⁻⁴ under a single failure: a looser threshold produces a slightly higher loss band right after restart, a tighter one a smaller deviation, and in every case the gap stays bounded rather than growing.</p>
+<p>Loss alone does not settle the question, because fine-tuning loss correlates imperfectly with benchmark scores. So the paper also evaluates the final models on seven downstream benchmarks. The Qwen2.5-7B rows:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th>Run</th>
+<th>ARC-easy</th>
+<th>HellaSwag</th>
+<th>Lambada</th>
+<th>PIQA</th>
+<th>MedMCQA</th>
+<th>MMLU-Med</th>
+<th>PubMedQA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MedQA</td>
+<td>Failure-free</td>
+<td>81.44</td>
+<td>60.59</td>
+<td>67.07</td>
+<td>79.43</td>
+<td>60.39</td>
+<td>92.00</td>
+<td>75.20</td>
+</tr>
+<tr>
+<td>MedQA</td>
+<td>Recovered at step 888</td>
+<td>81.78</td>
+<td>60.36</td>
+<td>67.30</td>
+<td>80.03</td>
+<td>60.41</td>
+<td>93.00</td>
+<td>75.60</td>
+</tr>
+<tr>
+<td>OpenThoughts</td>
+<td>Failure-free</td>
+<td>79.92</td>
+<td>59.70</td>
+<td>68.87</td>
+<td>77.97</td>
+<td>59.86</td>
+<td>85.00</td>
+<td>75.20</td>
+</tr>
+<tr>
+<td>OpenThoughts</td>
+<td>Recovered at step 299</td>
+<td>80.35</td>
+<td>59.63</td>
+<td>68.37</td>
+<td>78.24</td>
+<td>59.74</td>
+<td>85.00</td>
+<td>75.00</td>
+</tr>
+</tbody>
+</table></div>
+<p>Across all three models and both datasets, recovered runs match the failure-free scores closely, with differences in both directions and no systematic degradation.</p>
+<h2 id="what-it-saves-during-training">What it saves during training</h2>
+<p>The steady-state experiments use a deliberately harsh regime — a checkpoint at every iteration — following earlier checkpointing systems. The point is to expose what each method does under I/O pressure, not to model a typical production schedule. Baselines are DeepSpeed's default, CheckFreq (overlapped checkpointing), GEMINI (overlapped plus in-memory checkpointing), and LowDiff (differential checkpointing that writes per-iteration gradients).</p>
+<figure><a href="/papers/figs/layercheck/training-time.png" target="_blank" rel="noopener"><img alt="Figure 5. End-to-end time for one epoch on OpenThoughts with a checkpoint every iteration. Hatched portions are checkpointing time that could not be overlapped with training. The gray bar is training with no checkpointing at all." src="/papers/figs/layercheck/training-time.png"  width="1500" height="990" loading="lazy" decoding="async"></a><figcaption>Figure 5. End-to-end time for one epoch on OpenThoughts with a checkpoint every iteration. Hatched portions are checkpointing time that could not be overlapped with training. The gray bar is training with no checkpointing at all.</figcaption></figure>
+<p>LayerCheck finishes fastest on all three models. Its total overhead relative to checkpoint-free training is 11.7–20.0%. On Llama3.2-1B it is 1.31× faster than LowDiff (43.8 vs. 57.2 minutes); on Qwen2.5-7B it is 3.76× faster than GEMINI (198.8 vs. 747.9 minutes), and the gaps to CheckFreq and the DeepSpeed default are larger still.</p>
+<p>The paper is careful about why. LayerCheck's checkpoint fraction (10.7–12.0% of runtime) is about the same as LowDiff's (9.3–15.9%), yet the end-to-end times differ substantially. Under per-iteration checkpointing, the baselines must drain full-model-scale checkpoint work every step; once that work takes longer than one training iteration, overlap breaks down and training visibly stalls. Pipelining better does not fix this — only reducing the amount of state does. Subtracting checkpoint time from LayerCheck's bars leaves essentially the no-checkpoint baseline, which confirms that the per-step drift tracking itself costs nothing measurable.</p>
+<p>The bytes tell the same story. On OpenThoughts with the default threshold:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Model (layers)</th>
+<th>Method</th>
+<th>Layer writes</th>
+<th>Checkpoints</th>
+<th>Total size (GB)</th>
+<th>Mean size (GB)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen2.5-7B (31)</td>
+<td>DeepSpeed default</td>
+<td>52,452</td>
+<td>1,692</td>
+<td>180,367</td>
+<td>106.6</td>
+</tr>
+<tr>
+<td></td>
+<td>LowDiff</td>
+<td>—</td>
+<td>930</td>
+<td>19,259</td>
+<td>20.7</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>LayerCheck</strong></td>
+<td><strong>319</strong></td>
+<td><strong>277</strong></td>
+<td><strong>1,205</strong></td>
+<td><strong>4.35</strong></td>
+</tr>
+<tr>
+<td>Qwen2.5-3B (38)</td>
+<td>DeepSpeed default</td>
+<td>64,296</td>
+<td>1,692</td>
+<td>73,111</td>
+<td>43.2</td>
+</tr>
+<tr>
+<td></td>
+<td>LowDiff</td>
+<td>—</td>
+<td>930</td>
+<td>8,513</td>
+<td>9.15</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>LayerCheck</strong></td>
+<td><strong>340</strong></td>
+<td><strong>273</strong></td>
+<td><strong>376</strong></td>
+<td><strong>1.38</strong></td>
+</tr>
+<tr>
+<td>Llama3.2-1B (18)</td>
+<td>DeepSpeed default</td>
+<td>30,456</td>
+<td>1,692</td>
+<td>29,305</td>
+<td>17.3</td>
+</tr>
+<tr>
+<td></td>
+<td>LowDiff</td>
+<td>—</td>
+<td>930</td>
+<td>3,837</td>
+<td>4.12</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>LayerCheck</strong></td>
+<td><strong>266</strong></td>
+<td><strong>242</strong></td>
+<td><strong>265</strong></td>
+<td><strong>1.02</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Relative to LowDiff, LayerCheck cuts total checkpoint storage by up to 22.6× (about 17× on average across the three models) and mean per-checkpoint size by up to 6.6×. The "layer writes" column is the mechanism made visible: over the whole run, LayerCheck wrote 319 individual layers of Qwen2.5-7B, where a full-model checkpoint at every iteration writes 52,452.</p>
+<p>The threshold is the knob that trades freshness for bytes. On Qwen2.5-7B, moving <em>K</em> from 10⁻³ to 10⁻² cuts the total from 1,205 GB to 393 GB; moving it to 10⁻⁴ raises it to 9,376 GB. The paper settles on 10⁻³ as the operating point that balances recovery fidelity against cost in its workloads.</p>
+<h2 id="what-it-saves-after-a-failure">What it saves after a failure</h2>
+<p>Comparing recovery time is easy to get wrong. A method looks fast if it simply checkpoints more often, and slow if it has to replay more lost iterations. The paper controls for this with a matched-freshness protocol: LowDiff and LayerCheck keep their native per-step persistence, while the rollback-based baselines (DeepSpeed default, CheckFreq, GEMINI) get a checkpoint interval equal to LayerCheck's observed average staleness — 106 steps on Qwen2.5-7B — so that a uniformly random failure costs them an average rollback of 53 steps.</p>
+<figure><a href="/papers/figs/layercheck/recovery-time.png" target="_blank" rel="noopener"><img alt="Figure 6. Recovery time for a single failure under matched restart freshness. Bars show load time plus retraining time; hatched portions are retraining. Method-specific reconstruction time is excluded for all methods." src="/papers/figs/layercheck/recovery-time.png"  width="1500" height="923" loading="lazy" decoding="async"></a><figcaption>Figure 6. Recovery time for a single failure under matched restart freshness. Bars show load time plus retraining time; hatched portions are retraining. Method-specific reconstruction time is excluded for all methods.</figcaption></figure>
+<p>On Qwen2.5-7B, LayerCheck recovers in 10 seconds against 34 for LowDiff — 3.4× faster — and 346–364 seconds for the rollback-based methods, which spend nearly all of that time replaying the 53 lost steps. The same ordering holds at 3B (7 s vs. 18 s) and 1B (5 s vs. 10 s). The saving comes from two directions: less state was written during training, so less has to be loaded; and composite recovery restarts near the failure point, so nothing has to be replayed.</p>
+<p>One caveat the paper states explicitly: reconstruction time — layer merging for LayerCheck, decompression for others — is excluded from the comparison, because GEMINI and LowDiff do not ship complete public recovery implementations and the cost is highly implementation-dependent.</p>
+<h2 id="when-failures-are-frequent">When failures are frequent</h2>
+<p>The last experiment asks what happens at the scale where failures are common. Using per-iteration training time, checkpoint overhead, and recovery time measured on Qwen2.5-7B, the paper simulates training under mean-time-between-failures values from 0.01 to 3 hours and reports the <em>effective training time ratio</em> — the fraction of wall-clock time spent on forward, backward, and optimizer work rather than on checkpointing and recovery.</p>
+<figure><a href="/papers/figs/layercheck/ettr.png" target="_blank" rel="noopener"><img alt="Figure 7. Effective training time ratio under repeated failures, as a function of mean time between failures, with timing parameters measured on Qwen2.5-7B." src="/papers/figs/layercheck/ettr.png"  width="1380" height="840" loading="lazy" decoding="async"></a><figcaption>Figure 7. Effective training time ratio under repeated failures, as a function of mean time between failures, with timing parameters measured on Qwen2.5-7B.</figcaption></figure>
+<p>LayerCheck has the highest ratio at every point on the curve. At an MTBF of half an hour, it keeps 92.3% of wall-clock time on useful training, against 88.8% for LowDiff and 84.5% for GEMINI. This is where the two earlier results compound: the system that both stalls least in steady state and recovers fastest after a failure wins by more as failures become more frequent.</p>
+<h2 id="implementation-notes">Implementation notes</h2>
+<p>LayerCheck is implemented on PyTorch and DeepSpeed ZeRO-3, and the design goal is to be non-intrusive: between failures, training runs the standard AdamW update, and LayerCheck only adds drift bookkeeping and filters what gets serialized.</p>
+<p>Two details make per-layer persistence workable in practice. Optimizer state under ZeRO-3 lives in flattened tensors and parameter groups that do not expose layer boundaries, so LayerCheck rebuilds the optimizer's parameter groups to mirror the model's layers — two groups per transformer block (with and without weight decay) — while preserving the original weight-decay policy. That layout makes it possible to locate the optimizer shard for a given layer both when writing and when reconstructing. And drift is computed on the optimizer's update path, reusing tensors that are already materialized, rather than by copying weights and diffing them.</p>
+<p>Under ZeRO-3, each rank checkpoints its own shard independently, so LayerCheck's core behavior — drift tracking, selective writes, composite recovery — is determined per rank. The paper evaluates on a single sharded node on that basis and extends to scale-out regimes through the simulation above, following the methodology of recent checkpointing systems.</p>
+<h2 id="limits-and-what-comes-next">Limits, and what comes next</h2>
+<p>The authors name three. The absolute size of the gains depends on the storage backend: faster local storage lowers checkpoint cost for every method, although writing fewer bytes still makes training less sensitive to storage variability. Reconstruction time is left out of the cross-method recovery comparison for the reason given above. And the implementation and analysis target AdamW; the persistence decision is based on realized weight changes rather than Adam-specific statistics, so the idea transfers conceptually to plain SGD, but the base threshold would need to be recalibrated for a different optimizer's update scale.</p>
+<p>The stated next step is to combine LayerCheck with overlap-oriented checkpoint pipelines, so that the reduced checkpoint work also benefits from end-to-end overlap across computation, communication, and I/O.</p>
+<h2 id="why-this-result-matters">Why this result matters</h2>
+<p>The reusable idea is a granularity argument. Checkpointing systems have treated the model as one object and asked how to write it faster, compress it smaller, or diff it against its previous version. LayerCheck observes that the object has internal structure with very different rates of change, and that respecting the structure removes most of the work: write the parts that moved, keep each part self-consistent by saving its optimizer state alongside it, and bound how old any part is allowed to get.</p>
+<p>The bound is what makes the rest defensible. Without it, a composite checkpoint is a state that never existed; with it, the deviation from failure-free training is a controlled quantity, one the paper can both bound analytically and measure at 0.54%. For anyone running post-training jobs long enough to fail, that is the difference between checkpointing that is a tax and checkpointing that is nearly free.</p></div>
+<section class="cite" id="cite"><div class="cite-head"><p class="card-title">Cite this paper</p><button class="copy-btn" id="copy-bibtex">Copy</button></div><p class="source-note" style="margin-top:0;margin-bottom:0.75rem">IEEE International Conference on Cluster Computing (CLUSTER 2026), Alexandria, VA, USA, September 22–25, 2026</p><pre><code id="bibtex">@inproceedings{sun2026layercheck,
+  author    = {Minqiu Sun and Xin Huang and Luanzheng Guo and Nathan R.
+               Tallent and Kento Sato and Dong Dai},
+  title     = {{LayerCheck:} Adaptive Layer-wise Checkpointing for Large
+               Language Model Post-training},
+  booktitle = {{IEEE} International Conference on Cluster Computing,
+               {CLUSTER} 2026, Alexandria, VA, USA, September 22-25, 2026},
+  publisher = {{IEEE}},
+  year      = {2026}
+}</code></pre><p class="source-note">This report summarizes the paper for a general systems audience. All numbers and quotes are taken from the paper itself; figures are reproduced from it. For the full method and evaluation, read the original.</p></section></div>
+</main>
+
+<footer>&copy; 2025 Dong Dai. University of Delaware.</footer>
+
+<script>
+function toggleTheme() {
+  var html = document.documentElement;
+  var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  var frame = document.querySelector('iframe.giscus-frame');
+  if (frame) {
+    frame.contentWindow.postMessage({ giscus: { setConfig: { theme: next } } }, 'https://giscus.app');
+  }
+}
+(function() {
+  var saved = localStorage.getItem('theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+})();
+(function() {
+  var bar = document.getElementById('progress');
+  function update() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+(function() {
+  var btn = document.getElementById('copy-bibtex');
+  var src = document.getElementById('bibtex');
+  if (!btn || !src) return;
+  btn.addEventListener('click', function() {
+    navigator.clipboard.writeText(src.textContent).then(function() {
+      btn.textContent = 'Copied';
+      setTimeout(function() { btn.textContent = 'Copy'; }, 1600);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

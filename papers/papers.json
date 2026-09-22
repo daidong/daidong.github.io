@@ -1,5 +1,62 @@
 [
   {
+    "id": "layercheck",
+    "short": "LayerCheck",
+    "title": "LayerCheck: Adaptive Layer-wise Checkpointing for Large Language Model Post-training",
+    "venue": "Cluster '26",
+    "venueFull": "IEEE International Conference on Cluster Computing (CLUSTER 2026), Alexandria, VA, USA, September 22–25, 2026",
+    "year": 2026,
+    "date": "2026-09-22",
+    "tagline": "Save only the layers that changed, and rebuild the rest at recovery — 22.6× smaller checkpoints without changing what the model learns.",
+    "definition": "LayerCheck is a layer-wise adaptive checkpointing framework for large language model post-training: during training it tracks how much each transformer layer has actually changed and writes only the layers whose accumulated update crosses a threshold, and after a failure it rebuilds a full training state from the most recent saved copy of each layer — cutting total checkpoint size by up to 22.6× and end-to-end training time by up to 1.31× while the recovered run stays within 0.54% of the failure-free loss.",
+    "keywords": [
+      "checkpointing",
+      "large language model training",
+      "LLM post-training",
+      "fault tolerance",
+      "layer-wise selective persistence",
+      "mixed-timestamp recovery",
+      "DeepSpeed ZeRO-3",
+      "AdamW"
+    ],
+    "authors": [
+      { "name": "Minqiu Sun", "affil": [1], "mark": "*" },
+      { "name": "Xin Huang", "affil": [2] },
+      { "name": "Luanzheng Guo", "affil": [3] },
+      { "name": "Nathan R. Tallent", "affil": [3] },
+      { "name": "Kento Sato", "affil": [2] },
+      { "name": "Dong Dai", "affil": [1] }
+    ],
+    "affiliations": [
+      "University of Delaware",
+      "RIKEN Center for Computational Science",
+      "Pacific Northwest National Laboratory"
+    ],
+    "authorNote": "* Ph.D. student mentored",
+    "links": [
+      {
+        "label": "Code",
+        "href": "https://github.com/DIR-LAB/LayerCheck",
+        "primary": true
+      }
+    ],
+    "teaser": "figs/layercheck/workflow.png",
+    "teaserCaption": "LayerCheck writes only the layers whose accumulated change crossed a threshold at each checkpoint (colored blocks at steps 928, 952, 968). When training fails, recovery assembles the newest saved version of every layer, together with its optimizer state, into one composite checkpoint and resumes at the failure step.",
+    "tldr": [
+      "In LLM post-training, transformer layers change at very different rates, so rewriting the whole model at every checkpoint is mostly redundant. LayerCheck saves a layer only when its accumulated drift crosses a threshold, and a staleness guard forces any layer to disk before it becomes too old.",
+      "Recovery assembles the newest saved copy of each layer — with its matching Adam state — into one composite checkpoint and resumes at the failure step, with no replay. On Qwen2.5-7B the resumed run stays within 0.54% of the failure-free loss across three injected failures, and downstream benchmark scores match failure-free fine-tuning.",
+      "Against CheckFreq, GEMINI, and LowDiff, LayerCheck cuts total checkpoint storage by up to 22.6×, end-to-end training time by up to 1.31× (3.76× vs. GEMINI), and recovery time by 3.4×. In a repeated-failure simulation at a half-hour MTBF it keeps 92.3% of wall-clock time on useful training."
+    ],
+    "highlights": [
+      { "value": "22.6×", "label": "smaller total checkpoint storage than LowDiff" },
+      { "value": "0.54%", "label": "max loss deviation after recovery, within training noise" },
+      { "value": "3.4×", "label": "faster recovery at matched restart freshness" },
+      { "value": "92.3%", "label": "of wall-clock time spent training at MTBF = 0.5 h" }
+    ],
+    "abstract": "With the rising computational and monetary costs of training large language models (LLMs), checkpointing—periodically storing model states for recovery—becomes essential for fault tolerance. Conventional checkpointing entails a severe trade-off between checkpoint frequency (I/O overhead) and computational recovery (recovery time). State-of-the-art approaches mitigate this cost through pipelining checkpoint I/Os, differential checkpointing, or in-memory persistence, yet none leverage the distinct characteristics of LLM training dynamics, where model weight updates are non-uniformly distributed across transformer layers. This observation implies that saving all weights each time might not be efficient. Inspired by this observation, we present LayerCheck, a layer-wise adaptive checkpointing framework that selectively persists layers whose updates exceed a threshold. This design avoids periodic I/O bursts by distributing layer-wise checkpoint writes over time, resulting in smoother and more balanced I/O profiles. Upon recovery, LayerCheck reconstructs a mixed-timestamp composite model state by aggregating the most recently persisted versions of each layer together with their matching optimizer states. Under a bounded per-layer staleness guard, this introduces a controlled perturbation: under standard Adam assumptions it adds a bounded staleness term, and empirically the post-restart loss deviates from the failure-free trajectory by at most 0.54%. Empirical results on multiple open-source LLMs with different datasets further demonstrate that recovered models preserve the original convergence behavior and accuracy while substantially reducing checkpoint overheads. Specifically, LayerCheck achieves up to 22.6× reduction in total checkpoint size and 1.31× reduction in end-to-end training time compared to state-of-the-art systems, significantly lowering the cost of checkpointing.",
+    "bibtex": "@inproceedings{sun2026layercheck,\n  author    = {Minqiu Sun and Xin Huang and Luanzheng Guo and Nathan R.\n               Tallent and Kento Sato and Dong Dai},\n  title     = {{LayerCheck:} Adaptive Layer-wise Checkpointing for Large\n               Language Model Post-training},\n  booktitle = {{IEEE} International Conference on Cluster Computing,\n               {CLUSTER} 2026, Alexandria, VA, USA, September 22-25, 2026},\n  publisher = {{IEEE}},\n  year      = {2026}\n}"
+  },
+  {
     "id": "stellar",
     "short": "STELLAR",
     "title": "STELLAR: Storage Tuning Engine Leveraging LLM Autonomous Reasoning for HPC Parallel File Systems",
@@ -36,7 +93,8 @@
         "href": "https://arxiv.org/abs/2602.23220",
         "primary": true
       },
-      { "label": "PDF", "href": "https://arxiv.org/pdf/2602.23220" }
+      { "label": "PDF", "href": "https://arxiv.org/pdf/2602.23220" },
+      { "label": "Code", "href": "https://zenodo.org/records/15882572" }
     ],
     "teaser": "figs/stellar/overall-SC.png",
     "teaserCaption": "STELLAR has two halves. Offline (left), a retrieval step reads the file system manual and returns a short list of parameters with correct descriptions and valid ranges. Online (right), an Analysis Agent reads the application's Darshan trace, a Tuning Agent proposes configurations and reruns the application, and a reflection step turns the run into reusable rules.",
