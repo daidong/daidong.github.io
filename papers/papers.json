@@ -25,7 +25,7 @@
       { "name": "Luanzheng Guo", "affil": [3] },
       { "name": "Nathan R. Tallent", "affil": [3] },
       { "name": "Kento Sato", "affil": [2] },
-      { "name": "Dong Dai", "affil": [1] }
+      { "name": "Dong Dai", "affil": [1], "corresponding": true }
     ],
     "affiliations": [
       "University of Delaware",
