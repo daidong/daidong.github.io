@@ -25,6 +25,7 @@ import html
 import json
 import os
 import re
+import subprocess
 import sys
 from datetime import date, datetime
 
@@ -911,6 +912,40 @@ def posts_list_html(posts):
 
 # ── sitemap, robots, llms.txt ────────────────────────────────────────────────
 
+def _uncommitted():
+    """Paths with changes git has not recorded yet."""
+    try:
+        out = subprocess.run(["git", "status", "--porcelain"], cwd=ROOT,
+                             capture_output=True, text=True, check=True).stdout
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    return {line[3:].strip().strip('"') for line in out.splitlines() if line[3:].strip()}
+
+
+def last_modified(*paths):
+    """The date a URL's sources last really changed, for sitemap <lastmod>.
+
+    Stamping today's date on every run would rewrite sitemap.xml daily even
+    when nothing changed, and a lastmod that always says "today" is one search
+    engines learn to ignore. So: the newest commit date among the sources, or
+    today for a source that is still uncommitted.
+    """
+    dirty = _uncommitted()
+    dates = []
+    for path in paths:
+        if dirty is None or path in dirty:
+            dates.append(date.today().isoformat())
+            continue
+        try:
+            out = subprocess.run(["git", "log", "-1", "--format=%cs", "--", path],
+                                 cwd=ROOT, capture_output=True, text=True,
+                                 check=True).stdout.strip()
+        except (OSError, subprocess.CalledProcessError):
+            out = ""
+        dates.append(out or date.today().isoformat())
+    return max(dates)
+
+
 def write_sitemap(entries):
     rows = "\n".join(
         "  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n"
@@ -979,25 +1014,28 @@ def main():
     papers.sort(key=lambda p: (int(p.get("year", 0)), str(p.get("date", ""))), reverse=True)
     posts.sort(key=lambda p: p["date"], reverse=True)
 
-    today = date.today().isoformat()
     changed = []
     entries = [
-        (SITE + "/", today, "monthly", "1.0"),
-        (SITE + "/papers/", today, "monthly", "0.8"),
-        (SITE + "/blog.html", today, "weekly", "0.8"),
+        (SITE + "/", last_modified("index.html"), "monthly", "1.0"),
+        (SITE + "/papers/",
+         last_modified("papers/index.html", "papers/papers.json"), "monthly", "0.8"),
+        (SITE + "/blog.html",
+         last_modified("blog.html", "blog/posts.json"), "weekly", "0.8"),
     ]
 
     for paper in papers:
         touched, url = build_paper(paper)
         if touched:
             changed.append(url)
-        entries.append((url, today, "yearly", "0.9"))
+        entries.append((url, last_modified("papers/%s.md" % paper["id"],
+                                           "papers/papers.json"), "yearly", "0.9"))
 
     for post in posts:
         touched, url = build_post(post)
         if touched:
             changed.append(url)
-        entries.append((url, post["date"], "yearly", "0.7"))
+        entries.append((url, last_modified("blog/%s.md" % post["slug"]),
+                        "yearly", "0.7"))
 
     if inject("papers/index.html", "papers-list", size_images(papers_list_html(papers))):
         changed.append("papers/index.html")
