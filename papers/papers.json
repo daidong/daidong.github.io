@@ -34,11 +34,8 @@
     ],
     "authorNote": "* Ph.D. student mentored",
     "links": [
-      {
-        "label": "Code",
-        "href": "https://github.com/DIR-LAB/LayerCheck",
-        "primary": true
-      }
+      { "label": "PDF", "href": "/files/CLUSTER26_LayerCheck.pdf", "primary": true },
+      { "label": "Code", "href": "https://github.com/DIR-LAB/LayerCheck" }
     ],
     "teaser": "figs/layercheck/workflow.png",
     "teaserCaption": "LayerCheck writes only the layers whose accumulated change crossed a threshold at each checkpoint (colored blocks at steps 928, 952, 968). When training fails, recovery assembles the newest saved version of every layer, together with its optimizer state, into one composite checkpoint and resumes at the failure step.",
