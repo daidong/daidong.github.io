@@ -1,17 +1,5 @@
 # Agent Memory: Accuracy, Cost, and Gaps.
 
-<div class="tool-callout" role="note" aria-label="Research Copilot announcement">
-  <div class="tool-callout-text">
-    <span class="tool-callout-label">New tool</span>
-    This blog was created with help from <strong>Research Copilot / PiPilot</strong> for brainstorming, coding, execution, analysis, and writing. You can check out the open-source tool here:
-  </div>
-  <div class="tool-callout-actions">
-    <a class="primary" href="https://daidong.github.io/PiPilot/">Visit site</a>
-    <a href="https://github.com/daidong/PiPilot">GitHub</a>
-    <a href="post.html?slug=introducing-research-copilot">Read note</a>
-  </div>
-</div>
-
 Frontier LLMs now advertise million-token context windows. If a model can read the whole history anyway, what is a separate memory system still for?
 
 My answer came out narrower than I expected. The part that clearly pays off today is **cost**: a memory layer makes a long-running agent cheaper and faster at about the same accuracy. The larger promises, remembering past the window, learning from a history that keeps changing, reconciling facts that contradict each other, are still open. They are real problems, and no current system has shown it solves them.

@@ -1,17 +1,5 @@
 # Agent reliability is a systems problem: checking claims against the work record
 
-<div class="tool-callout" role="note" aria-label="Research Copilot announcement">
-  <div class="tool-callout-text">
-    <span class="tool-callout-label">New tool</span>
-    This blog is created with the help of <strong>Research Copilot / PiPilot</strong> for Idea Brainstorm, Coding, Executing, Analyzing, and Writing. You can check the open-source tool
-  </div>
-  <div class="tool-callout-actions">
-    <a class="primary" href="https://daidong.github.io/PiPilot/">Visit site</a>
-    <a href="https://github.com/daidong/PiPilot">GitHub</a>
-    <a href="post.html?slug=introducing-research-copilot">Read note</a>
-  </div>
-</div>
-
 <div class="tool-callout" role="note" aria-label="provcheck-claude announcement" style="--sys-accent-primary: #2563eb; --sys-accent-primary-hover: #1d4ed8; --sys-accent-soft-bg: rgba(37,99,235,0.07); --sys-accent-soft-border: rgba(37,99,235,0.24);">
   <div class="tool-callout-text">
     <span class="tool-callout-label">Open-source plugin</span>
