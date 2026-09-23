@@ -12,8 +12,9 @@ This script renders the same content ahead of time, one directory per item:
     papers/papers.json + papers/<id>.md    ->  papers/<id>/index.html
     blog/posts.json    + blog/<slug>.md    ->  blog/<slug>/index.html
 
-It also refreshes the two listing pages in place, and writes sitemap.xml,
-robots.txt and llms.txt.
+It also refreshes the two listing pages in place, writes sitemap.xml,
+robots.txt and llms.txt, and emits redirect stubs for URLs of the retired
+Jekyll site (see REDIRECTS) plus the 404 page.
 
 Usage:
 
@@ -910,6 +911,88 @@ def posts_list_html(posts):
     return "\n".join(out)
 
 
+# ── redirects for retired URLs, and the 404 page ─────────────────────────────
+#
+# The site used to be a Jekyll build (academicpages) with pages such as /cv/ and
+# /teaching/<course>. Those directories vanished when the static site replaced
+# it, but Google still has the URLs and reports them as "Not found (404)" in
+# Search Console. GitHub Pages cannot send a real 301, so each retired path gets
+# a tiny index.html that redirects with <meta http-equiv="refresh" content="0">
+# plus a canonical tag. Google treats an instant meta refresh as a permanent
+# redirect and consolidates the old URL into the target.
+
+CV_URL = "https://drive.google.com/file/d/1nN9x9hj9zsfwfYL7wmYkAWIU-8QG182U/view"
+
+REDIRECTS = {
+    # old path (no leading slash)      -> destination
+    "cv":                              CV_URL,
+    "resume":                          CV_URL,
+    "teaching":                        SITE + "/#teaching",
+    "teaching/2023-spring":            SITE + "/#teaching",
+    "teaching/2023-spring-2":          SITE + "/#teaching",
+    "teaching/2023-fall-uri":          SITE + "/#teaching",
+    "publications":                    SITE + "/#publications",
+    "talks":                           SITE + "/",
+    "portfolio":                       SITE + "/#projects",
+}
+
+STUB_CSS = """
+    body { max-width: var(--max-w); margin: 0 auto; padding: 4rem 1rem;
+           font-family: 'Source Serif 4', Georgia, serif; }
+    h1 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+    p { color: var(--sys-text-secondary); }
+    a { color: var(--sys-accent-primary); }
+"""
+
+
+def build_redirect(path, target):
+    """Write <path>/index.html that forwards to target."""
+    old_url = SITE + "/" + path + "/"
+    doc = (
+        "<!doctype html>\n"
+        '<html lang="en">\n<head>\n'
+        '  <meta charset="utf-8">\n'
+        '  <meta name="viewport" content="width=device-width, initial-scale=1">\n'
+        '  <meta http-equiv="refresh" content="0; url=%s">\n'
+        '  <link rel="canonical" href="%s">\n'
+        "  <title>Redirecting\u2026</title>\n"
+        '  <link rel="stylesheet" href="/post.css">\n'
+        "  <style>%s  </style>\n"
+        "</head>\n<body>\n"
+        "  <h1>This page has moved</h1>\n"
+        '  <p>%s now lives at <a href="%s">%s</a>. '
+        "You will be taken there automatically.</p>\n"
+        "  <script>location.replace(%s);</script>\n"
+        "</body>\n</html>\n"
+    ) % (esc(target), esc(target), STUB_CSS, esc(old_url), esc(target),
+         esc(target), json.dumps(target))
+    return write(path + "/index.html", doc), old_url
+
+
+def build_404():
+    """GitHub Pages serves /404.html, with a real 404 status, for unknown paths."""
+    doc = (
+        "<!doctype html>\n"
+        '<html lang="en" data-theme="light">\n<head>\n'
+        '  <meta charset="utf-8">\n'
+        '  <meta name="viewport" content="width=device-width, initial-scale=1">\n'
+        '  <meta name="robots" content="noindex">\n'
+        "  <title>Page not found \u2014 Dong Dai</title>\n"
+        "  " + FAVICONS + "\n"
+        "  " + FONTS + "\n"
+        '  <link rel="stylesheet" href="/post.css">\n'
+        "  <style>%s  </style>\n"
+        "  <script>%s</script>\n"
+        "</head>\n<body>\n"
+        "  <h1>Page not found</h1>\n"
+        "  <p>The address you followed does not exist on this site any more. "
+        'Try the <a href="/">homepage</a>, the <a href="/papers/">paper reports</a> '
+        'or the <a href="/blog.html">blog</a>.</p>\n'
+        "</body>\n</html>\n"
+    ) % (STUB_CSS, THEME_SCRIPT)
+    return write("404.html", doc)
+
+
 # ── sitemap, robots, llms.txt ────────────────────────────────────────────────
 
 def _uncommitted():
@@ -1047,6 +1130,12 @@ def main():
         changed.append("robots.txt")
     if write_llms(papers, posts):
         changed.append("llms.txt")
+    for path, target in REDIRECTS.items():
+        touched, url = build_redirect(path, target)
+        if touched:
+            changed.append(url)
+    if build_404():
+        changed.append("404.html")
 
     print("%d paper report(s), %d post(s)" % (len(papers), len(posts)))
     if changed:
